@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,12 +26,21 @@
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainlogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="t0N-2Z-DvQ">
+                                <rect key="frame" x="107" y="328" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="UXN-F5-uAV"/>
+                                    <constraint firstAttribute="width" constant="200" id="ZS8-dw-xwL"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackColor"/>
                         <constraints>
                             <constraint firstItem="tdi-8u-mMZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="99O-MC-6p1"/>
+                            <constraint firstItem="t0N-2Z-DvQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-20" id="cDL-Re-1UP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tdi-8u-mMZ" secondAttribute="bottom" constant="10" id="gae-l7-LAh"/>
+                            <constraint firstItem="t0N-2Z-DvQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nAe-sL-XVh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tdi-8u-mMZ" secondAttribute="trailing" constant="50" id="pM4-Hd-zPR"/>
                         </constraints>
                     </view>
@@ -41,11 +51,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="mainlogo.png" width="1024" height="1024"/>
+        <namedColor name="BackColor">
+            <color red="0.99661833050000004" green="0.99661833050000004" blue="0.99661844970000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
