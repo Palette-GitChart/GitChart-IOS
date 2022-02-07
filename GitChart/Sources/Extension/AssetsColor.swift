@@ -10,9 +10,17 @@ import UIKit
 
 enum AssetsColor {
     
+    //Label Color
+    
+    case labelColor
+    
     // Main Color
     
     case mainColor
+    case subColor
+    
+    //Screen Color
+    
     case mainBackColor
     
 }
@@ -24,6 +32,10 @@ extension UIColor {
             return UIColor(named: "mainColor")!
         case .mainBackColor:
             return UIColor(named: "BackColor")!
+        case .labelColor:
+            return UIColor(named: "labelColor")!
+        case .subColor:
+            return UIColor(named: "subColor")!
         }
     }
 }
