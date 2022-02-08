@@ -12,6 +12,8 @@
 		5769231827AC168100E97A16 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769231727AC168100E97A16 /* BaseViewController.swift */; };
 		5769231C27AED40A00E97A16 /* mainlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5769231B27AED40A00E97A16 /* mainlogo.png */; };
 		5769231F27AED62100E97A16 /* AssetsColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769231E27AED62100E97A16 /* AssetsColor.swift */; };
+		5769232227B15B7300E97A16 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769232127B15B7300E97A16 /* HomeVC.swift */; };
+		5769232427B16AE300E97A16 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769232327B16AE300E97A16 /* TabBarController.swift */; };
 		57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D27527A58AE600C131E1 /* AppDelegate.swift */; };
 		57B4D27827A58AE600C131E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D27727A58AE600C131E1 /* SceneDelegate.swift */; };
 		57B4D27F27A58AE700C131E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B4D27E27A58AE700C131E1 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		5769231727AC168100E97A16 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5769231B27AED40A00E97A16 /* mainlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainlogo.png; path = ../../../../../Downloads/mainlogo.png; sourceTree = "<group>"; };
 		5769231E27AED62100E97A16 /* AssetsColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsColor.swift; sourceTree = "<group>"; };
+		5769232127B15B7300E97A16 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		5769232327B16AE300E97A16 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		57B4D27227A58AE600C131E1 /* GitChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B4D27527A58AE600C131E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57B4D27727A58AE600C131E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,8 +110,8 @@
 		5769231427AC153100E97A16 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				5769231D27AED60500E97A16 /* Extension */,
 				5769231627AC165300E97A16 /* BaseClass */,
+				5769232027B15B5D00E97A16 /* VC */,
 				57B4D27527A58AE600C131E1 /* AppDelegate.swift */,
 				57B4D27727A58AE600C131E1 /* SceneDelegate.swift */,
 			);
@@ -117,6 +121,7 @@
 		5769231527AC153C00E97A16 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5769231D27AED60500E97A16 /* Extension */,
 				57B4D27E27A58AE700C131E1 /* Assets.xcassets */,
 				5769231B27AED40A00E97A16 /* mainlogo.png */,
 				57B4D28027A58AE700C131E1 /* LaunchScreen.storyboard */,
@@ -139,6 +144,15 @@
 				5769231E27AED62100E97A16 /* AssetsColor.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		5769232027B15B5D00E97A16 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				5769232327B16AE300E97A16 /* TabBarController.swift */,
+				5769232127B15B7300E97A16 /* HomeVC.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		57B4D26927A58AE600C131E1 = {
@@ -442,7 +456,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */,
+				5769232227B15B7300E97A16 /* HomeVC.swift in Sources */,
 				57B4D27827A58AE600C131E1 /* SceneDelegate.swift in Sources */,
+				5769232427B16AE300E97A16 /* TabBarController.swift in Sources */,
 				5769231F27AED62100E97A16 /* AssetsColor.swift in Sources */,
 				5769231827AC168100E97A16 /* BaseViewController.swift in Sources */,
 			);
