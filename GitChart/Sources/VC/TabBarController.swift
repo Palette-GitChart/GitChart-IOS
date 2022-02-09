@@ -17,26 +17,31 @@ class TabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let tabOne = UINavigationController(rootViewController: MainHomeViewController())
-        let tabOneBarItem = UITabBarItem(title: "홈", image: UIImage(named: "baseline_home_black"), tag: 1)
+        let tabOne = UINavigationController(rootViewController: HomeVC())
+        let tabOneBarItem = UITabBarItem(title: "Home", image: UIImage(named: "round_bar_chart"), tag: 1)
         
         tabOne.tabBarItem = tabOneBarItem
         
-        let tabTwo = UINavigationController(rootViewController: SendMoneyViewController())
-        let tabTwoBarItem2 = UITabBarItem(title: "송금", image: UIImage(named: "baseline_paid_black"), tag: 2)
+        let tabTwo = UINavigationController(rootViewController: FriendsVC())
+        let tabTwoBarItem2 = UITabBarItem(title: "Friends", image: UIImage(named: "round_groups"), tag: 2)
         
         tabTwo.tabBarItem = tabTwoBarItem2
         
-        let tabThr = UINavigationController(rootViewController: StockUIViewController())
-        let tabThrBarItem3 = UITabBarItem(title: "주식", image: UIImage(named: "baseline_trending_up_black"), tag: 3)
+        let tabThr = UINavigationController(rootViewController: StarVC())
+        let tabThrBarItem3 = UITabBarItem(title: "Star", image: UIImage(named: "round_star"), tag: 3)
         
         tabThr.tabBarItem = tabThrBarItem3
         
-        let tabFou = UINavigationController(rootViewController: OtherViewController())
-        let tabFouBarItem4 = UITabBarItem(title: "더보기", image: UIImage(named: "round_subject_black"), tag: 4)
+        let tabFou = UINavigationController(rootViewController: SettingVC())
+        let tabFouBarItem4 = UITabBarItem(title: "Settings", image: UIImage(named: "round_settings"), tag: 4)
         
         tabFou.tabBarItem = tabFouBarItem4
         
+        self.tabBar.tintColor = UIColor.appColor(.mainColor)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.appColor(.mainColor)], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.appColor(.mainColor)], for:.selected)
 
+        self.viewControllers = [tabOne, tabTwo, tabThr, tabFou]
+        
     }
 }
