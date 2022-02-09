@@ -36,7 +36,7 @@ class BaseViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        self.view.backgroundColor = .appColor(.mainBackColor)
+        self.view.backgroundColor = .appColor(.backgroundColor)
         self.configureUI()
         self.setupConstraints()
         self.initialize()
