@@ -17,6 +17,13 @@
 		576E067627B40AEC0056B7F5 /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067527B40AEC0056B7F5 /* FriendsVC.swift */; };
 		576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067727B40AFD0056B7F5 /* StarVC.swift */; };
 		576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067927B40B0C0056B7F5 /* SettingVC.swift */; };
+		576E067C27B41BAF0056B7F5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067B27B41BAF0056B7F5 /* Font.swift */; };
+		576E067F27B41C0D0056B7F5 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 576E067E27B41C0D0056B7F5 /* NotoSans-Regular.ttf */; };
+		576E068127B41CAD0056B7F5 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 576E068027B41CAD0056B7F5 /* NotoSans-Bold.ttf */; };
+		576E068327B41CB60056B7F5 /* SF-Pro-Rounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 576E068227B41CB60056B7F5 /* SF-Pro-Rounded-Medium.ttf */; };
+		576E068527B41CBD0056B7F5 /* SF-Pro-Rounded-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 576E068427B41CBD0056B7F5 /* SF-Pro-Rounded-Semibold.ttf */; };
+		576E068727B41CC60056B7F5 /* SF-Pro-Rounded-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 576E068627B41CC60056B7F5 /* SF-Pro-Rounded-Regular.ttf */; };
+		576E068927B41CCF0056B7F5 /* SF-Pro-Rounded-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 576E068827B41CCF0056B7F5 /* SF-Pro-Rounded-Bold.ttf */; };
 		57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D27527A58AE600C131E1 /* AppDelegate.swift */; };
 		57B4D27827A58AE600C131E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D27727A58AE600C131E1 /* SceneDelegate.swift */; };
 		57B4D27F27A58AE700C131E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B4D27E27A58AE700C131E1 /* Assets.xcassets */; };
@@ -55,6 +62,13 @@
 		576E067527B40AEC0056B7F5 /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
 		576E067727B40AFD0056B7F5 /* StarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarVC.swift; sourceTree = "<group>"; };
 		576E067927B40B0C0056B7F5 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		576E067B27B41BAF0056B7F5 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		576E067E27B41C0D0056B7F5 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-Regular.ttf"; path = "../../../../../../Downloads/Noto_Sans/NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		576E068027B41CAD0056B7F5 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-Bold.ttf"; path = "../../../../../../Downloads/Noto_Sans/NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		576E068227B41CB60056B7F5 /* SF-Pro-Rounded-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Medium.ttf"; path = "../../../../../../Downloads/SF-Pro-Rounded-Medium.ttf"; sourceTree = "<group>"; };
+		576E068427B41CBD0056B7F5 /* SF-Pro-Rounded-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Semibold.ttf"; path = "../../../../../../Downloads/SF-Pro-Rounded-Semibold.ttf"; sourceTree = "<group>"; };
+		576E068627B41CC60056B7F5 /* SF-Pro-Rounded-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Regular.ttf"; path = "../../../../../../Downloads/SF-Pro-Rounded-Regular.ttf"; sourceTree = "<group>"; };
+		576E068827B41CCF0056B7F5 /* SF-Pro-Rounded-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Bold.ttf"; path = "../../../../../../Downloads/SF-Pro-Rounded-Bold.ttf"; sourceTree = "<group>"; };
 		57B4D27227A58AE600C131E1 /* GitChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B4D27527A58AE600C131E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57B4D27727A58AE600C131E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +141,7 @@
 		5769231527AC153C00E97A16 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				576E067D27B41BBE0056B7F5 /* Font */,
 				5769231D27AED60500E97A16 /* Extension */,
 				57B4D27E27A58AE700C131E1 /* Assets.xcassets */,
 				5769231B27AED40A00E97A16 /* mainlogo.png */,
@@ -148,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				5769231E27AED62100E97A16 /* AssetsColor.swift */,
+				576E067B27B41BAF0056B7F5 /* Font.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -162,6 +178,19 @@
 				576E067927B40B0C0056B7F5 /* SettingVC.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		576E067D27B41BBE0056B7F5 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				576E067E27B41C0D0056B7F5 /* NotoSans-Regular.ttf */,
+				576E068027B41CAD0056B7F5 /* NotoSans-Bold.ttf */,
+				576E068827B41CCF0056B7F5 /* SF-Pro-Rounded-Bold.ttf */,
+				576E068427B41CBD0056B7F5 /* SF-Pro-Rounded-Semibold.ttf */,
+				576E068227B41CB60056B7F5 /* SF-Pro-Rounded-Medium.ttf */,
+				576E068627B41CC60056B7F5 /* SF-Pro-Rounded-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		57B4D26927A58AE600C131E1 = {
@@ -334,8 +363,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576E067F27B41C0D0056B7F5 /* NotoSans-Regular.ttf in Resources */,
 				57B4D28227A58AE700C131E1 /* LaunchScreen.storyboard in Resources */,
 				57B4D27F27A58AE700C131E1 /* Assets.xcassets in Resources */,
+				576E068527B41CBD0056B7F5 /* SF-Pro-Rounded-Semibold.ttf in Resources */,
+				576E068327B41CB60056B7F5 /* SF-Pro-Rounded-Medium.ttf in Resources */,
+				576E068727B41CC60056B7F5 /* SF-Pro-Rounded-Regular.ttf in Resources */,
+				576E068127B41CAD0056B7F5 /* NotoSans-Bold.ttf in Resources */,
+				576E068927B41CCF0056B7F5 /* SF-Pro-Rounded-Bold.ttf in Resources */,
 				5769231C27AED40A00E97A16 /* mainlogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +501,7 @@
 			files = (
 				576E067627B40AEC0056B7F5 /* FriendsVC.swift in Sources */,
 				576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */,
+				576E067C27B41BAF0056B7F5 /* Font.swift in Sources */,
 				57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */,
 				576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */,
 				5769232227B15B7300E97A16 /* HomeVC.swift in Sources */,
