@@ -14,6 +14,9 @@
 		5769231F27AED62100E97A16 /* AssetsColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769231E27AED62100E97A16 /* AssetsColor.swift */; };
 		5769232227B15B7300E97A16 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769232127B15B7300E97A16 /* HomeVC.swift */; };
 		5769232427B16AE300E97A16 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769232327B16AE300E97A16 /* TabBarController.swift */; };
+		576E067627B40AEC0056B7F5 /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067527B40AEC0056B7F5 /* FriendsVC.swift */; };
+		576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067727B40AFD0056B7F5 /* StarVC.swift */; };
+		576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067927B40B0C0056B7F5 /* SettingVC.swift */; };
 		57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D27527A58AE600C131E1 /* AppDelegate.swift */; };
 		57B4D27827A58AE600C131E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D27727A58AE600C131E1 /* SceneDelegate.swift */; };
 		57B4D27F27A58AE700C131E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B4D27E27A58AE700C131E1 /* Assets.xcassets */; };
@@ -49,6 +52,9 @@
 		5769231E27AED62100E97A16 /* AssetsColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsColor.swift; sourceTree = "<group>"; };
 		5769232127B15B7300E97A16 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		5769232327B16AE300E97A16 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		576E067527B40AEC0056B7F5 /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
+		576E067727B40AFD0056B7F5 /* StarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarVC.swift; sourceTree = "<group>"; };
+		576E067927B40B0C0056B7F5 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		57B4D27227A58AE600C131E1 /* GitChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B4D27527A58AE600C131E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57B4D27727A58AE600C131E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +157,9 @@
 			children = (
 				5769232327B16AE300E97A16 /* TabBarController.swift */,
 				5769232127B15B7300E97A16 /* HomeVC.swift */,
+				576E067527B40AEC0056B7F5 /* FriendsVC.swift */,
+				576E067727B40AFD0056B7F5 /* StarVC.swift */,
+				576E067927B40B0C0056B7F5 /* SettingVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -455,7 +464,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576E067627B40AEC0056B7F5 /* FriendsVC.swift in Sources */,
+				576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */,
 				57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */,
+				576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */,
 				5769232227B15B7300E97A16 /* HomeVC.swift in Sources */,
 				57B4D27827A58AE600C131E1 /* SceneDelegate.swift in Sources */,
 				5769232427B16AE300E97A16 /* TabBarController.swift in Sources */,

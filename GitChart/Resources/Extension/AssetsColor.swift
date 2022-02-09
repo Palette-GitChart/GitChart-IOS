@@ -20,8 +20,9 @@ enum AssetsColor {
     case subColor
     
     //Screen Color
-    
-    case mainBackColor
+    case backgroundColor
+    case cellColor
+    case tabarNunclickColor
     
 }
 
@@ -30,8 +31,12 @@ extension UIColor {
         switch name {
         case .mainColor:
             return UIColor(named: "mainColor")!
-        case .mainBackColor:
-            return UIColor(named: "BackColor")!
+        case .cellColor:
+            return UIColor(named: "cellColor")!
+        case .backgroundColor:
+            return UIColor(named: "backgroundColor")!
+        case .tabarNunclickColor:
+            return UIColor(named: "tabarnunclickedColor")!
         case .labelColor:
             return UIColor(named: "labelColor")!
         case .subColor:
