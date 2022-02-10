@@ -123,6 +123,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5765898827B562F500CC364F /* Hone */ = {
+			isa = PBXGroup;
+			children = (
+				5769232127B15B7300E97A16 /* HomeVC.swift */,
+			);
+			path = Hone;
+			sourceTree = "<group>";
+		};
+		5765898927B5632500CC364F /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				576E067527B40AEC0056B7F5 /* FriendsVC.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		5765898A27B5633400CC364F /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				576E067727B40AFD0056B7F5 /* StarVC.swift */,
+			);
+			path = Star;
+			sourceTree = "<group>";
+		};
+		5765898B27B5634500CC364F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				576E067927B40B0C0056B7F5 /* SettingVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		5769231427AC153100E97A16 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +162,7 @@
 				5769232027B15B5D00E97A16 /* VC */,
 				57B4D27527A58AE600C131E1 /* AppDelegate.swift */,
 				57B4D27727A58AE600C131E1 /* SceneDelegate.swift */,
+				5769232327B16AE300E97A16 /* TabBarController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -167,11 +200,10 @@
 		5769232027B15B5D00E97A16 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				5769232327B16AE300E97A16 /* TabBarController.swift */,
-				5769232127B15B7300E97A16 /* HomeVC.swift */,
-				576E067527B40AEC0056B7F5 /* FriendsVC.swift */,
-				576E067727B40AFD0056B7F5 /* StarVC.swift */,
-				576E067927B40B0C0056B7F5 /* SettingVC.swift */,
+				5765898B27B5634500CC364F /* Settings */,
+				5765898A27B5633400CC364F /* Star */,
+				5765898927B5632500CC364F /* Friends */,
+				5765898827B562F500CC364F /* Hone */,
 			);
 			path = VC;
 			sourceTree = "<group>";
