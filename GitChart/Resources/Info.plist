@@ -23,10 +23,6 @@
 	<array>
 		<string>NotoSans-Regular.ttf</string>
 		<string>NotoSans-Bold.ttf</string>
-		<string>SF-Pro-Rounded-Bold.ttf</string>
-		<string>SF-Pro-Rounded-Semibold.ttf</string>
-		<string>SF-Pro-Rounded-Medium.ttf</string>
-		<string>SF-Pro-Rounded-Regular.ttf</string>
 	</array>
 </dict>
 </plist>
