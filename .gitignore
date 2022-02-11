@@ -100,7 +100,7 @@ iOSInjectionProject/
 # Xcode
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-GitChart/Sources/Networking/ApiKey.swift
+Networking/ApiKey.swift
 
 ## Gcc Patch
 /*.gcno
