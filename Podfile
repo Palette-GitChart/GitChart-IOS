@@ -21,6 +21,7 @@ pod 'RxCocoa', '6.5.0'
 
 pod 'RxAlamofire'
 pod 'Alamofire', '~> 5.5'
+pod 'Kingfisher', '~> 7.0'
 
 pod 'Charts'
 
