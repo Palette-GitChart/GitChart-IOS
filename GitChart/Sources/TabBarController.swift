@@ -28,7 +28,7 @@ class TabBarController: UITabBarController {
         tabThr.tabBarItem = tabThrBarItem3
         
         let tabFou = UINavigationController(rootViewController: SettingVC())
-        let tabFouBarItem4 = UITabBarItem(title: "Settings", image: UIImage(named: "round_settings"), tag: 4)
+        let tabFouBarItem4 = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape.fill"), tag: 4)
         
         tabFou.tabBarItem = tabFouBarItem4
         
