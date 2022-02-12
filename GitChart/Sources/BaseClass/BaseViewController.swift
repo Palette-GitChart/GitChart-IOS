@@ -14,6 +14,7 @@ import RxRelay
 import Then
 import SnapKit
 import Charts
+import Kingfisher
 
 class BaseViewController: UIViewController {
     

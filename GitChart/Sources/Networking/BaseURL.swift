@@ -10,4 +10,3 @@ import Foundation
 let gitURL = "https://api.github.com/users"
 
 let myURL = "http://3.38.95.103:5000"
-
