@@ -23,7 +23,7 @@ class TabBarController: UITabBarController {
         tabTwo.tabBarItem = tabTwoBarItem2
         
         let tabThr = UINavigationController(rootViewController: StarVC())
-        let tabThrBarItem3 = UITabBarItem(title: "Star", image: UIImage(named: "round_star"), tag: 3)
+        let tabThrBarItem3 = UITabBarItem(title: "Star", image: UIImage(systemName: "star.fill"), tag: 3)
         
         tabThr.tabBarItem = tabThrBarItem3
         
