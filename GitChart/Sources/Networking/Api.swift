@@ -22,5 +22,9 @@ enum API {
     case mounthArray(_ name: String)
     case yearArray(_ name: String)
     
+    // Github API User
+    
+    case getUserProfile
+    case getUserStarred
     
 }
