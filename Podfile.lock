@@ -4,6 +4,11 @@ PODS:
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
   - Kingfisher (7.1.2)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
   - RxAlamofire/Core (6.1.1):
@@ -22,6 +27,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.5)
   - Charts
   - Kingfisher (~> 7.0)
+  - Moya/RxSwift (~> 15.0)
   - RxAlamofire
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
@@ -33,6 +39,7 @@ SPEC REPOS:
     - Alamofire
     - Charts
     - Kingfisher
+    - Moya
     - RxAlamofire
     - RxCocoa
     - RxRelay
@@ -44,6 +51,7 @@ SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -51,6 +59,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 1670ea092729b008cc0f02d1b2ac2160ca2cb4f3
+PODFILE CHECKSUM: 965b2726200df2c3740b9dced82c065d3cd839f3
 
 COCOAPODS: 1.11.2

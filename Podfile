@@ -19,6 +19,7 @@ target 'GitChart' do
 pod 'RxSwift', '6.5.0'
 pod 'RxCocoa', '6.5.0'
 
+pod 'Moya/RxSwift', '~> 15.0'
 pod 'RxAlamofire'
 pod 'Alamofire', '~> 5.5'
 pod 'Kingfisher', '~> 7.0'
