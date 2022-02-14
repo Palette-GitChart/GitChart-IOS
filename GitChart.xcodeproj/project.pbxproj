@@ -17,6 +17,7 @@
 		5769231F27AED62100E97A16 /* AssetsColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769231E27AED62100E97A16 /* AssetsColor.swift */; };
 		5769232227B15B7300E97A16 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769232127B15B7300E97A16 /* HomeVC.swift */; };
 		5769232427B16AE300E97A16 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769232327B16AE300E97A16 /* TabBarController.swift */; };
+		576D101B27BA9DF400EC5CF3 /* Moya+NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D101A27BA9DF400EC5CF3 /* Moya+NetworkError.swift */; };
 		576E067627B40AEC0056B7F5 /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067527B40AEC0056B7F5 /* FriendsVC.swift */; };
 		576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067727B40AFD0056B7F5 /* StarVC.swift */; };
 		576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067927B40B0C0056B7F5 /* SettingVC.swift */; };
@@ -66,6 +67,7 @@
 		5769231E27AED62100E97A16 /* AssetsColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsColor.swift; sourceTree = "<group>"; };
 		5769232127B15B7300E97A16 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		5769232327B16AE300E97A16 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		576D101A27BA9DF400EC5CF3 /* Moya+NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+NetworkError.swift"; sourceTree = "<group>"; };
 		576E067527B40AEC0056B7F5 /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
 		576E067727B40AFD0056B7F5 /* StarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarVC.swift; sourceTree = "<group>"; };
 		576E067927B40B0C0056B7F5 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -287,8 +289,9 @@
 		57E94A4527B6A6A100AE826A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				57E94A4627B6A6E100AE826A /* BaseURL.swift */,
 				5718A33827B799E100552E93 /* Api.swift */,
+				57E94A4627B6A6E100AE826A /* BaseURL.swift */,
+				576D101A27BA9DF400EC5CF3 /* Moya+NetworkError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 			files = (
 				576E067627B40AEC0056B7F5 /* FriendsVC.swift in Sources */,
 				576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */,
+				576D101B27BA9DF400EC5CF3 /* Moya+NetworkError.swift in Sources */,
 				57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */,
 				576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */,
 				57E94A4727B6A6E100AE826A /* BaseURL.swift in Sources */,
