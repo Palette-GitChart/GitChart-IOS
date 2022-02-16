@@ -19,6 +19,7 @@
 		5769232427B16AE300E97A16 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769232327B16AE300E97A16 /* TabBarController.swift */; };
 		576D101B27BA9DF400EC5CF3 /* Moya+NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D101A27BA9DF400EC5CF3 /* Moya+NetworkError.swift */; };
 		576D101D27BD469300EC5CF3 /* MyAPI+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D101C27BD469300EC5CF3 /* MyAPI+Task.swift */; };
+		576D101F27BD492C00EC5CF3 /* MyAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D101E27BD492C00EC5CF3 /* MyAPI+Request.swift */; };
 		576E067627B40AEC0056B7F5 /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067527B40AEC0056B7F5 /* FriendsVC.swift */; };
 		576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067727B40AFD0056B7F5 /* StarVC.swift */; };
 		576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067927B40B0C0056B7F5 /* SettingVC.swift */; };
@@ -70,6 +71,7 @@
 		5769232327B16AE300E97A16 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		576D101A27BA9DF400EC5CF3 /* Moya+NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+NetworkError.swift"; sourceTree = "<group>"; };
 		576D101C27BD469300EC5CF3 /* MyAPI+Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyAPI+Task.swift"; sourceTree = "<group>"; };
+		576D101E27BD492C00EC5CF3 /* MyAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyAPI+Request.swift"; sourceTree = "<group>"; };
 		576E067527B40AEC0056B7F5 /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
 		576E067727B40AFD0056B7F5 /* StarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarVC.swift; sourceTree = "<group>"; };
 		576E067927B40B0C0056B7F5 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				5718A33827B799E100552E93 /* Api.swift */,
 				576D101A27BA9DF400EC5CF3 /* Moya+NetworkError.swift */,
 				576D101C27BD469300EC5CF3 /* MyAPI+Task.swift */,
+				576D101E27BD492C00EC5CF3 /* MyAPI+Request.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				5718A33927B799E100552E93 /* Api.swift in Sources */,
 				57A74A4827B4A86700BEA1E8 /* Fontkit.swift in Sources */,
 				57B4D27827A58AE600C131E1 /* SceneDelegate.swift in Sources */,
+				576D101F27BD492C00EC5CF3 /* MyAPI+Request.swift in Sources */,
 				5769232427B16AE300E97A16 /* TabBarController.swift in Sources */,
 				5769231F27AED62100E97A16 /* AssetsColor.swift in Sources */,
 				5769231827AC168100E97A16 /* BaseViewController.swift in Sources */,
