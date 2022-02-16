@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Moya
 
 enum API {
     
@@ -29,4 +30,11 @@ enum API {
     
 }
 
-
+extension API: Moya.TargetType {
+  var baseURL: URL { self.getBaseURL() }
+  var path: String { self.getPath() }
+  var method: Method { self.getMethod() }
+  var sampleData: Data { Data() }
+  var task: Task {  self.getTask() }
+  var headers: [String : String]? { ["Content-Type": "application/json"] }
+}
