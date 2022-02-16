@@ -291,8 +291,8 @@
 		57E94A4527B6A6A100AE826A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				5718A33827B799E100552E93 /* Api.swift */,
 				57E94A4627B6A6E100AE826A /* BaseURL.swift */,
+				5718A33827B799E100552E93 /* Api.swift */,
 				576D101A27BA9DF400EC5CF3 /* Moya+NetworkError.swift */,
 				576D101C27BD469300EC5CF3 /* MyAPI+Task.swift */,
 			);

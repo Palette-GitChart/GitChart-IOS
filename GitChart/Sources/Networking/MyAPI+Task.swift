@@ -9,5 +9,11 @@ import Foundation
 import Moya
 
 extension API {
-    
+    func getTask() -> Task {
+        switch self {
+        default:
+            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.queryString)
+        }
+    }
 }
+
