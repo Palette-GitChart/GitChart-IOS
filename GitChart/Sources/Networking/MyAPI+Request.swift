@@ -47,6 +47,8 @@ enum MyAPIError: Error {
   }
 }
 
+// MARK: Moya Wrapper
+
 extension API {
   struct Wrapper: TargetType {
     let base: API
@@ -88,3 +90,33 @@ extension API {
     }
   }
 }
+// MARK: Error Handling
+extension API {
+  private func handleInternetConnection<T: Any>(error: Error) throws -> Single<T> {
+    guard
+      let urlError = Self.converToURLError(error),
+      Self.isNotConnection(error: error)
+    else { throw error }
+    throw MyAPIError.internetConnection(urlError)
+  }
+    
+    private func handleTimeOut<T: Any>(error: Error) throws -> Single<T> {
+      guard
+        let urlError = Self.converToURLError(error),
+        urlError.code == .timedOut
+      else { throw error }
+      throw MyAPIError.requestTimeout(urlError)
+    }
+  
+  private func handleREST<T: Any>(error: Error) throws -> Single<T> {
+    guard error is MyAPIError else {
+      throw MyAPIError.restError(
+        error,
+        statusCode: (error as? MoyaError)?.response?.statusCode,
+        errorCode: (try? (error as? MoyaError)?.response?.mapJSON() as? [String: Any])?["code"] as? String
+      )
+    }
+    throw error
+  }
+}
+
