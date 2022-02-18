@@ -46,3 +46,45 @@ enum MyAPIError: Error {
     }
   }
 }
+
+extension API {
+  struct Wrapper: TargetType {
+    let base: API
+    
+    var baseURL: URL { self.base.baseURL }
+    var path: String { self.base.path }
+    var method: Moya.Method { self.base.method }
+    var sampleData: Data { self.base.sampleData }
+    var task: Task { self.base.task }
+    var headers: [String : String]? { self.base.headers }
+  }
+  
+  private enum MoyaWrapper {
+    struct Plugins {
+      var plugins: [PluginType]
+      
+      init(plugins: [PluginType] = []) {
+        self.plugins = plugins
+      }
+      
+      func callAsFunction() -> [PluginType] { self.plugins }
+    }
+    
+    static var provider: MoyaProvider<API.Wrapper> {
+      let plugins = Plugins(plugins: [])
+      
+      let configuration = URLSessionConfiguration.default
+      configuration.timeoutIntervalForRequest = 30
+      configuration.urlCredentialStorage = nil
+      let session = Session(configuration: configuration)
+      
+      return MoyaProvider<API.Wrapper>(
+        endpointClosure: { target in
+          MoyaProvider.defaultEndpointMapping(for: target)
+        },
+        session: session,
+        plugins: plugins()
+      )
+    }
+  }
+}
