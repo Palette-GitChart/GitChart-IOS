@@ -25,8 +25,8 @@ enum API {
     
     // Github API User
     
-    case getUserProfile
-    case getUserStarred
+    case getUserProfile(_ name: String)
+    case getUserStarred(_ name: String)
     
 }
 

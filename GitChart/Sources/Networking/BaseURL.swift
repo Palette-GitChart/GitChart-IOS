@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Moya
 
 let gitURL = "https://api.github.com/users"
 
