@@ -20,7 +20,7 @@ enum API {
     // Commit Array
     
     case weekArray(_ name: String)
-    case mounthArray(_ name: String)
+    case monthArray(_ name: String)
     case yearArray(_ name: String)
     
     // Github API User
@@ -31,10 +31,10 @@ enum API {
 }
 
 extension API: Moya.TargetType {
-  var baseURL: URL { self.getBaseURL() }
-  var path: String { self.getPath() }
-  var method: Method { self.getMethod() }
-  var sampleData: Data { Data() }
-  var task: Task {  self.getTask() }
-  var headers: [String : String]? { ["Content-Type": "application/json"] }
+    var baseURL: URL { self.getBaseURL() }
+    var path: String { self.getPath() }
+    var method: Method { self.getMethod() }
+    var sampleData: Data { Data() }
+    var task: Task {  return .requestPlain }
+    var headers: [String : String]? { ["Content-Type": "application/json"] }
 }
