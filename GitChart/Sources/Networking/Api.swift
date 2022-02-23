@@ -33,7 +33,7 @@ enum API {
 extension API: Moya.TargetType {
     var baseURL: URL { self.getBaseURL() }
     var path: String { self.getPath() }
-    var method: Method { self.getMethod() }
+    var method: Moya.Method { self.getMethod() }
     var sampleData: Data { Data() }
     var task: Task {  return .requestPlain }
     var headers: [String : String]? { ["Content-Type": "application/json"] }

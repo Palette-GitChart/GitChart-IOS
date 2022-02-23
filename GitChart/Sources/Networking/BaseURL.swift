@@ -49,4 +49,9 @@ extension API {
             return "/\(username)/starred"
         }
     }
+    func getMethod() -> Moya.Method {
+        switch self {
+        default: return .get
+        }
+    }
 }
