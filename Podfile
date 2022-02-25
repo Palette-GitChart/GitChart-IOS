@@ -1,11 +1,15 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+
+
 target 'GitChart' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for GitChart
+
+inhibit_all_warnings!
 
   target 'GitChartTests' do
     inherit! :search_paths

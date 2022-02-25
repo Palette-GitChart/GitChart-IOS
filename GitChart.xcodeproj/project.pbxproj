@@ -36,6 +36,7 @@
 		57B4D28D27A58AE700C131E1 /* GitChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D28C27A58AE700C131E1 /* GitChartTests.swift */; };
 		57B4D29727A58AE700C131E1 /* GitChartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D29627A58AE700C131E1 /* GitChartUITests.swift */; };
 		57B4D29927A58AE700C131E1 /* GitChartUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D29827A58AE700C131E1 /* GitChartUITestsLaunchTests.swift */; };
+		57C6C47427C923A900111EDE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6C47327C923A900111EDE /* HomeViewModel.swift */; };
 		57E94A4727B6A6E100AE826A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E94A4627B6A6E100AE826A /* BaseURL.swift */; };
 		C57BE8A911855049E250D5D0 /* Pods_GitChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB3204BF66CF577C5B00EFF /* Pods_GitChart.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,7 @@
 		57B4D29227A58AE700C131E1 /* GitChartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitChartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B4D29627A58AE700C131E1 /* GitChartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitChartUITests.swift; sourceTree = "<group>"; };
 		57B4D29827A58AE700C131E1 /* GitChartUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitChartUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		57C6C47327C923A900111EDE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		57E94A4627B6A6E100AE826A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		60232FEE5E823A37D1A2C0B2 /* Pods-GitChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChart.debug.xcconfig"; path = "Target Support Files/Pods-GitChart/Pods-GitChart.debug.xcconfig"; sourceTree = "<group>"; };
 		658A978450FD153812961E06 /* Pods-GitChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChart.release.xcconfig"; path = "Target Support Files/Pods-GitChart/Pods-GitChart.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				5769232127B15B7300E97A16 /* HomeVC.swift */,
+				57C6C47327C923A900111EDE /* HomeViewModel.swift */,
 			);
 			path = Hone;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C6C47427C923A900111EDE /* HomeViewModel.swift in Sources */,
 				576E067627B40AEC0056B7F5 /* FriendsVC.swift in Sources */,
 				576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */,
 				576D101B27BA9DF400EC5CF3 /* Moya+NetworkError.swift in Sources */,
