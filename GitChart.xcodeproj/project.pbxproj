@@ -182,12 +182,10 @@
 		5769231427AC153100E97A16 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				57E98B2F27CBC63E0011A00F /* Utility */,
 				57E94A4527B6A6A100AE826A /* Networking */,
 				5736270A27B94EC9006F0AC0 /* Model */,
-				5769231627AC165300E97A16 /* BaseClass */,
 				5769232027B15B5D00E97A16 /* VC */,
-				57B4D27527A58AE600C131E1 /* AppDelegate.swift */,
-				57B4D27727A58AE600C131E1 /* SceneDelegate.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -208,7 +206,6 @@
 		5769231627AC165300E97A16 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
-				5769232327B16AE300E97A16 /* TabBarController.swift */,
 				5769231727AC168100E97A16 /* BaseViewController.swift */,
 			);
 			path = BaseClass;
@@ -300,6 +297,17 @@
 				576D101E27BD492C00EC5CF3 /* MyAPI+Request.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		57E98B2F27CBC63E0011A00F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				57B4D27527A58AE600C131E1 /* AppDelegate.swift */,
+				5769232327B16AE300E97A16 /* TabBarController.swift */,
+				57B4D27727A58AE600C131E1 /* SceneDelegate.swift */,
+				5769231627AC165300E97A16 /* BaseClass */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		AE63C009058C0372FA032ABA /* Pods */ = {
