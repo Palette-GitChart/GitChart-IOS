@@ -188,7 +188,6 @@
 				5769232027B15B5D00E97A16 /* VC */,
 				57B4D27527A58AE600C131E1 /* AppDelegate.swift */,
 				57B4D27727A58AE600C131E1 /* SceneDelegate.swift */,
-				5769232327B16AE300E97A16 /* TabBarController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -209,6 +208,7 @@
 		5769231627AC165300E97A16 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				5769232327B16AE300E97A16 /* TabBarController.swift */,
 				5769231727AC168100E97A16 /* BaseViewController.swift */,
 			);
 			path = BaseClass;

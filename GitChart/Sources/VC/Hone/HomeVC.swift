@@ -7,15 +7,15 @@
 
 import UIKit
 
-
 class HomeVC : BaseViewController {
+    
     
     override func viewDidAppear(_ animated: Bool) {
         for view in self.navigationController?.navigationBar.subviews ?? [] {
             let subviews = view.subviews
             if subviews.count > 0, let label = subviews[0] as? UILabel {
                 label.textColor = .appColor(.mainColor)
-                label.font = FontKit.roundedFont(ofSize: 35, weight: .semibold)
+                label.font = FontKit.roundedFont(ofSize: 34, weight: .bold)
             }
         }
     }
@@ -24,6 +24,5 @@ class HomeVC : BaseViewController {
     override func configureUI() {
         self.title = "Home"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
     }
 }
