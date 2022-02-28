@@ -38,6 +38,7 @@
 		57B4D29927A58AE700C131E1 /* GitChartUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D29827A58AE700C131E1 /* GitChartUITestsLaunchTests.swift */; };
 		57C6C47427C923A900111EDE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6C47327C923A900111EDE /* HomeViewModel.swift */; };
 		57E94A4727B6A6E100AE826A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E94A4627B6A6E100AE826A /* BaseURL.swift */; };
+		57E98B3227CBCE0C0011A00F /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E98B3127CBCE0C0011A00F /* ViewModelProtocol.swift */; };
 		C57BE8A911855049E250D5D0 /* Pods_GitChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB3204BF66CF577C5B00EFF /* Pods_GitChart.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		57B4D29827A58AE700C131E1 /* GitChartUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitChartUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		57C6C47327C923A900111EDE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		57E94A4627B6A6E100AE826A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		57E98B3127CBCE0C0011A00F /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		60232FEE5E823A37D1A2C0B2 /* Pods-GitChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChart.debug.xcconfig"; path = "Target Support Files/Pods-GitChart/Pods-GitChart.debug.xcconfig"; sourceTree = "<group>"; };
 		658A978450FD153812961E06 /* Pods-GitChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChart.release.xcconfig"; path = "Target Support Files/Pods-GitChart/Pods-GitChart.release.xcconfig"; sourceTree = "<group>"; };
 		B064F521EF5DCED3E350094E /* Pods-GitChartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChartTests.release.xcconfig"; path = "Target Support Files/Pods-GitChartTests/Pods-GitChartTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -303,8 +305,9 @@
 			isa = PBXGroup;
 			children = (
 				57B4D27527A58AE600C131E1 /* AppDelegate.swift */,
-				5769232327B16AE300E97A16 /* TabBarController.swift */,
 				57B4D27727A58AE600C131E1 /* SceneDelegate.swift */,
+				5769232327B16AE300E97A16 /* TabBarController.swift */,
+				57E98B3127CBCE0C0011A00F /* ViewModelProtocol.swift */,
 				5769231627AC165300E97A16 /* BaseClass */,
 			);
 			path = Utility;
@@ -576,6 +579,7 @@
 				576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */,
 				57E94A4727B6A6E100AE826A /* BaseURL.swift in Sources */,
 				5736270E27B95032006F0AC0 /* StarredModel.swift in Sources */,
+				57E98B3227CBCE0C0011A00F /* ViewModelProtocol.swift in Sources */,
 				5769232227B15B7300E97A16 /* HomeVC.swift in Sources */,
 				5736270C27B94EF8006F0AC0 /* UserProfileModel.swift in Sources */,
 				5718A33927B799E100552E93 /* Api.swift in Sources */,
