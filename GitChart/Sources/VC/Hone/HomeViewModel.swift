@@ -6,7 +6,22 @@
 //
 
 import Foundation
+import RxRelay
+import RxSwift
 
-class HomeViewModel  {
+class HomeViewModel : ViewModel  {
+
+    struct input {
+        
+    }
+    
+    struct output {
+        
+    }
+    
+    func transform(_ input: input) -> output {
+        return output()
+    }
+    
     
 }
