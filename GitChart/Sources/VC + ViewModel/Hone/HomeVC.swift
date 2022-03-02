@@ -9,6 +9,10 @@ import UIKit
 
 class HomeVC : BaseViewController {
     
+    fileprivate let mainTableView = UITableView().then {
+        $0.backgroundColor = .clear
+        $0.separatorStyle = .none
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         for view in self.navigationController?.navigationBar.subviews ?? [] {
