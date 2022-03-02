@@ -56,7 +56,7 @@ class HomeViewModel : ViewModel  {
                     usernameStatus.accept(true)
                 case .failure(let error):
                     print("😔 error : \(error)")
-                    usernameStatus.accept(true)
+                    usernameStatus.accept(false)
                 }
             }.disposed(by: bag)
         
@@ -72,9 +72,10 @@ class HomeViewModel : ViewModel  {
                     case .success(let response):
                         let data = String(data: response.data, encoding: .utf8)
                         commitCountOutput[count].accept(data!)
+                        usernameStatus.accept(true)
                     case .failure(let error):
                         print("😔 error : \(error)")
-                        usernameStatus.accept(true)
+                        usernameStatus.accept(false)
                     }
                 }.disposed(by: bag)
         }
@@ -87,9 +88,10 @@ class HomeViewModel : ViewModel  {
                     { return }
                     print(data)
                     getYearArray.accept(data)
+                    usernameStatus.accept(true)
                 case .failure(let error):
                     print("😔 error : \(error)")
-                    usernameStatus.accept(true)
+                    usernameStatus.accept(false)
                 }
                 
             }.disposed(by: bag)
