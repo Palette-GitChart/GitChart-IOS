@@ -12,8 +12,16 @@ extension String {
     func localized(comment: String = "") -> String {
         return NSLocalizedString(self, comment: comment)
     }
+    
     func localized(with argument: CVarArg = [], comment: String = "") -> String {
-            return String(format: self.localized(comment: comment), argument)
-        }
+        return String(format: self.localized(comment: comment), argument)
+    }
+    
+    func Decimal(value: String) -> String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(from: NSNumber(value: Int(value) ?? 0))!
+        return result
+    }
+    
 }
- 
