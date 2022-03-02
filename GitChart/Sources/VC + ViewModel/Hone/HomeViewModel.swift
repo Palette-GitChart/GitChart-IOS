@@ -38,6 +38,8 @@ class HomeViewModel : ViewModel  {
         let getYearArray = PublishRelay<[Int]>()
         let usernameStatus = PublishRelay<Bool>()
         
+        //TODO: kimdaehee0824 db로 변경
+        
         API.getUserProfile("kimdaehee0824").request()
             .subscribe { (event) in
                 switch event {
@@ -54,7 +56,16 @@ class HomeViewModel : ViewModel  {
                 }
             }.disposed(by: bag)
         
-        
+        API.dayCommit("kimdaehee0824").request()
+            .subscribe { (event) in
+                switch event {case .success(let response):
+                    let data = String(data: response.data, encoding: .utf8)
+                    getUserDayCommit.accept(data!)
+                case .failure(let error):
+                    print("😔 error : \(error)")
+                    usernameStatus.accept(true)
+                }
+            }.disposed(by: bag)
         
         
         
