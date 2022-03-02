@@ -16,7 +16,7 @@ class HomeViewModel : ViewModel  {
     private let bag = DisposeBag()
     
     struct input {
-        let didCommitTap : Driver<String>
+        let didCommitTap : Driver<Bool>
     }
     
     struct output {
