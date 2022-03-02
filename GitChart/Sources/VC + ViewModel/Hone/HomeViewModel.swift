@@ -68,15 +68,31 @@ class HomeViewModel : ViewModel  {
         for count in 1...4 {
             commitCountArray[count].request()
                 .subscribe { (event) in
-                switch event {case .success(let response):
-                    let data = String(data: response.data, encoding: .utf8)
-                    commitCountOutput[count].accept(data!)
+                    switch event {
+                    case .success(let response):
+                        let data = String(data: response.data, encoding: .utf8)
+                        commitCountOutput[count].accept(data!)
+                    case .failure(let error):
+                        print("😔 error : \(error)")
+                        usernameStatus.accept(true)
+                    }
+                }.disposed(by: bag)
+        }
+        
+        API.yearArray(username).request()
+            .subscribe { (event) in
+                switch event {
+                case .success(let response):
+                    guard let data = try? JSONDecoder().decode([Int].self, from: response.data) else
+                    { return }
+                    print(data)
+                    getYearArray.accept(data)
                 case .failure(let error):
                     print("😔 error : \(error)")
                     usernameStatus.accept(true)
                 }
+                
             }.disposed(by: bag)
-        }
         
         return output(getUserProfile: getUserProfile, getUserDayCommit: getUserDayCommit, getWeekCommit: getWeekCommit, getMounthCommit: getMounthCommit, getYearCommit: getYearCommit, getYearArray: getYearArray, usernameStatus: usernameStatus)
     }
