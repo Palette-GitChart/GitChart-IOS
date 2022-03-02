@@ -25,10 +25,17 @@ class HomeViewModel : ViewModel  {
         let getWeekCommit : PublishRelay<String>
         let getYearCommit : PublishRelay<String>
         let getYearArray : PublishRelay<[Int]>
+        let usernameStatus : PublishRelay<Bool>
     }
     
-    func transform(_ input: input) -> output {
-        return output()
+    func trans(_ input: input) -> output {
+        let getUserProfile = PublishRelay<UserProfile>()
+        let getUserDayCommit = PublishRelay<String>()
+        let getWeekCommit = PublishRelay<String>()
+        let getYearCommit = PublishRelay<String>()
+        let getYearArray = PublishRelay<[Int]>()
+        let usernameStatus = PublishRelay<Bool>()
+        return output(getUserProfile: getUserProfile, getUserDayCommit: getUserDayCommit, getWeekCommit: getWeekCommit, getYearCommit: getYearCommit, getYearArray: getYearArray, usernameStatus: usernameStatus)
     }
     
     

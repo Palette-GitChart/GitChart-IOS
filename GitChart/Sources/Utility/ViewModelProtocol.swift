@@ -11,5 +11,5 @@ protocol ViewModel {
     associatedtype input
     associatedtype output
     
-    func transform(_ input: input) -> output
+    func trans(_ input: input) -> output
 }
