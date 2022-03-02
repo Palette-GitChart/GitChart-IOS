@@ -30,7 +30,7 @@ class HomeViewModel : ViewModel  {
     
     func trans(_ input: input) -> output {
         
-        
+        let bag = DisposeBag()
         let getUserProfile = PublishRelay<UserProfile>()
         let getUserDayCommit = PublishRelay<String>()
         let getWeekCommit = PublishRelay<String>()
@@ -49,11 +49,11 @@ class HomeViewModel : ViewModel  {
                     getUserProfile.accept(data)
                     usernameStatus.accept(true)
                 case .failure(let error):
-                    print(error)
+                    print("😔 error : \(error)")
                     usernameStatus.accept(true)
                 }
-                
-            }
+            }.disposed(by: bag)
+        
         
         
         
