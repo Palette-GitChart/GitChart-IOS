@@ -23,6 +23,7 @@ class HomeViewModel : ViewModel  {
         let getUserProfile : PublishRelay<UserProfile>
         let getUserDayCommit : PublishRelay<String>
         let getWeekCommit : PublishRelay<String>
+        let getMounthCommit : PublishRelay<String>
         let getYearCommit : PublishRelay<String>
         let getYearArray : PublishRelay<[Int]>
         let usernameStatus : PublishRelay<Bool>
@@ -34,13 +35,16 @@ class HomeViewModel : ViewModel  {
         let getUserProfile = PublishRelay<UserProfile>()
         let getUserDayCommit = PublishRelay<String>()
         let getWeekCommit = PublishRelay<String>()
+        let getMounthCommit = PublishRelay<String>()
         let getYearCommit = PublishRelay<String>()
         let getYearArray = PublishRelay<[Int]>()
         let usernameStatus = PublishRelay<Bool>()
         
+        let username = "kimdaehee0824"
+        
         //TODO: kimdaehee0824 db로 변경
         
-        API.getUserProfile("kimdaehee0824").request()
+        API.getUserProfile(username).request()
             .subscribe { (event) in
                 switch event {
                 case .success(let response):
@@ -56,21 +60,25 @@ class HomeViewModel : ViewModel  {
                 }
             }.disposed(by: bag)
         
-        API.dayCommit("kimdaehee0824").request()
-            .subscribe { (event) in
+        //MARK: Commit Count
+        
+        let commitCountArray : [API] = [.dayCommit(username), .weekCommit(username), .mounthCommit(username), .yearCommit(username)]
+        let commitCountOutput : [PublishRelay<String>] = [getUserDayCommit, getWeekCommit, getMounthCommit, getYearCommit]
+        
+        for count in 1...4 {
+            commitCountArray[count].request()
+                .subscribe { (event) in
                 switch event {case .success(let response):
                     let data = String(data: response.data, encoding: .utf8)
-                    getUserDayCommit.accept(data!)
+                    commitCountOutput[count].accept(data!)
                 case .failure(let error):
                     print("😔 error : \(error)")
                     usernameStatus.accept(true)
                 }
             }.disposed(by: bag)
+        }
         
-        
-        
-        
-        return output(getUserProfile: getUserProfile, getUserDayCommit: getUserDayCommit, getWeekCommit: getWeekCommit, getYearCommit: getYearCommit, getYearArray: getYearArray, usernameStatus: usernameStatus)
+        return output(getUserProfile: getUserProfile, getUserDayCommit: getUserDayCommit, getWeekCommit: getWeekCommit, getMounthCommit: getMounthCommit, getYearCommit: getYearCommit, getYearArray: getYearArray, usernameStatus: usernameStatus)
     }
     
     
