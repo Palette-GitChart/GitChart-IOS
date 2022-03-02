@@ -190,7 +190,7 @@
 				57E98B2F27CBC63E0011A00F /* Utility */,
 				57E94A4527B6A6A100AE826A /* Networking */,
 				5736270A27B94EC9006F0AC0 /* Model */,
-				5769232027B15B5D00E97A16 /* VC */,
+				5769232027B15B5D00E97A16 /* VC + ViewModel */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -226,7 +226,7 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		5769232027B15B5D00E97A16 /* VC */ = {
+		5769232027B15B5D00E97A16 /* VC + ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				5765898B27B5634500CC364F /* Settings */,
@@ -234,7 +234,7 @@
 				5765898927B5632500CC364F /* Friends */,
 				5765898827B562F500CC364F /* Hone */,
 			);
-			path = VC;
+			path = "VC + ViewModel";
 			sourceTree = "<group>";
 		};
 		576E067D27B41BBE0056B7F5 /* Font */ = {
