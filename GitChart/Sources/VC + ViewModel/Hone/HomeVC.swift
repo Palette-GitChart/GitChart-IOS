@@ -18,11 +18,32 @@ class HomeVC : BaseViewController {
         $0.backgroundColor = .clear
     }
     
+    //MARK: Cell View
+    
     private let profileView = UIView()
     private let dayCommitView = UIView()
     private let weekCommitView = UIView()
     private let commitGoalView = UIView()
     private let commitChartView = UIView()
+    
+    //MARK: Cell in UI
+    
+    private let profileImage = UIImageView().then {
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 40
+        $0.layer.borderWidth = 0.5
+        $0.layer.borderColor = UIColor.secondaryLabel.cgColor
+    }
+    
+    private let profilenName = UILabel().then {
+        $0.font = .roundedFont(ofSize: 25, weight: .medium)
+        $0.textColor = .appColor(.labelColor)
+    }
+    
+    private let profileDetail = UILabel().then {
+        $0.font = .notoFont(size: .Regular, ofSize: 15)
+        $0.textColor = .appColor(.labelColor)
+    }
     
     func cellViewMake() {
         [profileView, dayCommitView, weekCommitView, commitGoalView, commitChartView]
@@ -39,6 +60,7 @@ class HomeVC : BaseViewController {
         
     }
     
+    //MARK: - configure
     
     override func configureUI() {
         self.title = "Home"
@@ -46,6 +68,17 @@ class HomeVC : BaseViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         cellViewMake()
+        
+        [profileImage, profilenName, profileDetail].forEach {
+            profileView.addSubview($0)
+        }
+        
+        //TODO: dummy 추후 변경 예정
+        
+        profileImage.image = UIImage(named: "profiedaeheeKim")
+        profilenName.text = "kimdaehee0824"
+        profileDetail.text = "팔로워 67명 | 팔로우 29명"
+        
     }
     
     override func setupConstraints() {
@@ -54,11 +87,32 @@ class HomeVC : BaseViewController {
             $0.top.bottom.equalTo(scrollView)
             $0.left.right.equalTo(view)
         }
+        
+        // profileCell
+        
         profileView.snp.makeConstraints {
             $0.left.right.equalTo(contentView).inset(15)
             $0.top.equalTo(contentView).offset(5)
             $0.bottom.equalTo(-5)
             $0.height.equalTo(100)
         }
+        profileImage.snp.makeConstraints {
+            $0.centerY.equalTo(profileView)
+            $0.leading.equalTo(10)
+            $0.width.height.equalTo(80)
+        }
+        profilenName.snp.makeConstraints {
+            $0.height.equalTo(30)
+            $0.top.equalTo(20)
+            $0.leading.equalTo(profileImage.snp.trailing).offset(20)
+            $0.trailing.equalTo(profileView.snp.trailing).inset(10)
+        }
+        profileDetail.snp.makeConstraints {
+            $0.top.equalTo(profilenName.snp.bottom)
+            $0.height.equalTo(30)
+            $0.leading.equalTo(profileImage.snp.trailing).offset(20)
+            $0.trailing.equalTo(profileView.snp.trailing).inset(10)
+        }
+        
     }
 }
