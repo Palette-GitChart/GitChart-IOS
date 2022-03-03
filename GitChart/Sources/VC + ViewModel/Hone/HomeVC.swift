@@ -9,6 +9,15 @@ import UIKit
 
 class HomeVC : BaseViewController {
     
+    private let scrollView = UIScrollView().then {
+        $0.backgroundColor = .clear
+        $0.showsVerticalScrollIndicator = false
+    }
+    
+    private let contentView = UIView().then {
+        $0.backgroundColor = .clear
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         for view in self.navigationController?.navigationBar.subviews ?? [] {
             let subviews = view.subviews
