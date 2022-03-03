@@ -8,8 +8,13 @@
 import Foundation
 import UIKit
 
-class FontKit {
-    
+
+enum notoSans {
+    case Regular
+    case Bold
+}
+
+extension UIFont {
     static func roundedFont(ofSize fontSize: CGFloat, weight: UIFont.Weight) -> UIFont {
         let systemFont = UIFont.systemFont(ofSize: fontSize, weight: weight)
         let font: UIFont
@@ -25,14 +30,7 @@ class FontKit {
         }
         return font
     }
-}
-
-enum notoSans {
-    case Regular
-    case Bold
-}
-
-extension UIFont {
+    
     static func notoFont(size : notoSans, ofSize : CGFloat) -> UIFont {
         switch size {
         case .Regular:

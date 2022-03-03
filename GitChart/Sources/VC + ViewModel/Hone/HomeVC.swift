@@ -34,9 +34,9 @@ class HomeVC : BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : FontKit.roundedFont(ofSize: 20, weight: .semibold)]
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : FontKit.roundedFont(ofSize: 34, weight: .bold)]
-
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 20, weight: .semibold)]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 34, weight: .bold)]
+        
     }
     
     
@@ -55,10 +55,10 @@ class HomeVC : BaseViewController {
             $0.left.right.equalTo(view)
         }
         profileView.snp.makeConstraints {
-            $0.left.right.equalTo(contentView).inset(20)
-            $0.top.bottom.equalTo(contentView).offset(10)
-            $0.height.equalTo(800)
-            
+            $0.left.right.equalTo(contentView).inset(15)
+            $0.top.equalTo(contentView).offset(5)
+            $0.bottom.equalTo(-5)
+            $0.height.equalTo(100)
         }
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 class SettingVC : BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.labelColor), .font : FontKit.roundedFont(ofSize: 20, weight: .semibold)]
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.labelColor), .font : UIFont.roundedFont(ofSize: 20, weight: .semibold)]
     }
     
     override func configureUI() {
