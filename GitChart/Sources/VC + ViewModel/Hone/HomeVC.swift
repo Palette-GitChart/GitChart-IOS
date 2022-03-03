@@ -47,8 +47,22 @@ class HomeVC : BaseViewController {
     override func configureUI() {
         self.title = "Home"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        cellViewMake()
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
+        cellViewMake()
+    }
+    
+    override func setupConstraints() {
+        scrollView.snp.makeConstraints { $0.edges.equalTo(view) }
+        contentView.snp.makeConstraints {
+            $0.top.bottom.equalTo(scrollView)
+            $0.left.right.equalTo(view)
+        }
+        profileView.snp.makeConstraints {
+            $0.left.right.equalTo(contentView).inset(20)
+            $0.top.bottom.equalTo(contentView).offset(10)
+            $0.height.equalTo(800)
+            
+        }
     }
 }
