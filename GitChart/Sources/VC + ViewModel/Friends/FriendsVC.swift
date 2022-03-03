@@ -10,13 +10,8 @@ import UIKit
 class FriendsVC : BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
-        for view in self.navigationController?.navigationBar.subviews ?? [] {
-            let subviews = view.subviews
-            if subviews.count > 0, let label = subviews[0] as? UILabel {
-                label.textColor = .appColor(.labelColor)
-                label.font = FontKit.roundedFont(ofSize: 35, weight: .semibold)
-            }
-        }
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.labelColor), .font : FontKit.roundedFont(ofSize: 20, weight: .semibold)]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.labelColor), .font : FontKit.roundedFont(ofSize: 34, weight: .bold)]
     }
 
     
