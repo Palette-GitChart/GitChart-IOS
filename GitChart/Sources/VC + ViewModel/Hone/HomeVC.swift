@@ -30,17 +30,13 @@ class HomeVC : BaseViewController {
                 v.backgroundColor = UIColor.appColor(.cellColor)
                 v.layer.cornerRadius = 20
                 contentView.addSubview(v)
-        }
+            }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        for view in self.navigationController?.navigationBar.subviews ?? [] {
-            let subviews = view.subviews
-            if subviews.count > 0, let label = subviews[0] as? UILabel {
-                label.textColor = .appColor(.mainColor)
-                label.font = FontKit.roundedFont(ofSize: 34, weight: .bold)
-            }
-        }
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : FontKit.roundedFont(ofSize: 20, weight: .semibold)]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : FontKit.roundedFont(ofSize: 34, weight: .bold)]
+
     }
     
     
