@@ -18,6 +18,21 @@ class HomeVC : BaseViewController {
         $0.backgroundColor = .clear
     }
     
+    private let profileView = UIView()
+    private let dayCommitView = UIView()
+    private let weekCommitView = UIView()
+    private let commitGoalView = UIView()
+    private let commitChartView = UIView()
+    
+    func cellViewMake() {
+        [profileView, dayCommitView, weekCommitView, commitGoalView, commitChartView]
+            .forEach { v in
+                v.backgroundColor = UIColor.appColor(.cellColor)
+                v.layer.cornerRadius = 20
+                contentView.addSubview(v)
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         for view in self.navigationController?.navigationBar.subviews ?? [] {
             let subviews = view.subviews
@@ -32,5 +47,8 @@ class HomeVC : BaseViewController {
     override func configureUI() {
         self.title = "Home"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        cellViewMake()
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
     }
 }
