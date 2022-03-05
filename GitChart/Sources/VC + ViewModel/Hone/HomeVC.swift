@@ -21,8 +21,8 @@ class HomeVC : BaseViewController {
     //MARK: Cell View
     
     private let profileView = UIView()
-    private let dayCommitView = UIView()
-    private let weekCommitView = UIView()
+    private let commitView1 = UIView()
+    private let commitView2 = UIView()
     private let commitGoalView = UIView()
     private let commitChartView = UIView()
     
@@ -67,7 +67,7 @@ class HomeVC : BaseViewController {
     
     
     func cellViewMake() {
-        [profileView, dayCommitView, weekCommitView, commitGoalView, commitChartView]
+        [profileView, commitView1, commitView2, commitGoalView, commitChartView]
             .forEach { v in
                 v.backgroundColor = UIColor.appColor(.cellColor)
                 v.layer.cornerRadius = 20
@@ -94,10 +94,10 @@ class HomeVC : BaseViewController {
             profileView.addSubview($0)
         }
         [commitLabel1, commitLabel2].forEach {
-            dayCommitView.addSubview($0)
+            commitView1.addSubview($0)
         }
         [commitLabel2, commitLabel2].forEach {
-            weekCommitView.addSubview($0)
+            commitView2.addSubview($0)
         }
         
         //TODO: dummy 추후 변경 예정
