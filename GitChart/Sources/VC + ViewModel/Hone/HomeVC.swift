@@ -28,6 +28,8 @@ class HomeVC : BaseViewController {
     
     //MARK: Cell in UI
     
+    // profileView
+    
     private let profileImage = UIImageView().then {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 40
@@ -44,6 +46,25 @@ class HomeVC : BaseViewController {
         $0.font = .notoFont(size: .Regular, ofSize: 15)
         $0.textColor = .appColor(.labelColor)
     }
+    
+    // dayCommitView
+    
+    let commitLabel1 = UILabel()
+    let commitLabel2 = UILabel()
+    
+    let commitCountLabel1 = UILabel()
+    let commitCountLabel2 = UILabel()
+    
+    func makeDayCommitView() {
+        let commitLabelArray = [commitLabel1, commitLabel2, ]
+        let commitCountLabelArray = [commitCountLabel1, commitCountLabel2]
+        for main in 0...2 {
+            print(main)
+            commitLabelArray[main].font = .roundedFont(ofSize: 20, weight: .semibold)
+            commitCountLabelArray[main].font = .roundedFont(ofSize: 40, weight: .medium)
+        }
+    }
+    
     
     func cellViewMake() {
         [profileView, dayCommitView, weekCommitView, commitGoalView, commitChartView]
@@ -71,6 +92,12 @@ class HomeVC : BaseViewController {
         
         [profileImage, profilenName, profileDetail].forEach {
             profileView.addSubview($0)
+        }
+        [commitLabel1, commitLabel2].forEach {
+            dayCommitView.addSubview($0)
+        }
+        [commitLabel2, commitLabel2].forEach {
+            weekCommitView.addSubview($0)
         }
         
         //TODO: dummy 추후 변경 예정
