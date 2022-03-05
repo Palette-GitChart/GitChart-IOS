@@ -58,10 +58,27 @@ class HomeVC : BaseViewController {
     func makeDayCommitView() {
         let commitLabelArray = [commitLabel1, commitLabel2, ]
         let commitCountLabelArray = [commitCountLabel1, commitCountLabel2]
-        for main in 0...2 {
+        
+        let fontSize = UIFont.notoFont(size: .Regular, ofSize: 25)
+        
+        for main in 0..<2 {
             print(main)
             commitLabelArray[main].font = .roundedFont(ofSize: 20, weight: .semibold)
-            commitCountLabelArray[main].font = .roundedFont(ofSize: 40, weight: .medium)
+            commitLabelArray[main].textColor = .appColor(.labelColor)
+            
+            let str = commitCountLabelArray[main].text ?? ""
+            
+            let attributedStr = NSMutableAttributedString(string: commitCountLabelArray[main].text ?? "")
+            let range = (str as NSString).range(of: "개")
+            
+            attributedStr.addAttribute(.font, value: fontSize, range: range)
+            attributedStr.addAttribute(.foregroundColor, value: UIColor.appColor(.labelColor), range: range)
+            
+            commitCountLabelArray[main].attributedText = attributedStr
+            
+            commitCountLabelArray[main].font = .roundedFont(ofSize: 50, weight: .medium)
+            commitCountLabelArray[main].attributedText = attributedStr
+            
         }
     }
     
@@ -88,23 +105,32 @@ class HomeVC : BaseViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        cellViewMake()
-        
-        [profileImage, profilenName, profileDetail].forEach {
-            profileView.addSubview($0)
-        }
-        [commitLabel1, commitLabel2].forEach {
-            commitView1.addSubview($0)
-        }
-        [commitLabel2, commitLabel2].forEach {
-            commitView2.addSubview($0)
-        }
         
         //TODO: dummy 추후 변경 예정
         
         profileImage.image = UIImage(named: "profiedaeheeKim")
         profilenName.text = "kimdaehee0824"
         profileDetail.text = "팔로워 67명 | 팔로우 29명"
+        
+        commitCountLabel1.text = "12개"
+        commitCountLabel2.text = "23개"
+        
+        commitLabel1.text = "Today Commit"
+        commitLabel2.text = "week commit"
+
+        
+        cellViewMake()
+        makeDayCommitView()
+        
+        [profileImage, profilenName, profileDetail].forEach {
+            profileView.addSubview($0)
+        }
+        [commitLabel1, commitCountLabel1].forEach {
+            commitView1.addSubview($0)
+        }
+        [commitLabel2, commitCountLabel2].forEach {
+            commitView2.addSubview($0)
+        }
         
     }
     
@@ -141,5 +167,35 @@ class HomeVC : BaseViewController {
             $0.trailing.equalTo(profileView.snp.trailing).inset(10)
         }
         
+        // commitCountView
+        
+        commitView1.snp.makeConstraints {
+            $0.top.equalTo(profileView.snp.bottom).offset(10)
+            $0.left.equalTo(contentView).inset(15)
+            $0.right.equalTo(contentView.snp.centerX).offset(-7.5)
+            $0.height.equalTo(135)
+        }
+        
+        commitView2.snp.makeConstraints {
+            $0.top.equalTo(profileView.snp.bottom).offset(10)
+            $0.left.equalTo(contentView.snp.centerX).offset(7.5)
+            $0.right.equalTo(contentView).inset(15)
+            $0.height.equalTo(135)
+        }
+        
+        [commitLabel1, commitLabel2].forEach { label in
+            label.snp.makeConstraints {
+                $0.left.equalTo(15)
+                $0.top.equalTo(15)
+                $0.height.equalTo(20)
+            }
+        }
+        
+        [commitCountLabel1, commitCountLabel2].forEach { label in
+            label.snp.makeConstraints {
+                $0.right.bottom.equalTo(-15)
+                $0.height.equalTo(40)
+            }
+        }
     }
 }
