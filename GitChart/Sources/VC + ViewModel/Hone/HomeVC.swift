@@ -74,7 +74,7 @@ class HomeVC : BaseViewController {
             
             attributedStr.addAttribute(.font, value: fontSize, range: range)
             attributedStr.addAttribute(.foregroundColor, value: UIColor.appColor(.labelColor), range: range)
-                        
+            
             commitCountLabelArray[main].font = .roundedFont(ofSize: 50, weight: .medium)
             commitCountLabelArray[main].attributedText = attributedStr
             
@@ -101,15 +101,17 @@ class HomeVC : BaseViewController {
     let commitGoalCountLabel1 = UILabel()
     let commitGoalCountLabel2 = UILabel()
     
-//    func makeCommitgoallabel() {
-//        [commitGoalCountLabel1, commitGoalCountLabel2].forEach { label in
-//            label.then {
-//                $0.textColor = .appColor(.labelColor)
-//                $0.
-//            }
-//            
-//        }
-//    }
+    func makeCommitGoalLabel() {
+        [commitGoalCountLabel1, commitGoalCountLabel2].forEach { label in
+            label.textColor = .appColor(.labelColor)
+            label.font = .notoFont(size: .Regular, ofSize: 12)
+            view.addSubview(label)
+        }
+        commitGoalCountLabel1.text = "1개"
+        
+        //TODO: dummy 추후 변경 얘정
+        commitLabel2.text = "15개"
+    }
     
     
     func cellViewMake() {
@@ -146,10 +148,11 @@ class HomeVC : BaseViewController {
         
         commitLabel1.text = "Today Commit"
         commitLabel2.text = "week commit"
-
+        
         
         cellViewMake()
         makeDayCommitView()
+        makeCommitGoalLabel()
         
         [profileImage, profilenName, profileDetail].forEach {
             profileView.addSubview($0)
@@ -159,6 +162,9 @@ class HomeVC : BaseViewController {
         }
         [commitLabel2, commitCountLabel2].forEach {
             commitView2.addSubview($0)
+        }
+        [commitGoalProgressView, commitGoalLabel].forEach {
+            commitGoalView.addSubview($0)
         }
         
     }
