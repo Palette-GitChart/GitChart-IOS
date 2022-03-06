@@ -86,7 +86,7 @@ class HomeVC : BaseViewController {
     let commitGoalLabel = UILabel().then {
         $0.textColor = .appColor(.labelColor)
         $0.font = .roundedFont(ofSize: 20, weight: .semibold)
-        $0.text = "Commit Goal"
+        $0.text = "Daily Commit Goal"
     }
     
     let commitGoalProgressView = UIProgressView().then {
@@ -96,6 +96,7 @@ class HomeVC : BaseViewController {
         $0.layer.cornerRadius = 7.5
         $0.layer.sublayers![1].cornerRadius = 7.5// 뒤에 있는 회색 track
         $0.subviews[1].clipsToBounds = true
+        $0.setProgress(1.0, animated: true)
     }
     
     let commitGoalCountLabel1 = UILabel()
@@ -108,9 +109,10 @@ class HomeVC : BaseViewController {
             view.addSubview(label)
         }
         commitGoalCountLabel1.text = "1개"
+        commitGoalCountLabel2.textAlignment = .right
         
         //TODO: dummy 추후 변경 얘정
-        commitLabel2.text = "15개"
+        commitGoalCountLabel2.text = "15개"
     }
     
     
@@ -230,6 +232,34 @@ class HomeVC : BaseViewController {
             label.snp.makeConstraints {
                 $0.right.bottom.equalTo(-15)
                 $0.height.equalTo(40)
+            }
+        }
+        
+        // commitGoalView
+        
+        commitGoalView.snp.makeConstraints {
+            $0.top.equalTo(commitView1.snp.bottom).offset(10)
+            $0.left.right.equalTo(contentView).inset(15)
+            $0.height.equalTo(135)
+        }
+        
+        commitGoalLabel.snp.makeConstraints {
+            $0.top.equalTo(15)
+            $0.left.right.equalTo(commitGoalView).inset(15)
+            $0.height.equalTo(30)
+        }
+        
+        commitGoalProgressView.progress = 0.7
+        commitGoalProgressView.snp.makeConstraints {
+            $0.top.equalTo(commitGoalLabel.snp.bottom).offset(15)
+            $0.left.right.equalTo(commitGoalView).inset(15)
+            $0.height.equalTo(15)
+        }
+        [commitGoalCountLabel1, commitGoalCountLabel2].forEach { label in
+            label.snp.makeConstraints {
+                $0.top.equalTo(commitGoalProgressView.snp.bottom).offset(10)
+                $0.left.right.equalTo(commitGoalView).inset(15)
+                $0.height.equalTo(15)
             }
         }
     }
