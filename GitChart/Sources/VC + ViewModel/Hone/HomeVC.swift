@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxGesture
 
 class HomeVC : BaseViewController {
     
@@ -73,14 +74,42 @@ class HomeVC : BaseViewController {
             
             attributedStr.addAttribute(.font, value: fontSize, range: range)
             attributedStr.addAttribute(.foregroundColor, value: UIColor.appColor(.labelColor), range: range)
-            
-            commitCountLabelArray[main].attributedText = attributedStr
-            
+                        
             commitCountLabelArray[main].font = .roundedFont(ofSize: 50, weight: .medium)
             commitCountLabelArray[main].attributedText = attributedStr
             
         }
     }
+    
+    //MARK: commit Goal View
+    
+    let commitGoalLabel = UILabel().then {
+        $0.textColor = .appColor(.labelColor)
+        $0.font = .roundedFont(ofSize: 20, weight: .semibold)
+        $0.text = "Commit Goal"
+    }
+    
+    let commitGoalProgressView = UIProgressView().then {
+        $0.progressTintColor = UIColor(rgb: 0x7FC567)
+        $0.trackTintColor = UIColor(named: "progressTrackColor")
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 7.5
+        $0.layer.sublayers![1].cornerRadius = 7.5// 뒤에 있는 회색 track
+        $0.subviews[1].clipsToBounds = true
+    }
+    
+    let commitGoalCountLabel1 = UILabel()
+    let commitGoalCountLabel2 = UILabel()
+    
+//    func makeCommitgoallabel() {
+//        [commitGoalCountLabel1, commitGoalCountLabel2].forEach { label in
+//            label.then {
+//                $0.textColor = .appColor(.labelColor)
+//                $0.
+//            }
+//            
+//        }
+//    }
     
     
     func cellViewMake() {
