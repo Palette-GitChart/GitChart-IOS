@@ -7,12 +7,12 @@
 
 import UIKit
 import RxGesture
+import Charts
 
 class HomeVC : BaseViewController {
     
     private let scrollView = UIScrollView().then {
         $0.backgroundColor = .clear
-        $0.showsVerticalScrollIndicator = false
     }
     
     private let contentView = UIView().then {
@@ -25,7 +25,7 @@ class HomeVC : BaseViewController {
     private let commitView1 = UIView()
     private let commitView2 = UIView()
     private let commitGoalView = UIView()
-    private let commitChartView = UIView()
+    private let commitTrandView = UIView()
     
     //MARK: Cell in UI
     
@@ -63,7 +63,6 @@ class HomeVC : BaseViewController {
         let fontSize = UIFont.notoFont(size: .Regular, ofSize: 25)
         
         for main in 0..<2 {
-            print(main)
             commitLabelArray[main].font = .roundedFont(ofSize: 20, weight: .semibold)
             commitLabelArray[main].textColor = .appColor(.labelColor)
             
@@ -115,9 +114,66 @@ class HomeVC : BaseViewController {
         commitGoalCountLabel2.text = "15개"
     }
     
+    //MARK: commitTrandView
     
+    let commitTrandLabel = UILabel().then {
+        $0.textColor = .appColor(.labelColor)
+        $0.font = .roundedFont(ofSize: 20, weight: .semibold)
+        $0.text = "Commit Trand"
+    }
+    
+    let commitTrandCountLabel1 = UILabel()
+    let commitTrandCountLabel2 = UILabel()
+    
+    func makeCommitTrandLabel() {
+        [commitTrandCountLabel1, commitTrandCountLabel2].forEach { label in
+            label.textColor = .appColor(.labelColor)
+            label.font = .notoFont(size: .Regular, ofSize: 12)
+            commitTrandView.addSubview(label)
+        }
+        commitTrandCountLabel2.textAlignment = .right
+        commitTrandCountLabel2.text = "2022-03-10"
+        commitTrandCountLabel1.text = "2021-03-10"
+    }
+    
+    var commitDay = [1.0, 3.0, 1.0, 1.0, 2.03, 2.0, 0, 5.0, 6.0, 7.0, 5.0]
+    var lineChartEntry = [ChartDataEntry]()
+    
+    let trandChart = LineChartView().then {
+        $0.noDataText = ""
+        $0.setScaleEnabled(false)
+        $0.drawGridBackgroundEnabled = false
+        $0.xAxis.drawAxisLineEnabled = false
+        $0.xAxis.drawLimitLinesBehindDataEnabled = false
+        $0.xAxis.gridColor = .appColor(.mainColor)
+        $0.xAxis.gridLineWidth = 0.5
+        $0.xAxis.drawGridLinesEnabled = false
+        $0.xAxis.drawLabelsEnabled = false
+        $0.animate(xAxisDuration: 0.5)
+        $0.xAxis.drawGridLinesEnabled = false
+        $0.leftAxis.drawLabelsEnabled = false
+        $0.legend.enabled = false
+        $0.leftAxis.removeAllLimitLines()
+        $0.leftAxis.drawZeroLineEnabled = false
+        $0.leftAxis.zeroLineWidth = 0
+        $0.leftAxis.drawTopYLabelEntryEnabled = false
+        $0.leftAxis.drawAxisLineEnabled = false
+        $0.leftAxis.drawGridLinesEnabled = false
+        $0.leftAxis.drawLabelsEnabled = false
+        $0.leftAxis.drawLimitLinesBehindDataEnabled = false
+        
+        $0.rightAxis.removeAllLimitLines()
+        $0.rightAxis.drawZeroLineEnabled = false
+        $0.leftAxis.zeroLineWidth = 0
+        $0.rightAxis.drawTopYLabelEntryEnabled = false
+        $0.rightAxis.drawAxisLineEnabled = false
+        $0.rightAxis.drawGridLinesEnabled = false
+        $0.rightAxis.drawLabelsEnabled = false
+        $0.rightAxis.drawLimitLinesBehindDataEnabled = false
+        
+    }
     func cellViewMake() {
-        [profileView, commitView1, commitView2, commitGoalView, commitChartView]
+        [profileView, commitView1, commitView2, commitGoalView, commitTrandView]
             .forEach { v in
                 v.backgroundColor = UIColor.appColor(.cellColor)
                 v.layer.cornerRadius = 20
@@ -128,14 +184,21 @@ class HomeVC : BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 20, weight: .semibold)]
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 34, weight: .bold)]
-        
+        self.title = "Home"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            self.navigationController?.navigationBar.sizeToFit()
+        }
     }
     
     //MARK: - configure
     
     override func configureUI() {
-        self.title = "Home"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
@@ -151,10 +214,30 @@ class HomeVC : BaseViewController {
         commitLabel1.text = "Today Commit"
         commitLabel2.text = "week commit"
         
-        
         cellViewMake()
         makeDayCommitView()
         makeCommitGoalLabel()
+        makeCommitTrandLabel()
+        
+        for i in 0..<commitDay.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: commitDay[i])
+            lineChartEntry.append(dataEntry)
+        }
+        
+        let linechart1 = LineChartDataSet(entries: lineChartEntry, label: "")
+        let gradient = getGradientFilling()
+        linechart1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+        linechart1.drawFilledEnabled = true
+        linechart1.drawCirclesEnabled = false
+        linechart1.drawValuesEnabled = false
+        linechart1.mode = .cubicBezier
+        linechart1.colors = [NSUIColor.appColor(.mainColor)]
+        linechart1.cubicIntensity = 0.2
+        
+        let data = LineChartData()
+        data.addDataSet(linechart1)
+        
+        trandChart.data = data
         
         [profileImage, profilenName, profileDetail].forEach {
             profileView.addSubview($0)
@@ -169,12 +252,15 @@ class HomeVC : BaseViewController {
             commitGoalView.addSubview($0)
         }
         
+        [commitTrandLabel, trandChart].forEach {
+            commitTrandView.addSubview($0)
+        }
     }
     
     override func setupConstraints() {
         scrollView.snp.makeConstraints { $0.edges.equalTo(view) }
         contentView.snp.makeConstraints {
-            $0.top.bottom.equalTo(scrollView)
+            $0.top.bottom.equalTo(0)
             $0.left.right.equalTo(view)
         }
         
@@ -183,7 +269,6 @@ class HomeVC : BaseViewController {
         profileView.snp.makeConstraints {
             $0.left.right.equalTo(contentView).inset(15)
             $0.top.equalTo(contentView).offset(5)
-            $0.bottom.equalTo(-5)
             $0.height.equalTo(100)
         }
         profileImage.snp.makeConstraints {
@@ -262,5 +347,48 @@ class HomeVC : BaseViewController {
                 $0.height.equalTo(15)
             }
         }
+        
+        // commitTrandView
+        
+        commitTrandView.snp.makeConstraints {
+            $0.top.equalTo(commitGoalView.snp.bottom).offset(10)
+            $0.left.right.equalTo(contentView).inset(15)
+            $0.height.equalTo(340)
+            $0.bottom.equalTo(-10)
+        }
+        
+        commitTrandLabel.snp.makeConstraints {
+            $0.top.equalTo(15)
+            $0.left.right.equalTo(commitTrandView).inset(15)
+            $0.height.equalTo(30)
+        }
+        
+        [commitTrandCountLabel1, commitTrandCountLabel2].forEach { label in
+            label.snp.makeConstraints {
+                $0.bottom.equalTo(-15)
+                $0.left.right.equalTo(commitTrandView).inset(15)
+                $0.height.equalTo(15)
+            }
+        }
+        
+        trandChart.snp.makeConstraints {
+            $0.top.equalTo(commitTrandLabel.snp.bottom).offset(5)
+            $0.bottom.equalTo(commitTrandCountLabel2.snp.top).offset(-5)
+            $0.left.right.equalTo(commitTrandView).inset(15)
+        }
+        
     }
+    
+    private func getGradientFilling() -> CGGradient {
+        // Setting fill gradient color
+        let coloTop = UIColor.appColor(.mainColor).cgColor
+        let colorBottom = UIColor.appColor(.cellColor).cgColor
+        // Colors of the gradient
+        let gradientColors = [coloTop, colorBottom] as CFArray
+        // Positioning of the gradient
+        let colorLocations: [CGFloat] = [0.7, 0.0]
+        // Gradient Object
+        return CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)!
+    }
+    
 }

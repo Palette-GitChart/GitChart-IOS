@@ -35,7 +35,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="BackColor"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="tdi-8u-mMZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="99O-MC-6p1"/>
                             <constraint firstItem="t0N-2Z-DvQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-20" id="cDL-Re-1UP"/>
@@ -52,8 +52,8 @@
     </scenes>
     <resources>
         <image name="mainlogo.png" width="1024" height="1024"/>
-        <namedColor name="BackColor">
-            <color red="0.99661833050000004" green="0.99661833050000004" blue="0.99661844970000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="backgroundColor">
+            <color red="0.9570000171661377" green="0.96100002527236938" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
