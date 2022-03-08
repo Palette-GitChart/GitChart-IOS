@@ -125,12 +125,6 @@ class HomeVC : BaseViewController {
     let commitTrandCountLabel1 = UILabel()
     let commitTrandCountLabel2 = UILabel()
     
-    //TODO: dummy Array 추후 변경 예정
-
-    var commitDay = [1.0, 3.0, 1.0, 1.0, 2.03, 2.0, 0, 5.0, 6.0, 7.0, 5.0]
-    var lineChartEntry = [ChartDataEntry]()
-    let trandChart = LineChartView()
-
     func makeCommitTrandLabel() {
         [commitTrandCountLabel1, commitTrandCountLabel2].forEach { label in
             label.textColor = .appColor(.labelColor)
@@ -142,7 +136,10 @@ class HomeVC : BaseViewController {
         commitTrandCountLabel1.text = "2021-03-10"
     }
     
+    var commitDay = [1, 3, 1, 1, 2, 2, 0, 5, 6, 7, 5, 1, 2, 2, 0, 5, 6, 7, 51, 2, 2, 0, 5, 6, 7, 5]
+    var lineChartEntry = [ChartDataEntry]()
     
+    let trandChart = LineChartView()
     func cellViewMake() {
         [profileView, commitView1, commitView2, commitGoalView, commitTrandView]
             .forEach { v in
@@ -191,31 +188,26 @@ class HomeVC : BaseViewController {
         makeCommitTrandLabel()
         makeTrandChart()
         
-        //MARK: Chart Line set
-        
-        let linechart1 = LineChartDataSet(entries: lineChartEntry, label: "")
-        let gradient = getGradientFilling()
-        
-        
         for i in 0..<commitDay.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: commitDay[i])
+            let dataEntry = ChartDataEntry(x: Double(i), y: Double(commitDay[i]))
             lineChartEntry.append(dataEntry)
         }
         
-        linechart1.highlightEnabled = false
-        linechart1.lineWidth = 2.0
+        let linechart1 = LineChartDataSet(entries: lineChartEntry, label: "")
+        let gradient = getGradientFilling()
         linechart1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
         linechart1.drawFilledEnabled = true
         linechart1.drawCirclesEnabled = false
         linechart1.drawValuesEnabled = false
+        linechart1.highlightEnabled = false
         linechart1.mode = .cubicBezier
-        linechart1.colors = [NSUIColor(rgb: 0x7FC567)]
+        linechart1.colors = [NSUIColor.appColor(.mainColor)]
         linechart1.cubicIntensity = 0.2
+        linechart1.lineWidth = 2.0
         
         let data = LineChartData()
         data.addDataSet(linechart1)
         trandChart.data = data
-        
         
         [profileImage, profilenName, profileDetail].forEach {
             profileView.addSubview($0)
@@ -234,6 +226,7 @@ class HomeVC : BaseViewController {
             commitTrandView.addSubview($0)
         }
     }
+    
     override func setupConstraints() {
         setupConstraint()
     }
