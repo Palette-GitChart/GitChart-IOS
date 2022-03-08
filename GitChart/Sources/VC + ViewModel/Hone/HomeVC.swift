@@ -7,9 +7,12 @@
 
 import UIKit
 import RxGesture
+import Kingfisher
 import Charts
 
 class HomeVC : BaseViewController {
+    
+    let viewModel = HomeViewModel()
     
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .clear
@@ -38,7 +41,7 @@ class HomeVC : BaseViewController {
         $0.layer.borderColor = UIColor.secondaryLabel.cgColor
     }
     
-    let profilenName = UILabel().then {
+    var profilenName = UILabel().then {
         $0.font = .roundedFont(ofSize: 25, weight: .medium)
         $0.textColor = .appColor(.labelColor)
     }
@@ -136,7 +139,6 @@ class HomeVC : BaseViewController {
         commitTrandCountLabel1.text = "2021-03-10"
     }
     
-    var commitDay = [1, 3, 1, 1, 2, 2, 0, 5, 6, 7, 5, 1, 2, 2, 0, 5, 6, 7, 51, 2, 2, 0, 5, 6, 7, 5]
     var lineChartEntry = [ChartDataEntry]()
     
     let trandChart = LineChartView()
@@ -172,10 +174,6 @@ class HomeVC : BaseViewController {
         
         //TODO: dummy 추후 변경 예정
         
-        profileImage.image = UIImage(named: "profiedaeheeKim")
-        profilenName.text = "kimdaehee0824"
-        profileDetail.text = "팔로워 67명 | 팔로우 29명"
-        
         commitCountLabel1.text = "12개"
         commitCountLabel2.text = "23개"
         
@@ -188,26 +186,6 @@ class HomeVC : BaseViewController {
         makeCommitTrandLabel()
         makeTrandChart()
         
-        for i in 0..<commitDay.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: Double(commitDay[i]))
-            lineChartEntry.append(dataEntry)
-        }
-        
-        let linechart1 = LineChartDataSet(entries: lineChartEntry, label: "")
-        let gradient = getGradientFilling()
-        linechart1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
-        linechart1.drawFilledEnabled = true
-        linechart1.drawCirclesEnabled = false
-        linechart1.drawValuesEnabled = false
-        linechart1.highlightEnabled = false
-        linechart1.mode = .cubicBezier
-        linechart1.colors = [NSUIColor.appColor(.mainColor)]
-        linechart1.cubicIntensity = 0.2
-        linechart1.lineWidth = 2.0
-        
-        let data = LineChartData()
-        data.addDataSet(linechart1)
-        trandChart.data = data
         
         [profileImage, profilenName, profileDetail].forEach {
             profileView.addSubview($0)
@@ -225,6 +203,47 @@ class HomeVC : BaseViewController {
         [commitTrandLabel, trandChart].forEach {
             commitTrandView.addSubview($0)
         }
+        
+        bind()
+    }
+    
+    func bind() {
+        let output = viewModel.trans(
+            .init(
+            didCommitTap: commitView1.rx
+                .tapGesture().asDriver())
+        )
+        
+        output.getUserProfile.bind() { user in
+            self.profilenName.text = user.login
+            self.profileDetail.text = "팔로워 \(user.followers)명 | 팔로우 \(user.following)명"
+            self.profileImage.kf.indicatorType = .activity
+            self.profileImage.setImage(with: user.avatar_url ?? "")
+        }.disposed(by: disposeBag)
+        
+        output.getYearArray.bind{ user in
+            for i in 0..<user.count {
+                let dataEntry = ChartDataEntry(x: Double(i), y: Double(user[i]))
+                self.lineChartEntry.append(dataEntry)
+            }
+            
+            let linechart1 = LineChartDataSet(entries: self.lineChartEntry, label: "")
+            let gradient = self.getGradientFilling()
+            linechart1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+            linechart1.drawFilledEnabled = true
+            linechart1.drawCirclesEnabled = false
+            linechart1.drawValuesEnabled = false
+            linechart1.highlightEnabled = false
+            linechart1.mode = .cubicBezier
+            linechart1.colors = [NSUIColor.appColor(.mainColor)]
+            linechart1.cubicIntensity = 0.2
+            linechart1.lineWidth = 2.0
+            
+            let data = LineChartData()
+            data.addDataSet(linechart1)
+            self.trandChart.data = data
+        }.disposed(by: disposeBag)
+        
     }
     
     override func setupConstraints() {
