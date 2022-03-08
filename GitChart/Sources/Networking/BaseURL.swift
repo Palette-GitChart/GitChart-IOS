@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-let gitURL = "https://api.github.com/users"
+let gitURL = "https://api.github.com/"
 
 let myURL = "http://3.38.95.103:5000"
 
@@ -44,7 +44,7 @@ extension API {
         case .yearArray(let username):
             return "/\(username)/yeararray"
         case .getUserProfile(let username):
-            return "/\(username)"
+            return "users/\(username)"
         case .getUserStarred(let username):
             return "/\(username)/starred"
         }

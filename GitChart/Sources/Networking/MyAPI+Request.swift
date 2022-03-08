@@ -136,7 +136,7 @@ extension API {
   ) -> Single<Response> {
     
     let endpoint = API.Wrapper(base: self)
-    let requestString = "\(endpoint.method) \(endpoint.baseURL) \(endpoint.path)"
+    let requestString = "\(endpoint.method)\(endpoint.baseURL)\(endpoint.path)"
 
     return Self.moya.rx.request(endpoint)
       .filterSuccessfulStatusCodes()
