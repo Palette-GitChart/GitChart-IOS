@@ -9,7 +9,7 @@ import Foundation
 import Charts
 
 extension HomeVC {
-    func makeTrandChart(commitArray : [Double]) {
+    func makeTrandChart() {
         
         trandChart.noDataText = "Loading Data"
         trandChart.setScaleEnabled(false)
@@ -42,32 +42,9 @@ extension HomeVC {
         trandChart.rightAxis.drawGridLinesEnabled = false
         trandChart.rightAxis.drawLabelsEnabled = false
         trandChart.rightAxis.drawLimitLinesBehindDataEnabled = false
-        
-        
-        let linechart1 = LineChartDataSet(entries: lineChartEntry, label: "")
-        
-        let gradient = getGradientFilling()
-        
-        
-        for i in 0..<commitDay.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: commitDay[i])
-            lineChartEntry.append(dataEntry)
-        }
-                
-        linechart1.highlightEnabled = false
-        linechart1.lineWidth = 2.0
-        linechart1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
-        linechart1.drawFilledEnabled = true
-        linechart1.drawCirclesEnabled = false
-        linechart1.drawValuesEnabled = false
-        linechart1.mode = .cubicBezier
-        linechart1.colors = [NSUIColor(rgb: 0x7FC567)]
-        linechart1.cubicIntensity = 0.2
-        
-        let data = LineChartData()
-        data.addDataSet(linechart1)
-        trandChart.data = data
     }
+    
+    
     func getGradientFilling() -> CGGradient {
         // Setting fill gradient color
         let coloTop = UIColor(rgb: 0x7FC567).withAlphaComponent(0.64).cgColor
@@ -79,5 +56,5 @@ extension HomeVC {
         // Gradient Object
         return CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)!
     }
-
+    
 }
