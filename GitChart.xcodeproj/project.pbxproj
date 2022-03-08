@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		16E406E91D6F3FE7FBCD0B2B /* Pods_GitChartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121FA05A0C1B1E366B890976 /* Pods_GitChartTests.framework */; };
 		2DFF53D8937571F188389692 /* Pods_GitChart_GitChartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B225F86A57D602AA9335FEDF /* Pods_GitChart_GitChartUITests.framework */; };
+		5708673927D7885100CE4518 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5708673827D7885100CE4518 /* UIImageView.swift */; };
 		5718A33927B799E100552E93 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5718A33827B799E100552E93 /* Api.swift */; };
 		5736270C27B94EF8006F0AC0 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736270B27B94EF8006F0AC0 /* UserProfileModel.swift */; };
 		5736270E27B95032006F0AC0 /* StarredModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736270D27B95032006F0AC0 /* StarredModel.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		121FA05A0C1B1E366B890976 /* Pods_GitChartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitChartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18394C5B470A7E5C28C6E46D /* Pods-GitChart-GitChartUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChart-GitChartUITests.debug.xcconfig"; path = "Target Support Files/Pods-GitChart-GitChartUITests/Pods-GitChart-GitChartUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5708673827D7885100CE4518 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		5718A33827B799E100552E93 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		5736270B27B94EF8006F0AC0 /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		5736270D27B95032006F0AC0 /* StarredModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredModel.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				5769231E27AED62100E97A16 /* AssetsColor.swift */,
 				57A74A4727B4A86700BEA1E8 /* Fontkit.swift */,
 				57EF656C27CF545A00D17304 /* String.swift */,
+				5708673827D7885100CE4518 /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */,
 				576D101B27BA9DF400EC5CF3 /* Moya+NetworkError.swift in Sources */,
 				57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */,
+				5708673927D7885100CE4518 /* UIImageView.swift in Sources */,
 				576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */,
 				57E94A4727B6A6E100AE826A /* BaseURL.swift in Sources */,
 				5736270E27B95032006F0AC0 /* StarredModel.swift in Sources */,
