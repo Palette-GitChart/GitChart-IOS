@@ -86,7 +86,6 @@ extension HomeVC {
             $0.height.equalTo(30)
         }
         
-        commitGoalProgressView.progress = 0.7
         commitGoalProgressView.snp.makeConstraints {
             $0.top.equalTo(commitGoalLabel.snp.bottom).offset(15)
             $0.left.right.equalTo(commitGoalView).inset(15)

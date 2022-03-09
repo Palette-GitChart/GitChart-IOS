@@ -7,6 +7,7 @@
 
 import UIKit
 import RxGesture
+import RxSwift
 import Kingfisher
 import Charts
 
@@ -174,9 +175,6 @@ class HomeVC : BaseViewController {
         
         //TODO: dummy 추후 변경 예정
         
-        commitCountLabel1.text = "12개"
-        commitCountLabel2.text = "23개"
-        
         commitLabel1.text = "Today Commit"
         commitLabel2.text = "week commit"
         
@@ -210,8 +208,8 @@ class HomeVC : BaseViewController {
     func bind() {
         let output = viewModel.trans(
             .init(
-            didCommitTap: commitView1.rx
-                .tapGesture().asDriver())
+                didCommitTap: commitView1.rx
+                    .tapGesture().asDriver())
         )
         
         output.getUserProfile.bind() { user in
@@ -221,32 +219,39 @@ class HomeVC : BaseViewController {
             self.profileImage.setImage(with: user.avatar_url ?? "")
         }.disposed(by: disposeBag)
         
-        output.getYearArray.bind{ user in
-            for i in 0..<user.count {
-                let dataEntry = ChartDataEntry(x: Double(i), y: Double(user[i]))
-                self.lineChartEntry.append(dataEntry)
-            }
-            
-            let linechart1 = LineChartDataSet(entries: self.lineChartEntry, label: "")
-            let gradient = self.getGradientFilling()
-            linechart1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
-            linechart1.drawFilledEnabled = true
-            linechart1.drawCirclesEnabled = false
-            linechart1.drawValuesEnabled = false
-            linechart1.highlightEnabled = false
-            linechart1.mode = .cubicBezier
-            linechart1.colors = [NSUIColor.appColor(.mainColor)]
-            linechart1.cubicIntensity = 0.2
-            linechart1.lineWidth = 2.0
-            
-            let data = LineChartData()
-            data.addDataSet(linechart1)
-            self.trandChart.data = data
-        }.disposed(by: disposeBag)
+        output.getUserDayCommit
+            .bind { count in
+                self.commitCountLabel1.text = "\(count)개"
+                self.commitGoalProgressView.progress = Float(1/15*Int(count)!)
+                self.commitCountLabel1.textColor = UIColor(rgb: 0x6EC7CD)
+                self.makeDayCommitView()
+            }.disposed(by: disposeBag)
         
+        output.getWeekCommit
+            .bind{ count in
+                self.commitCountLabel2.text = "\(count)개"
+                self.commitCountLabel2.textColor = .appColor(.subColor)
+                self.makeDayCommitView()
+            }.disposed(by: disposeBag)
+        
+        output.getYearArray
+            .bind{ user in
+                for i in 0..<user.count {
+                    let dataEntry = ChartDataEntry(x: Double(i), y: Double(user[i]))
+                    self.lineChartEntry.append(dataEntry)
+                }
+                let linechart1 = LineChartDataSet(entries: self.lineChartEntry, label: "")
+                let gradient = self.getGradientFilling(with: 0x7FC567, alpa: 0.84)
+                linechart1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+                let data = LineChartData()
+                self.setChartLine(line: linechart1, color: NSUIColor.appColor(.mainColor))
+                data.addDataSet(linechart1)
+                self.trandChart.data = data
+            }.disposed(by: disposeBag)
     }
     
     override func setupConstraints() {
         setupConstraint()
     }
+    
 }

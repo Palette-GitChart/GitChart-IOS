@@ -23,7 +23,7 @@ class HomeViewModel : ViewModel  {
     let getYearCommit = PublishRelay<String>()
     let getYearArray = PublishRelay<[Int]>()
     let usernameStatus = PublishRelay<Bool>()
-
+    
     
     struct input {
         let didCommitTap : Driver<UITapGestureRecognizer>
@@ -59,7 +59,7 @@ class HomeViewModel : ViewModel  {
                     self.usernameStatus.accept(true)
                 case .failure(let error):
                     print("😔 error : \(error)")
-                                        self.usernameStatus.accept(false)
+                    self.usernameStatus.accept(false)
                 }
             }.disposed(by: bag)
         
@@ -69,18 +69,21 @@ class HomeViewModel : ViewModel  {
         let commitCountOutput : [PublishRelay<String>] = [getUserDayCommit, getWeekCommit, getMounthCommit, getYearCommit]
         
         for count in 0..<4 {
-            commitCountArray[count].request()
-                .subscribe { (event) in
-                    switch event {
-                    case .success(let response):
-                        let data = String(data: response.data, encoding: .utf8)
-                        commitCountOutput[count].accept(data!)
-                        self.usernameStatus.accept(true)
-                    case .failure(let error):
-                        print("😔 error : \(error)")
-                        self.usernameStatus.accept(false)
-                    }
-                }.disposed(by: bag)
+            DispatchQueue.global().async {
+                commitCountArray[count].request()
+                    .subscribe { (event) in
+                        switch event {
+                        case .success(let response):
+                            let data = String(data: response.data, encoding: .utf8)
+                            commitCountOutput[count].accept(data!)
+                            self.usernameStatus.accept(true)
+                        case .failure(let error):
+                            print("😔 error : \(error)")
+                            self.usernameStatus.accept(false)
+                        }
+                    }.disposed(by: self.bag)
+                
+            }
         }
         
         API.yearArray(username).request()
