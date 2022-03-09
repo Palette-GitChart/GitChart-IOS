@@ -22,6 +22,8 @@ class HomeViewModel : ViewModel  {
     let getMounthCommit = PublishRelay<String>()
     let getYearCommit = PublishRelay<String>()
     let getYearArray = PublishRelay<[Int]>()
+    let getWeekArray = PublishRelay<[Int]>()
+    let getMounthArray = PublishRelay<[Int]>()
     let usernameStatus = PublishRelay<Bool>()
     
     
@@ -35,6 +37,8 @@ class HomeViewModel : ViewModel  {
         let getWeekCommit : PublishRelay<String>
         let getMounthCommit : PublishRelay<String>
         let getYearCommit : PublishRelay<String>
+        let getWeekArray : PublishRelay<[Int]>
+        let getMounthArray : PublishRelay<[Int]>
         let getYearArray : PublishRelay<[Int]>
         let usernameStatus : PublishRelay<Bool>
     }
@@ -86,22 +90,28 @@ class HomeViewModel : ViewModel  {
             }
         }
         
-        API.yearArray(username).request()
-            .subscribe { (event) in
-                switch event {
-                case .success(let response):
-                    guard let data = try? JSONDecoder().decode([Int].self, from: response.data) else
-                    { return }
-                    self.getYearArray.accept(data)
-                    self.usernameStatus.accept(true)
-                case .failure(let error):
-                    print("😔 error : \(error)")
-                    self.usernameStatus.accept(false)
-                }
-                
-            }.disposed(by: bag)
+        //MARK: CommitArray
         
-        return output(getUserProfile: getUserProfile, getUserDayCommit: getUserDayCommit, getWeekCommit: getWeekCommit, getMounthCommit: getMounthCommit, getYearCommit: getYearCommit, getYearArray: getYearArray, usernameStatus: usernameStatus)
+        let commitListArray : [API] = [.weekArray(username), .monthArray(username),.yearArray(username)]
+        let commitListOutput : [PublishRelay<[Int]>] = [getWeekArray, getMounthArray, getYearArray]
+                                
+        for count in 0..<3 {
+            commitListArray[count].request()
+                .subscribe { (event) in
+                    switch event {
+                    case .success(let response):
+                        guard let data = try? JSONDecoder().decode([Int].self, from: response.data) else
+                        { return }
+                        commitListOutput[count].accept(data)
+                        self.usernameStatus.accept(true)
+                    case .failure(let error):
+                        print("😔 error : \(error)")
+                        self.usernameStatus.accept(false)
+                    }
+                }.disposed(by: bag)
+        }
+                
+        return output(getUserProfile: getUserProfile, getUserDayCommit: getUserDayCommit, getWeekCommit: getWeekCommit, getMounthCommit: getMounthCommit, getYearCommit: getYearCommit, getWeekArray: getWeekArray, getMounthArray: getMounthArray, getYearArray: getYearArray, usernameStatus: usernameStatus)
     }
     
     
