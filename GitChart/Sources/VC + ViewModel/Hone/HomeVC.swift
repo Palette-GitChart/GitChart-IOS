@@ -239,7 +239,7 @@ class HomeVC : BaseViewController {
                 for i in 0..<user.count {
                     let dataEntry = ChartDataEntry(x: Double(i), y: Double(user[i]))
                     self.lineChartEntry.append(dataEntry)
-                }
+                } 
                 let linechart1 = LineChartDataSet(entries: self.lineChartEntry, label: "")
                 let gradient = self.getGradientFilling(with: 0x7FC567, alpa: 0.84)
                 linechart1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)

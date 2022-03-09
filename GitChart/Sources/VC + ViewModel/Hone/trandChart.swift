@@ -45,9 +45,9 @@ extension HomeVC {
     }
     
     
-    func getGradientFilling() -> CGGradient {
+    func getGradientFilling(with rgb : Int, alpa : Double) -> CGGradient {
         // Setting fill gradient color
-        let coloTop = UIColor(rgb: 0x7FC567).withAlphaComponent(0.64).cgColor
+        let coloTop = UIColor(rgb: rgb).withAlphaComponent(alpa).cgColor
         let colorBottom = UIColor.appColor(.cellColor).cgColor
         // Colors of the gradient
         let gradientColors = [coloTop, colorBottom] as CFArray
@@ -56,5 +56,16 @@ extension HomeVC {
         // Gradient Object
         return CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)!
     }
-    
+    func setChartLine(line :LineChartDataSet, color : NSUIColor ) {
+        line.drawFilledEnabled = true
+        line.drawCirclesEnabled = false
+        line.drawValuesEnabled = false
+        line.highlightEnabled = false
+        line.mode = .cubicBezier
+        line.colors = [color]
+        line.cubicIntensity = 0.2
+        line.lineWidth = 2.0
+        
+    }
+
 }
