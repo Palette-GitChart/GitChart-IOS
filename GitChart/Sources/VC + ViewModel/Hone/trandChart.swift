@@ -13,7 +13,6 @@ extension HomeVC {
         
         trandChart.noDataText = "Loading Data"
         trandChart.setScaleEnabled(false)
-        
         trandChart.drawGridBackgroundEnabled = false
         trandChart.xAxis.drawAxisLineEnabled = false
         trandChart.xAxis.drawLimitLinesBehindDataEnabled = false
@@ -21,7 +20,7 @@ extension HomeVC {
         trandChart.xAxis.gridLineWidth = 0.5
         trandChart.xAxis.drawGridLinesEnabled = false
         trandChart.xAxis.drawLabelsEnabled = false
-        trandChart.animate(xAxisDuration: 0.5)
+        
         trandChart.xAxis.drawGridLinesEnabled = false
         trandChart.leftAxis.drawLabelsEnabled = false
         trandChart.legend.enabled = false
