@@ -99,7 +99,6 @@ class HomeVC : BaseViewController {
         $0.layer.cornerRadius = 7.5
         $0.layer.sublayers![1].cornerRadius = 7.5// 뒤에 있는 회색 track
         $0.subviews[1].clipsToBounds = true
-        $0.setProgress(1.0, animated: true)
     }
     
     let commitGoalCountLabel1 = UILabel()
@@ -111,7 +110,7 @@ class HomeVC : BaseViewController {
             label.font = .notoFont(size: .Regular, ofSize: 12)
             view.addSubview(label)
         }
-        commitGoalCountLabel1.text = "1개"
+        commitGoalCountLabel1.text = "0개"
         commitGoalCountLabel2.textAlignment = .right
         
         //TODO: dummy 추후 변경 얘정
@@ -218,11 +217,11 @@ class HomeVC : BaseViewController {
             self.profileImage.kf.indicatorType = .activity
             self.profileImage.setImage(with: user.avatar_url ?? "")
         }.disposed(by: disposeBag)
-        
+    
         output.getUserDayCommit
             .bind { count in
                 self.commitCountLabel1.text = "\(count)개"
-                self.commitGoalProgressView.progress = Float(1/15*Int(count)!)
+                self.commitGoalProgressView.setProgress(Float(Double(100/15*Int(count)!)/100), animated: true)
                 self.commitCountLabel1.textColor = UIColor(rgb: 0x6EC7CD)
                 self.makeDayCommitView()
             }.disposed(by: disposeBag)
@@ -239,7 +238,7 @@ class HomeVC : BaseViewController {
                 for i in 0..<user.count {
                     let dataEntry = ChartDataEntry(x: Double(i), y: Double(user[i]))
                     self.lineChartEntry.append(dataEntry)
-                } 
+                }
                 let linechart1 = LineChartDataSet(entries: self.lineChartEntry, label: "")
                 let gradient = self.getGradientFilling(with: 0x7FC567, alpa: 0.84)
                 linechart1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
