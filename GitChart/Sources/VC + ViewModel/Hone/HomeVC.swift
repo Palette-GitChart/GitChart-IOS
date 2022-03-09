@@ -211,13 +211,28 @@ class HomeVC : BaseViewController {
                     .tapGesture().asDriver())
         )
         
+        output.usernameStatus.bind { bool in
+            
+            if bool == false {
+                let alert = UIAlertController(title: "데이터를 받아올수 없습니다", message: "인터넷 연결을 확인하시고, 처음 앱을 실행하셨다면 Github 아이디를 입력해 주새요!", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "확인", style: .default) { action in
+                    UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { exit(0) }
+                    
+                }
+                alert.addAction(okAction)
+                self.present(alert, animated: false, completion: nil)
+            }
+            
+        }.disposed(by: disposeBag)
+        
         output.getUserProfile.bind() { user in
             self.profilenName.text = user.login
             self.profileDetail.text = "팔로워 \(user.followers)명 | 팔로우 \(user.following)명"
             self.profileImage.kf.indicatorType = .activity
             self.profileImage.setImage(with: user.avatar_url ?? "")
         }.disposed(by: disposeBag)
-    
+        
         output.getUserDayCommit
             .bind { count in
                 self.commitCountLabel1.text = "\(count)개"
@@ -246,6 +261,7 @@ class HomeVC : BaseViewController {
                 self.setChartLine(line: linechart1, color: NSUIColor.appColor(.mainColor))
                 data.addDataSet(linechart1)
                 self.trandChart.data = data
+                self.trandChart.animate(xAxisDuration: 0.5)
             }.disposed(by: disposeBag)
     }
     
