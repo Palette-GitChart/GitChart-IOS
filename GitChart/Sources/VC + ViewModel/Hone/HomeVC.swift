@@ -219,8 +219,8 @@ class HomeVC : BaseViewController {
                     message: "인터넷 연결을 확인하시고, 처음 앱을 실행하셨다면 Github 아이디를 입력해 주새요!",
                     preferredStyle: UIAlertController.Style.alert)
                 let okAction = UIAlertAction(title: "확인", style: .default) { action in
-                    UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { exit(0) }
+//                    UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { exit(0) }
                     
                 }
                 alert.addAction(okAction)
