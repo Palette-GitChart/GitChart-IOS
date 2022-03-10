@@ -69,10 +69,10 @@ class HomeViewModel : ViewModel  {
         
         //MARK: Commit Count
         
-        let commitCountArray : [API] = [.dayCommit(username), .weekCommit(username), .mounthCommit(username), .yearCommit(username)]
-        let commitCountOutput : [PublishRelay<String>] = [getUserDayCommit, getWeekCommit, getMounthCommit, getYearCommit]
+        let commitCountArray : [API] = [.dayCommit(username), .weekCommit(username)]
+        let commitCountOutput : [PublishRelay<String>] = [getUserDayCommit, getWeekCommit]
         
-        for count in 0..<4 {
+        for count in 0..<2 {
             DispatchQueue.global().async {
                 commitCountArray[count].request()
                     .subscribe { (event) in
@@ -92,10 +92,10 @@ class HomeViewModel : ViewModel  {
         
         //MARK: CommitArray
         
-        let commitListArray : [API] = [.weekArray(username), .monthArray(username),.yearArray(username)]
-        let commitListOutput : [PublishRelay<[Int]>] = [getWeekArray, getMounthArray, getYearArray]
+        let commitListArray : [API] = [.monthArray(username)]
+        let commitListOutput : [PublishRelay<[Int]>] = [getMounthArray]
         
-        for count in 0..<3 {
+        for count in 0..<1 {
             commitListArray[count].request()
                 .subscribe { (event) in
                     switch event {

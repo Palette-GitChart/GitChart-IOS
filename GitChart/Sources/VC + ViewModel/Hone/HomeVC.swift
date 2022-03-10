@@ -202,10 +202,9 @@ class HomeVC : BaseViewController {
             commitTrandView.addSubview($0)
         }
         
-        bind()
     }
     
-    func bind() {
+    override func bindViewModel() {
         let output = viewModel.trans(
             .init(
                 didCommitTap: commitView1.rx
