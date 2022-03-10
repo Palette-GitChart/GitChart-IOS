@@ -46,6 +46,7 @@ class BaseViewController: UIViewController {
         self.configureUI()
         self.setupConstraints()
         self.initialize()
+        self.bindViewModel()
         self.view.setNeedsUpdateConstraints()
     }
     
@@ -68,6 +69,10 @@ class BaseViewController: UIViewController {
         // Override point
     }
     func setLayout() {
+        
+    }
+    
+    func bindViewModel() {
         
     }
     
