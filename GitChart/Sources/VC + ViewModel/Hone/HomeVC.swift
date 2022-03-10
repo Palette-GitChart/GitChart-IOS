@@ -156,7 +156,7 @@ class HomeVC : BaseViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 34, weight: .bold)]
         self.title = "Home"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .automatic
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -214,7 +214,10 @@ class HomeVC : BaseViewController {
         output.usernameStatus.bind { bool in
             
             if bool == false {
-                let alert = UIAlertController(title: "데이터를 받아올수 없습니다", message: "인터넷 연결을 확인하시고, 처음 앱을 실행하셨다면 Github 아이디를 입력해 주새요!", preferredStyle: UIAlertController.Style.alert)
+                let alert = UIAlertController(
+                    title: "데이터를 받아올수 없습니다",
+                    message: "인터넷 연결을 확인하시고, 처음 앱을 실행하셨다면 Github 아이디를 입력해 주새요!",
+                    preferredStyle: UIAlertController.Style.alert)
                 let okAction = UIAlertAction(title: "확인", style: .default) { action in
                     UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { exit(0) }
@@ -248,7 +251,7 @@ class HomeVC : BaseViewController {
                 self.makeDayCommitView()
             }.disposed(by: disposeBag)
         
-        output.getYearArray
+        output.getMounthArray
             .bind{ user in
                 for i in 0..<user.count {
                     let dataEntry = ChartDataEntry(x: Double(i), y: Double(user[i]))

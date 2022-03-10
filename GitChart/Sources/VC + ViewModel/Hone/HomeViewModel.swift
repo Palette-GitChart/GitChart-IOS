@@ -94,7 +94,7 @@ class HomeViewModel : ViewModel  {
         
         let commitListArray : [API] = [.weekArray(username), .monthArray(username),.yearArray(username)]
         let commitListOutput : [PublishRelay<[Int]>] = [getWeekArray, getMounthArray, getYearArray]
-                                
+        
         for count in 0..<3 {
             commitListArray[count].request()
                 .subscribe { (event) in
@@ -110,7 +110,7 @@ class HomeViewModel : ViewModel  {
                     }
                 }.disposed(by: bag)
         }
-                
+        
         return output(getUserProfile: getUserProfile, getUserDayCommit: getUserDayCommit, getWeekCommit: getWeekCommit, getMounthCommit: getMounthCommit, getYearCommit: getYearCommit, getWeekArray: getWeekArray, getMounthArray: getMounthArray, getYearArray: getYearArray, usernameStatus: usernameStatus)
     }
     

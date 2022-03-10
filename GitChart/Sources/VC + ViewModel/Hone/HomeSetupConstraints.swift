@@ -11,10 +11,7 @@ import SnapKit
 extension HomeVC {
     func setupConstraint() {
         scrollView.snp.makeConstraints { $0.edges.equalTo(view) }
-        contentView.snp.makeConstraints {
-            $0.top.bottom.equalTo(0)
-            $0.left.right.equalTo(view)
-        }
+        contentView.snp.makeConstraints { $0.edges.width.equalTo(self.scrollView) }
         
         // profileCell
         
