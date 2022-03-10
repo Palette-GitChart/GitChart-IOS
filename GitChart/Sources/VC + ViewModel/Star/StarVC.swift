@@ -27,8 +27,6 @@ class StarVC : BaseViewController {
     }
     
     override func setupConstraints() {
-        mainTableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        mainTableView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
 }
