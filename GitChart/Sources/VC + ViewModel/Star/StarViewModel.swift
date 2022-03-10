@@ -15,7 +15,9 @@ class StarViewModwl : ViewModel {
     let getUserStarList = PublishRelay<[Starred]>()
     let apiStatus = PublishRelay<Bool>()
     
-    struct input {}
+    struct input {
+        let username : String
+    }
     
     struct output {
         let getUserStarList : PublishRelay<[Starred]>

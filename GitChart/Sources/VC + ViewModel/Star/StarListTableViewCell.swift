@@ -15,19 +15,19 @@ class StarListTableViewCell: BaseTableViewCell {
         $0.layer.cornerRadius = 20
     }
     
-    let starTitleLabel = UILabel().then {
+    var starTitleLabel = UILabel().then {
         $0.font = .roundedFont(ofSize: 22, weight: .medium)
         $0.textColor = .appColor(.labelColor)
     }
     
     let starDetailLabel = UILabel().then {
-        $0.font = .roundedFont(ofSize: 12, weight: .medium)
+        $0.font = .roundedFont(ofSize: 14, weight: .medium)
         $0.textColor = .appColor(.labelColor)
     }
     
     let starUserImage = UIImageView().then {
         $0.clipsToBounds = true
-        $0.layer.cornerRadius = 20
+        $0.layer.cornerRadius = 25
         $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.secondaryLabel.cgColor
     }
@@ -42,11 +42,11 @@ class StarListTableViewCell: BaseTableViewCell {
         mainView.snp.makeConstraints {
             $0.left.right.equalTo(contentView).inset(15)
             $0.top.equalTo(contentView).offset(5)
-            $0.bottom.equalTo(contentView).inset(15)
+            $0.bottom.equalTo(contentView).inset(5)
             $0.height.equalTo(80)
         }
         starUserImage.snp.makeConstraints {
-            $0.width.height.equalTo(40)
+            $0.width.height.equalTo(50)
             $0.centerY.equalTo(mainView)
             $0.right.equalTo(mainView).inset(15)
         }
