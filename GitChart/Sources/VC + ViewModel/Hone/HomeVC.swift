@@ -156,7 +156,8 @@ class HomeVC : BaseViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 34, weight: .bold)]
         self.title = "Home"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .automatic
+        navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.sizeToFit()
     }
     
     override func viewWillAppear(_ animated: Bool) {
