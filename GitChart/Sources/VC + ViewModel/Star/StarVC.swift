@@ -36,7 +36,7 @@ class StarVC : BaseViewController {
     
     override func bindViewModel() {
         let output = viewModel.trans(.init(username: "kimdaehee0824"))
-
+        
         output.getUserStarList
             .bind(to: mainTableView.rx
                     .items(cellIdentifier: "starListCell",
@@ -47,5 +47,9 @@ class StarVC : BaseViewController {
                 cell.starUserImage.kf.indicatorType = .activity
                 cell.starUserImage.setImage(with: element.owner.avatar_url)
             }.disposed(by: disposeBag)
+        
+        mainTableView.rx.itemSelected.bind { indexPath in
+            
+        }.disposed(by: disposeBag)
     }
 }
