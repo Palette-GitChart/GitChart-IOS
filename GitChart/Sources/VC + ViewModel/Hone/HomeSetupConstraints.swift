@@ -101,7 +101,7 @@ extension HomeVC {
         commitTrandView.snp.makeConstraints {
             $0.top.equalTo(commitGoalView.snp.bottom).offset(10)
             $0.left.right.equalTo(contentView).inset(15)
-            $0.height.equalTo(280)
+            $0.height.equalTo(270)
             $0.bottom.equalTo(-10)
         }
         
