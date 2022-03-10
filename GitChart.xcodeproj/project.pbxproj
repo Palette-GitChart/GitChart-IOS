@@ -24,6 +24,7 @@
 		576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067727B40AFD0056B7F5 /* StarVC.swift */; };
 		576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E067927B40B0C0056B7F5 /* SettingVC.swift */; };
 		5775CBB027D9D62E0032EC91 /* StarListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775CBAF27D9D62E0032EC91 /* StarListTableViewCell.swift */; };
+		5775CBB227D9D8850032EC91 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775CBB127D9D8850032EC91 /* BaseTableViewCell.swift */; };
 		5783DE9327B42989001BE31C /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5783DE8827B426CE001BE31C /* NotoSans-Bold.ttf */; };
 		5783DE9427B4298A001BE31C /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5783DE8827B426CE001BE31C /* NotoSans-Bold.ttf */; };
 		5783DE9527B42994001BE31C /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5783DE8927B426CE001BE31C /* NotoSans-Regular.ttf */; };
@@ -82,6 +83,7 @@
 		576E067727B40AFD0056B7F5 /* StarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarVC.swift; sourceTree = "<group>"; };
 		576E067927B40B0C0056B7F5 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		5775CBAF27D9D62E0032EC91 /* StarListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarListTableViewCell.swift; sourceTree = "<group>"; };
+		5775CBB127D9D8850032EC91 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		5783DE8827B426CE001BE31C /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		5783DE8927B426CE001BE31C /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		5797946C27D6CD3D006EC8AE /* trandChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trandChart.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				5769231727AC168100E97A16 /* BaseViewController.swift */,
+				5775CBB127D9D8850032EC91 /* BaseTableViewCell.swift */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				5736270C27B94EF8006F0AC0 /* UserProfileModel.swift in Sources */,
 				5718A33927B799E100552E93 /* Api.swift in Sources */,
 				5775CBB027D9D62E0032EC91 /* StarListTableViewCell.swift in Sources */,
+				5775CBB227D9D8850032EC91 /* BaseTableViewCell.swift in Sources */,
 				57A74A4827B4A86700BEA1E8 /* Fontkit.swift in Sources */,
 				5797946D27D6CD3D006EC8AE /* trandChart.swift in Sources */,
 				57B4D27827A58AE600C131E1 /* SceneDelegate.swift in Sources */,
