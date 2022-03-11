@@ -160,11 +160,6 @@ class HomeVC : BaseViewController {
         self.navigationController?.navigationBar.sizeToFit()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.navigationController?.navigationBar.sizeToFit()
-        }
-    }
     
     //MARK: - configure
     

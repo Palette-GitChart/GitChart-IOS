@@ -12,6 +12,7 @@ class StarVC : BaseViewController {
     
     let viewModel = StarViewModwl()
     
+    
     let mainTableView = UITableView().then {
         $0.register(StarListTableViewCell.self, forCellReuseIdentifier: "starListCell")
         $0.backgroundColor = .clear
@@ -48,8 +49,21 @@ class StarVC : BaseViewController {
                 cell.starUserImage.setImage(with: element.owner.avatar_url)
             }.disposed(by: disposeBag)
         
-        mainTableView.rx.itemSelected.bind { indexPath in
+        mainTableView.rx.modelSelected(Starred.self).bind { element in
+            print(element)
+            let vc = StarDetailVC()
             
+            vc.githubURL = element.html_url
+            vc.starProfile.setImage(with: element.owner.avatar_url)
+            vc.starTitlelabel.text = element.name
+            vc.starDetailLabel.text = element.description
+            vc.forkLabel.text = "Fork : \(element.forks_count)"
+            vc.watchlabel.text = "Watch : \(element.watchers_count)"
+            
+            
+            self.navigationController?.pushViewController(vc, animated: true)
         }.disposed(by: disposeBag)
     }
+    
+    
 }
