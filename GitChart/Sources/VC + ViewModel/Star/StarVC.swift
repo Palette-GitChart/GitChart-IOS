@@ -24,6 +24,13 @@ class StarVC : BaseViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.labelColor), .font : UIFont.roundedFont(ofSize: 34, weight: .bold)]
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+        
+    }
+
+
     override func configureUI() {
         self.title = "Star"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -50,7 +57,6 @@ class StarVC : BaseViewController {
             }.disposed(by: disposeBag)
         
         mainTableView.rx.modelSelected(Starred.self).bind { element in
-            print(element)
             let vc = StarDetailVC()
             
             vc.githubURL = element.html_url
@@ -59,7 +65,6 @@ class StarVC : BaseViewController {
             vc.starDetailLabel.text = element.description
             vc.forkLabel.text = "Fork : \(element.forks_count)"
             vc.watchlabel.text = "Watch : \(element.watchers_count)"
-            
             
             self.navigationController?.pushViewController(vc, animated: true)
         }.disposed(by: disposeBag)
