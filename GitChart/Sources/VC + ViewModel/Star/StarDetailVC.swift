@@ -10,11 +10,11 @@ import UIKit
 
 final class StarDetailVC : BaseViewController {
     
-    var starred : Starred?
+    var githubURL = ""
     
     let starProfile = UIImageView().then {
         $0.clipsToBounds = true
-        $0.layer.cornerRadius = 25
+        $0.layer.cornerRadius = 50
         $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.secondaryLabel.cgColor
     }
@@ -25,24 +25,38 @@ final class StarDetailVC : BaseViewController {
         $0.textAlignment = .center
     }
     
-    let starDetailLabel = UILabel().then {
+    let starDetailLabel = UITextView().then {
         $0.textColor = .appColor(.labelColor)
+        $0.textAlignment = .center
+        $0.backgroundColor = .clear
+        
         $0.font = .roundedFont(ofSize: 18, weight: .regular)
+    }
+    
+    let visitWebButton = UIButton().then {
+        $0.setTitle("Web에서 보기", for: .normal)
+        $0.backgroundColor = UIColor(rgb: 0x67C58E).withAlphaComponent(0.9)
+        $0.titleLabel?.textColor = .white
+        $0.titleLabel?.font = .notoFont(size: .Regular, ofSize: 22)
+        $0.layer.cornerRadius = 10
     }
     
     let forkLabel = UILabel()
     let watchlabel = UILabel()
     
     override func configureUI() {
-        
+        navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.tintColor = .appColor(.mainColor)
+
         [forkLabel, watchlabel].forEach {
             $0.font = .notoFont(size: .Regular, ofSize: 20)
             $0.textColor = .appColor(.labelColor)
         }
         
-        [starProfile, starTitlelabel, starDetailLabel, watchlabel, forkLabel].forEach {
+        [starProfile, starTitlelabel, starDetailLabel, watchlabel, forkLabel, visitWebButton].forEach {
             view.addSubview($0)
         }
+        adjustUITextViewHeight(arg: starDetailLabel)
         
     }
     
