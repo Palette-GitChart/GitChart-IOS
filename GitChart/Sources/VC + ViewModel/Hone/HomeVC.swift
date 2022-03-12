@@ -14,6 +14,7 @@ import Charts
 class HomeVC : BaseViewController {
     
     let viewModel = HomeViewModel()
+    let refreshControl = UIRefreshControl()
     
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .clear
@@ -167,7 +168,8 @@ class HomeVC : BaseViewController {
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        
+        refreshControl.endRefreshing() // 초기화 - refresh 종료
+        scrollView.refreshControl = refreshControl
         //TODO: dummy 추후 변경 예정
         
         commitLabel1.text = "Today Commit"
@@ -197,9 +199,18 @@ class HomeVC : BaseViewController {
             commitTrandView.addSubview($0)
         }
         
+        bindViewModel()
+        
+        refreshControl.rx.controlEvent(.valueChanged).bind {
+            self.bindViewModel()
+            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3) {
+                self.refreshControl.endRefreshing()
+            }
+            
+        }.disposed(by: disposeBag)
     }
     
-    override func bindViewModel() {
+    func bindViewModel() {
         let output = viewModel.trans(
             .init(
                 didCommitTap: commitView1.rx
@@ -214,9 +225,6 @@ class HomeVC : BaseViewController {
                     message: "인터넷 연결을 확인하시고, 처음 앱을 실행하셨다면 Github 아이디를 입력해 주새요!",
                     preferredStyle: UIAlertController.Style.alert)
                 let okAction = UIAlertAction(title: "확인", style: .default) { action in
-//                    UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { exit(0) }
-                    
                 }
                 alert.addAction(okAction)
                 self.present(alert, animated: false, completion: nil)
