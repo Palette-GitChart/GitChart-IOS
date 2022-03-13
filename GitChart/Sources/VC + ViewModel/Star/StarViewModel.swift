@@ -27,7 +27,6 @@ class StarViewModwl : ViewModel {
     func trans(_ input: input) -> output {
         API.getUserStarred("kimdaehee0824").request()
             .subscribe { event in
-                
                 switch event {
                 case .success(let response):
                     print(response.data)

@@ -25,3 +25,12 @@ extension String {
     }
     
 }
+
+extension Int {
+    func dsecimalNumber() -> String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(from: NSNumber(value: Int(self) ?? 0))!
+        return result
+    }
+}

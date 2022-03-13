@@ -168,6 +168,7 @@ class HomeVC : BaseViewController {
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
+        refreshControl.tintColor = .appColor(.labelColor)
         refreshControl.endRefreshing() // 초기화 - refresh 종료
         scrollView.refreshControl = refreshControl
         //TODO: dummy 추후 변경 예정
