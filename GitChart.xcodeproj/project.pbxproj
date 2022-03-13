@@ -47,6 +47,7 @@
 		57E94A4727B6A6E100AE826A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E94A4627B6A6E100AE826A /* BaseURL.swift */; };
 		57E98B3227CBCE0C0011A00F /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E98B3127CBCE0C0011A00F /* ViewModelProtocol.swift */; };
 		57EF656D27CF545A00D17304 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF656C27CF545A00D17304 /* String.swift */; };
+		57F72D2227DE19C200C08D44 /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72D2127DE19C200C08D44 /* FriendsListTableViewCell.swift */; };
 		C57BE8A911855049E250D5D0 /* Pods_GitChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB3204BF66CF577C5B00EFF /* Pods_GitChart.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		57E98B3127CBCE0C0011A00F /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		57EF656B27CF247B00D17304 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		57EF656C27CF545A00D17304 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		57F72D2127DE19C200C08D44 /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		60232FEE5E823A37D1A2C0B2 /* Pods-GitChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChart.debug.xcconfig"; path = "Target Support Files/Pods-GitChart/Pods-GitChart.debug.xcconfig"; sourceTree = "<group>"; };
 		658A978450FD153812961E06 /* Pods-GitChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChart.release.xcconfig"; path = "Target Support Files/Pods-GitChart/Pods-GitChart.release.xcconfig"; sourceTree = "<group>"; };
 		B064F521EF5DCED3E350094E /* Pods-GitChartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChartTests.release.xcconfig"; path = "Target Support Files/Pods-GitChartTests/Pods-GitChartTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				576E067527B40AEC0056B7F5 /* FriendsVC.swift */,
+				57F72D2127DE19C200C08D44 /* FriendsListTableViewCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				5775CBB227D9D8850032EC91 /* BaseTableViewCell.swift in Sources */,
 				57A74A4827B4A86700BEA1E8 /* Fontkit.swift in Sources */,
 				5797946D27D6CD3D006EC8AE /* trandChart.swift in Sources */,
+				57F72D2227DE19C200C08D44 /* FriendsListTableViewCell.swift in Sources */,
 				57B4D27827A58AE600C131E1 /* SceneDelegate.swift in Sources */,
 				576D101F27BD492C00EC5CF3 /* MyAPI+Request.swift in Sources */,
 				5769232427B16AE300E97A16 /* TabBarController.swift in Sources */,
