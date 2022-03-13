@@ -27,6 +27,7 @@ enum API {
     
     case getUserProfile(_ name: String)
     case getUserStarred(_ name: String)
+    case getUserFollowing(_ name : String)
     
 }
 

@@ -22,7 +22,7 @@ extension API {
         case .weekArray(_), .monthArray(_), .yearArray(_):
             return URL(string: myURL)!
             
-        case .getUserProfile(_), .getUserStarred(_):
+        case .getUserProfile(_), .getUserStarred(_), .getUserFollowing(_):
             return URL(string: gitURL)!
             
         }
@@ -46,6 +46,8 @@ extension API {
         case .getUserProfile(let username):
             return "users/\(username)"
         case .getUserStarred(let username):
+            return "users/\(username)/starred"
+        case .getUserFollowing(let username):
             return "users/\(username)/starred"
         }
     }
