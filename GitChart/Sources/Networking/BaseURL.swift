@@ -10,7 +10,7 @@ import Moya
 
 let gitURL = "https://api.github.com/"
 
-let myURL = "http://3.38.95.103:5000"
+let myURL = "https://githubwebcrawler.herokuapp.com"
 
 extension API {
     func getBaseURL() -> URL {
