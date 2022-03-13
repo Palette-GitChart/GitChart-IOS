@@ -11,7 +11,9 @@ import RxRelay
 
 
 class FriendViewModel : ViewModel {
-    let getUserStarList = PublishRelay<[Starred]>()
+    
+    let disposeBag = DisposeBag()
+    let getUserFriendsList = PublishRelay<[Friends]>()
     let apiStatus = PublishRelay<Bool>()
     
     struct input {
@@ -19,11 +21,29 @@ class FriendViewModel : ViewModel {
     }
     
     struct output {
-        let getUserStarList : PublishRelay<[Starred]>
+        let getUserFriendsList : PublishRelay<[Friends]>
         let apiStatus : PublishRelay<Bool>
     }
     
     func trans(_ input: input) -> output {
-        return output(getUserStarList: getUserStarList, apiStatus: apiStatus)
+        API.getUserFollowing(input.username).request()
+            .subscribe { event in
+                switch event {
+                case .success(let response):
+                    guard let data = try? JSONDecoder().decode([Friends].self, from: response.data) else {
+                        self.apiStatus.accept(false)
+                        return
+                    }
+                    self.getUserFriendsList.accept(data)
+                    self.apiStatus.accept(true)
+
+                case .failure(let error):
+                    print("😔 error : \(error)")
+                    self.apiStatus.accept(false)
+
+                }
+                
+            }.disposed(by: disposeBag)
+        return output(getUserFriendsList: getUserFriendsList, apiStatus: apiStatus)
     }
 }
