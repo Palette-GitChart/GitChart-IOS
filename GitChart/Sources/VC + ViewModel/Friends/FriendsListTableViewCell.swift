@@ -14,9 +14,24 @@ class FriendsListTableViewCell: BaseTableViewCell {
         $0.layer.cornerRadius = 20
     }
     
+    let friendUserImage = UIImageView().then {
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 20
+        $0.layer.borderWidth = 0.5
+        $0.layer.borderColor = UIColor.secondaryLabel.cgColor
+    }
+    
+    let friendNameLabel = UILabel().then {
+        $0.font = .roundedFont(ofSize: 22, weight: .medium)
+        $0.textColor = .appColor(.labelColor)
+    }
+
     override func configureUI() {
         contentView.backgroundColor = .appColor(.backgroundColor)
         contentView.addSubview(mainView)
+        [friendUserImage, friendNameLabel].forEach {
+            mainView.addSubview($0)
+        }
     }
     
 }
