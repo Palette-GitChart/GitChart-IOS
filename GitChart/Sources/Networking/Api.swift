@@ -12,6 +12,7 @@ enum API {
     
     // Commit
     
+    case allCommit(_ name : String)
     case dayCommit(_ name: String)
     case weekCommit(_ name: String)
     case mounthCommit(_ name: String)

@@ -16,7 +16,7 @@ extension API {
     func getBaseURL() -> URL {
         switch self {
             
-        case .dayCommit(_), .weekCommit(_), .mounthCommit(_), .yearCommit(_):
+        case .allCommit(_), .dayCommit(_), .weekCommit(_), .mounthCommit(_), .yearCommit(_):
             return URL(string: myURL)!
             
         case .weekArray(_), .monthArray(_), .yearArray(_):
@@ -29,6 +29,8 @@ extension API {
     }
     func getPath() -> String {
         switch self {
+        case .allCommit(let username):
+            return "/\(username)"
         case .dayCommit(let username):
             return "/\(username)/daycount"
         case .weekCommit(let username):
