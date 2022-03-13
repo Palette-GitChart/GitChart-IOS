@@ -34,4 +34,24 @@ class FriendsListTableViewCell: BaseTableViewCell {
         }
     }
     
+    override func setupConstraints() {
+        mainView.snp.makeConstraints {
+            $0.left.right.equalTo(contentView).inset(15)
+            $0.top.equalTo(contentView).offset(5)
+            $0.bottom.equalTo(contentView).inset(5)
+            $0.height.equalTo(70)
+        }
+        
+        friendUserImage.snp.makeConstraints {
+            $0.width.height.equalTo(40)
+            $0.centerY.equalTo(mainView)
+            $0.left.equalTo(mainView).offset(15)
+        }
+        friendNameLabel.snp.makeConstraints {
+            $0.centerY.equalTo(mainView)
+            $0.left.equalTo(friendUserImage.snp.right).offset(10)
+            $0.height.equalTo(20)
+        }
+    }
+    
 }
