@@ -10,6 +10,7 @@ import UIKit
 class FriendsVC : BaseViewController {
     
     let mainTableView = UITableView().then {
+        $0.register(FriendsListTableViewCell.self, forCellReuseIdentifier: "friendsListCell")
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
     }
