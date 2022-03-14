@@ -77,6 +77,20 @@ class FriendsDetailVC : BaseViewController {
     override func configureUI() {
         navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.tintColor = .appColor(.mainColor)
-
+        makeCommitView()
+        makeCountText()
+        
+        [friendProfile, friendTitlelabel, followerLabel, followingLabel, dayCommitView, yearCommitView].forEach {
+            view.addSubview($0)
+        }
+        
+        [dayCommitLabel, dayCommitCountLabel].forEach {
+            dayCommitView.addSubview($0)
+        }
+        
+        [yearCommitLabel, yearCommitCountLabel].forEach {
+            yearCommitView.addSubview($0)
+        }
+        
     }
 }
