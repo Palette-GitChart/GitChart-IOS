@@ -19,7 +19,7 @@ class FriendsDetailVC : BaseViewController {
     }
     
     let friendTitlelabel = UILabel().then {
-        $0.textColor = .appColor(.subColor)
+        $0.textColor = .appColor(.labelColor)
         $0.font = .roundedFont(ofSize: 25, weight: .semibold)
         $0.textAlignment = .center
     }
@@ -74,13 +74,20 @@ class FriendsDetailVC : BaseViewController {
             $0.attributedText = attributedStr
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+        self.tabBarController?.tabBar.isTranslucent = true // <- 이코드가 꼭 있어야함
+        
+    }
+    
     override func configureUI() {
         navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.tintColor = .appColor(.mainColor)
         makeCommitView()
         makeCountText()
         
-        [friendProfile, friendTitlelabel, followerLabel, followingLabel, dayCommitView, yearCommitView].forEach {
+        [friendProfile, friendTitlelabel, followerLabel, followingLabel, dayCommitView, yearCommitView, visitWebButton].forEach {
             view.addSubview($0)
         }
         
@@ -91,6 +98,37 @@ class FriendsDetailVC : BaseViewController {
         [yearCommitLabel, yearCommitCountLabel].forEach {
             yearCommitView.addSubview($0)
         }
-        
+    }
+    
+    override func setupConstraints() {
+        friendProfile.snp.makeConstraints {
+            $0.width.height.equalTo(100)
+            $0.centerX.equalTo(view)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+        }
+        friendTitlelabel.snp.makeConstraints {
+            $0.height.equalTo(40)
+            $0.centerX.equalTo(view)
+            $0.top.equalTo(friendProfile.snp.bottom).offset(10)
+        }
+
+        followerLabel.snp.makeConstraints {
+            $0.height.equalTo(30)
+            $0.top.equalTo(friendTitlelabel.snp.bottom).offset(10)
+            $0.right.equalTo(view.snp.centerX).offset(-10)
+            $0.left.equalTo(10)
+        }
+        followingLabel.snp.makeConstraints {
+            $0.height.equalTo(30)
+            $0.top.equalTo(friendTitlelabel.snp.bottom).offset(10)
+            $0.left.equalTo(view.snp.centerX).offset(10)
+            $0.right.equalTo(-10)
+        }
+        visitWebButton.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(5)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10)
+            $0.height.equalTo(50)
+        }
+
     }
 }
