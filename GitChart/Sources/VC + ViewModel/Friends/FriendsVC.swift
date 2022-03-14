@@ -55,6 +55,9 @@ class FriendsVC : BaseViewController {
 
         mainTableView.rx.modelSelected(Friends.self).bind { element in
             let vc = FriendsDetailVC()
+            vc.friendProfile.kf.indicatorType = .activity
+            vc.friendProfile.setImage(with: element.avatar_url)
+            vc.friendTitlelabel.text = element.login
             self.navigationController?.pushViewController(vc, animated: true)
         }.disposed(by: disposeBag)
 
