@@ -50,7 +50,7 @@ extension API {
         case .getUserStarred(let username):
             return "users/\(username)/starred"
         case .getUserFollowing(let username):
-            return "users/\(username)/starred"
+            return "users/\(username)/following"
         }
     }
     func getMethod() -> Moya.Method {

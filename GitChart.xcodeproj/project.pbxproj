@@ -50,6 +50,7 @@
 		57F72D2227DE19C200C08D44 /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72D2127DE19C200C08D44 /* FriendsListTableViewCell.swift */; };
 		57F72D2427DE37DC00C08D44 /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72D2327DE37DC00C08D44 /* FriendViewModel.swift */; };
 		57F72D2627DEB1B600C08D44 /* FriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72D2527DEB1B600C08D44 /* FriendsModel.swift */; };
+		57F72D2827DEBF9400C08D44 /* FriendsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72D2727DEBF9400C08D44 /* FriendsDetailVC.swift */; };
 		C57BE8A911855049E250D5D0 /* Pods_GitChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB3204BF66CF577C5B00EFF /* Pods_GitChart.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		57F72D2127DE19C200C08D44 /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		57F72D2327DE37DC00C08D44 /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
 		57F72D2527DEB1B600C08D44 /* FriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModel.swift; sourceTree = "<group>"; };
+		57F72D2727DEBF9400C08D44 /* FriendsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDetailVC.swift; sourceTree = "<group>"; };
 		60232FEE5E823A37D1A2C0B2 /* Pods-GitChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChart.debug.xcconfig"; path = "Target Support Files/Pods-GitChart/Pods-GitChart.debug.xcconfig"; sourceTree = "<group>"; };
 		658A978450FD153812961E06 /* Pods-GitChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChart.release.xcconfig"; path = "Target Support Files/Pods-GitChart/Pods-GitChart.release.xcconfig"; sourceTree = "<group>"; };
 		B064F521EF5DCED3E350094E /* Pods-GitChartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChartTests.release.xcconfig"; path = "Target Support Files/Pods-GitChartTests/Pods-GitChartTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				576E067527B40AEC0056B7F5 /* FriendsVC.swift */,
 				57F72D2127DE19C200C08D44 /* FriendsListTableViewCell.swift */,
 				57F72D2327DE37DC00C08D44 /* FriendViewModel.swift */,
+				57F72D2727DEBF9400C08D44 /* FriendsDetailVC.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				576D101B27BA9DF400EC5CF3 /* Moya+NetworkError.swift in Sources */,
 				57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */,
 				5708673927D7885100CE4518 /* UIImageView.swift in Sources */,
+				57F72D2827DEBF9400C08D44 /* FriendsDetailVC.swift in Sources */,
 				576E067827B40AFD0056B7F5 /* StarVC.swift in Sources */,
 				57E94A4727B6A6E100AE826A /* BaseURL.swift in Sources */,
 				5775CBB627DA262A0032EC91 /* StarDetailVC.swift in Sources */,
