@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class FriendsDetailVC : BaseViewController {
     
@@ -105,6 +106,11 @@ class FriendsDetailVC : BaseViewController {
             yearCommitView.addSubview($0)
         }
         bindViewModel()
+        visitWebButton.rx.tap.bind {
+            let safariViewController = SFSafariViewController(url: URL(string: self.githubURL)!)
+            safariViewController.modalPresentationStyle = .overFullScreen
+            self.present(safariViewController, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
     }
     
     override func setupConstraints() {
