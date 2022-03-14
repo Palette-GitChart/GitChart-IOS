@@ -13,7 +13,7 @@ class TrandViewModel : ViewModel {
     
     let disposeBag = DisposeBag()
     let apiStatus = PublishRelay<Bool>()
-
+    
     let getMounthCommit = PublishRelay<String>()
     let getYearCommit = PublishRelay<String>()
     
@@ -34,6 +34,44 @@ class TrandViewModel : ViewModel {
     }
     
     func trans(_ input: input) -> output {
+        
+        let commitCountArray = [API.mounthCommit(input.username), API.yearCommit(input.username)]
+        let commitRelayArray = [self.getMounthCommit, self.getYearCommit]
+        
+        for count in 0..<2 {
+            commitCountArray[count].request()
+                .subscribe { (event) in
+                    switch event {
+                    case .success(let response):
+                        let data = String(data: response.data, encoding: .utf8)
+                        commitRelayArray[count].accept(data!)
+                        self.apiStatus.accept(true)
+                    case .failure(let error):
+                        print("😔 error : \(error)")
+                        self.apiStatus.accept(false)
+                    }
+                }.disposed(by: disposeBag)
+        }
+        
+        let trandArray = [API.weekArray(input.username), API.monthArray(input.username), API.yearArray(input.username)]
+        let trandRelayArray = [self.getWeekArray, self.getMounthArray, self.getYearArray]
+        
+        for count in 0..<3 {
+            trandArray[count].request()
+                .subscribe { (event) in
+                    switch event {
+                    case .success(let response):
+                        guard let data = try? JSONDecoder().decode([Int].self, from: response.data) else
+                        { return }
+                        trandRelayArray[count].accept(data)
+                        self.apiStatus.accept(true)
+                    case .failure(let error):
+                        print("😔 error : \(error)")
+                        self.apiStatus.accept(false)
+                    }
+                }.disposed(by: disposeBag)
+        }
+        
         return output(apiStatus: apiStatus, getMounthCommit: getMounthCommit, getYearCommit: getYearCommit, getWeekArray: getWeekArray, getMounthArray: getMounthArray, getYearArray: getYearArray)
     }
     
