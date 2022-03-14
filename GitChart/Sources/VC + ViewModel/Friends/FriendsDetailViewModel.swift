@@ -12,6 +12,7 @@ import RxRelay
 class FriendsDetailViewModel : ViewModel {
 
     let disposeBag = DisposeBag()
+    let getUserProfile = PublishRelay<UserProfile>()
     let getDayCommit = PublishRelay<String>()
     let getYearCommit = PublishRelay<String>()
     let apiStatus = PublishRelay<Bool>()
@@ -21,6 +22,7 @@ class FriendsDetailViewModel : ViewModel {
     }
     
     struct output {
+        let getUserProfile : PublishRelay<UserProfile>
         let getDayCommit : PublishRelay<String>
         let getYearCommit : PublishRelay<String>
         let apiStatus : PublishRelay<Bool>
@@ -28,6 +30,22 @@ class FriendsDetailViewModel : ViewModel {
     
     func trans(_ input: input) -> output {
         
+        API.getUserProfile(input.username).request()
+            .subscribe { (event) in
+                switch event {
+                case .success(let response):
+                    print(response.data)
+                    guard let data = try? JSONDecoder().decode(UserProfile.self, from: response.data) else {
+                        return
+                    }
+                    self.getUserProfile.accept(data)
+                    self.apiStatus.accept(true)
+                case .failure(let error):
+                    print("😔 error : \(error)")
+                    self.apiStatus.accept(false)
+                }
+            }.disposed(by: disposeBag)
+
         API.dayCommit(input.username).request()
             .subscribe { event in
                 switch event {
@@ -54,6 +72,6 @@ class FriendsDetailViewModel : ViewModel {
                 }
             }.disposed(by: disposeBag)
         
-        return output(getDayCommit: getDayCommit, getYearCommit: getYearCommit, apiStatus: apiStatus)
+        return output(getUserProfile : getUserProfile, getDayCommit: getDayCommit, getYearCommit: getYearCommit, apiStatus: apiStatus)
     }
 }
