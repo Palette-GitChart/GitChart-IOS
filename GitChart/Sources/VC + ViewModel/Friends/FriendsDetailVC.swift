@@ -10,6 +10,7 @@ import UIKit
 class FriendsDetailVC : BaseViewController {
     
     var githubURL = ""
+    let viewModel = FriendsDetailViewModel()
     
     let friendProfile = UIImageView().then {
         $0.clipsToBounds = true
@@ -87,6 +88,9 @@ class FriendsDetailVC : BaseViewController {
         makeCommitView()
         makeCountText()
         
+        dayCommitLabel.text = "Today Commit"
+        yearCommitLabel.text = "Year Commit"
+        
         [friendProfile, friendTitlelabel, followerLabel, followingLabel, dayCommitView, yearCommitView, visitWebButton].forEach {
             view.addSubview($0)
         }
@@ -98,6 +102,7 @@ class FriendsDetailVC : BaseViewController {
         [yearCommitLabel, yearCommitCountLabel].forEach {
             yearCommitView.addSubview($0)
         }
+        bindViewModel()
     }
     
     override func setupConstraints() {
@@ -130,5 +135,36 @@ class FriendsDetailVC : BaseViewController {
             $0.height.equalTo(50)
         }
 
+        dayCommitView.snp.makeConstraints {
+            $0.left.right.equalTo(view).inset(15)
+            $0.top.equalTo(followingLabel.snp.bottom).offset(15)
+            $0.height.equalTo(130)
+        }
+        yearCommitView.snp.makeConstraints {
+            $0.left.right.equalTo(view).inset(15)
+            $0.top.equalTo(dayCommitView.snp.bottom).offset(15)
+            $0.height.equalTo(130)
+        }
+    }
+    
+    func bindViewModel() {
+        let output = viewModel.trans(.init(username: self.friendTitlelabel.text ?? ""))
+        
+        output.getUserProfile.bind { user in
+            self.followingLabel.text = "팔로잉 \(user.following.dsecimalNumber())명"
+            self.followerLabel.text = "팔로워 \(user.followers.dsecimalNumber())명"
+            
+        }.disposed(by: disposeBag)
+
+        output.getDayCommit.bind { number in
+            self.dayCommitCountLabel.text = "\(number)개"
+            self.makeCountText()
+            
+        }.disposed(by: disposeBag)
+        
+        output.getYearCommit.bind { number in
+            self.yearCommitCountLabel.text = "\(number.dsecimal())개"
+            self.makeCountText()
+        }.disposed(by: disposeBag)
     }
 }

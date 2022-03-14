@@ -17,10 +17,10 @@ extension String {
         return String(format: self.localized(comment: comment), argument)
     }
     
-    func Decimal(value: String) -> String{
+    func  dsecimal() -> String{
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let result = numberFormatter.string(from: NSNumber(value: Int(value) ?? 0))!
+        let result = numberFormatter.string(from: NSNumber(value: Int(self) ?? 0))!
         return result
     }
     
