@@ -89,7 +89,9 @@ class FriendsDetailVC : BaseViewController {
         makeCountText()
         
         dayCommitLabel.text = "Today Commit"
+        dayCommitCountLabel.textColor = UIColor(rgb: 0x6EC7CD).withAlphaComponent(0.98)
         yearCommitLabel.text = "Year Commit"
+        yearCommitCountLabel.textColor = UIColor(rgb: 0xFF7865).withAlphaComponent(0.71)
         
         [friendProfile, friendTitlelabel, followerLabel, followingLabel, dayCommitView, yearCommitView, visitWebButton].forEach {
             view.addSubview($0)
@@ -138,12 +140,25 @@ class FriendsDetailVC : BaseViewController {
         dayCommitView.snp.makeConstraints {
             $0.left.right.equalTo(view).inset(15)
             $0.top.equalTo(followingLabel.snp.bottom).offset(15)
-            $0.height.equalTo(130)
+            $0.height.equalTo(135)
         }
         yearCommitView.snp.makeConstraints {
             $0.left.right.equalTo(view).inset(15)
             $0.top.equalTo(dayCommitView.snp.bottom).offset(15)
-            $0.height.equalTo(130)
+            $0.height.equalTo(135)
+        }
+        
+        [dayCommitLabel, yearCommitLabel].forEach { view in
+            view.snp.makeConstraints {
+                $0.top.left.equalTo(15)
+                $0.height.equalTo(20)
+            }
+        }
+        [dayCommitCountLabel, yearCommitCountLabel].forEach { view in
+            view.snp.makeConstraints {
+                $0.right.bottom.equalTo(-15)
+            }
+            
         }
     }
     
