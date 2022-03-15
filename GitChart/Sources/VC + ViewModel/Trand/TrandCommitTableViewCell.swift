@@ -8,6 +8,17 @@
 import UIKit
 
 class TrandCommitTableViewCell: BaseTableViewCell {
+    
+    let mainView = UIView().then {
+        $0.backgroundColor = .appColor(.cellColor)
+        $0.layer.cornerRadius = 20
+    }
+    
+    var titleLabel = UILabel().then {
+        $0.font = .roundedFont(ofSize: 20, weight: .semibold)
+        $0.textColor = .appColor(.labelColor)
+    }
+
     override func configureUI() {
         contentView.backgroundColor = .appColor(.backgroundColor)
     }
