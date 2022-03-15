@@ -65,6 +65,7 @@ class TrandVC : BaseViewController {
     
     override func configureUI() {
         navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.sizeToFit()
         self.navigationController?.navigationBar.tintColor = .appColor(.mainColor)
     }
 }

@@ -162,10 +162,9 @@ class HomeVC : BaseViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 34, weight: .bold)]
         self.title = "Home"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.sizeToFit()
     }
-    
     
     //MARK: - configure
     
@@ -214,6 +213,13 @@ class HomeVC : BaseViewController {
             }
             
         }.disposed(by: disposeBag)
+        
+        commitTrandView.rx.tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                let vc = TrandVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }.disposed(by: disposeBag)
     }
     
     func bindViewModel() {
