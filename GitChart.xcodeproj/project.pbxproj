@@ -35,7 +35,6 @@
 		5783DE9827B42C6F001BE31C /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5783DE8927B426CE001BE31C /* NotoSans-Regular.ttf */; };
 		5797946D27D6CD3D006EC8AE /* trandChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797946C27D6CD3D006EC8AE /* trandChart.swift */; };
 		5797946F27D70220006EC8AE /* HomeSetupConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797946E27D70220006EC8AE /* HomeSetupConstraints.swift */; };
-		5798B6BD27E07F7800310BBF /* TrandSetupConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798B6BC27E07F7800310BBF /* TrandSetupConstraints.swift */; };
 		57A74A4827B4A86700BEA1E8 /* Fontkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A74A4727B4A86700BEA1E8 /* Fontkit.swift */; };
 		57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D27527A58AE600C131E1 /* AppDelegate.swift */; };
 		57B4D27827A58AE600C131E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D27727A58AE600C131E1 /* SceneDelegate.swift */; };
@@ -100,7 +99,6 @@
 		5783DE8927B426CE001BE31C /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		5797946C27D6CD3D006EC8AE /* trandChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trandChart.swift; sourceTree = "<group>"; };
 		5797946E27D70220006EC8AE /* HomeSetupConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSetupConstraints.swift; sourceTree = "<group>"; };
-		5798B6BC27E07F7800310BBF /* TrandSetupConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrandSetupConstraints.swift; sourceTree = "<group>"; };
 		57A74A4727B4A86700BEA1E8 /* Fontkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fontkit.swift; sourceTree = "<group>"; };
 		57B4D27227A58AE600C131E1 /* GitChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B4D27527A58AE600C131E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -365,7 +363,6 @@
 			children = (
 				57F72D2C27DF493900C08D44 /* TrandVC.swift */,
 				57F72D2E27DF7B5800C08D44 /* TrandViewModel.swift */,
-				5798B6BC27E07F7800310BBF /* TrandSetupConstraints.swift */,
 			);
 			path = Trand;
 			sourceTree = "<group>";
@@ -645,7 +642,6 @@
 				5797946F27D70220006EC8AE /* HomeSetupConstraints.swift in Sources */,
 				5769232227B15B7300E97A16 /* HomeVC.swift in Sources */,
 				5736270C27B94EF8006F0AC0 /* UserProfileModel.swift in Sources */,
-				5798B6BD27E07F7800310BBF /* TrandSetupConstraints.swift in Sources */,
 				5718A33927B799E100552E93 /* Api.swift in Sources */,
 				57F72D2427DE37DC00C08D44 /* FriendViewModel.swift in Sources */,
 				57F72D2A27DEEA8A00C08D44 /* FriendsDetailViewModel.swift in Sources */,
