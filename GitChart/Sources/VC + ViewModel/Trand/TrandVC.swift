@@ -11,6 +11,8 @@ import Charts
 class TrandVC : BaseViewController {
     
     let mainTableView = UITableView().then {
+        $0.register(TrandChartTableViewCell.self, forCellReuseIdentifier: "trandChartCell")
+        $0.register(TrandCommitTableViewCell.self, forCellReuseIdentifier: "trandCommitCell")
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
     }
