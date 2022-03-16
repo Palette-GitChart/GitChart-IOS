@@ -25,6 +25,7 @@ class TrandChartTableViewCell: BaseTableViewCell {
     override func configureUI() {
         contentView.backgroundColor = .appColor(.backgroundColor)
         contentView.addSubview(mainView)
+        [titleLabel, commitChart].forEach { mainView.addSubview($0)}
     }
 }
 
@@ -37,7 +38,7 @@ extension TrandChartTableViewCell {
         commitChart.setScaleEnabled(false)
         commitChart.drawGridBackgroundEnabled = false
         commitChart.legend.enabled = false
-
+        
         commitChart.xAxis.drawAxisLineEnabled = false
         commitChart.xAxis.drawLimitLinesBehindDataEnabled = false
         commitChart.xAxis.gridColor = .appColor(.mainColor)
@@ -45,7 +46,7 @@ extension TrandChartTableViewCell {
         commitChart.xAxis.drawGridLinesEnabled = false
         commitChart.xAxis.drawLabelsEnabled = false
         commitChart.xAxis.drawGridLinesEnabled = false
-    
+        
         commitChart.leftAxis.drawLabelsEnabled = false
         commitChart.leftAxis.removeAllLimitLines()
         commitChart.leftAxis.drawZeroLineEnabled = false
