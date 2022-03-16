@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class TrandChartTableViewCell: BaseTableViewCell {
     
@@ -19,7 +20,11 @@ class TrandChartTableViewCell: BaseTableViewCell {
         $0.textColor = .appColor(.labelColor)
     }
     
+    let  commitChart = LineChartView()
+    
     override func configureUI() {
         contentView.backgroundColor = .appColor(.backgroundColor)
+        contentView.addSubview(mainView)
     }
 }
+
