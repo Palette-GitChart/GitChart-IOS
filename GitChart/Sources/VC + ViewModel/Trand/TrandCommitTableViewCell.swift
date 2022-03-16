@@ -36,11 +36,12 @@ class TrandCommitTableViewCell: BaseTableViewCell {
         }
         
     }
-        
+    
     override func configureUI() {
         contentView.backgroundColor = .appColor(.backgroundColor)
         contentView.addSubview(mainView)
-        
+        mounthCommitLabel.text = "Mounth Commit"
+        yearComitLabel.text = "Year Commit"
         [mounthCommitView, yearCommitView].forEach {
             mainView.addSubview($0)
         }
@@ -51,5 +52,31 @@ class TrandCommitTableViewCell: BaseTableViewCell {
             yearCommitView.addSubview($0)
         }
         makeView()
+    }
+    
+    override func setupConstraints() {
+        mainView.snp.makeConstraints { $0.edges.equalTo(0) }
+        
+        mounthCommitLabel.snp.makeConstraints {
+            $0.top.left.bottom.equalTo(mainView).inset(15)
+            $0.right.equalTo(mainView.snp.center).inset(7.5)
+        }
+        yearCommitView.snp.makeConstraints {
+            $0.top.right.bottom.equalTo(mainView).inset(15)
+            $0.left.equalTo(mainView.snp.center).offset(7.5)
+        }
+        
+        [mounthCommitLabel, yearComitLabel].forEach { view in
+            view.snp.makeConstraints {
+                $0.top.left.equalTo(15)
+                $0.height.equalTo(30)
+            }
+        }
+        [mountCommitCountLabel, yearCommitCountLabel].forEach { label in
+            label.snp.makeConstraints {
+                $0.right.bottom.equalTo(-15)
+                $0.height.equalTo(40)
+            }
+        }
     }
 }
