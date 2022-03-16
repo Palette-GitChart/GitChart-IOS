@@ -28,3 +28,41 @@ class TrandChartTableViewCell: BaseTableViewCell {
     }
 }
 
+//MARK: - Charts Settinga
+
+extension TrandChartTableViewCell {
+    func makeChart() {
+        
+        commitChart.noDataText = "Loading Data"
+        commitChart.setScaleEnabled(false)
+        commitChart.drawGridBackgroundEnabled = false
+        commitChart.legend.enabled = false
+
+        commitChart.xAxis.drawAxisLineEnabled = false
+        commitChart.xAxis.drawLimitLinesBehindDataEnabled = false
+        commitChart.xAxis.gridColor = .appColor(.mainColor)
+        commitChart.xAxis.gridLineWidth = 0.5
+        commitChart.xAxis.drawGridLinesEnabled = false
+        commitChart.xAxis.drawLabelsEnabled = false
+        commitChart.xAxis.drawGridLinesEnabled = false
+    
+        commitChart.leftAxis.drawLabelsEnabled = false
+        commitChart.leftAxis.removeAllLimitLines()
+        commitChart.leftAxis.drawZeroLineEnabled = false
+        commitChart.leftAxis.zeroLineWidth = 0
+        commitChart.leftAxis.drawTopYLabelEntryEnabled = false
+        commitChart.leftAxis.drawAxisLineEnabled = false
+        commitChart.leftAxis.drawGridLinesEnabled = false
+        commitChart.leftAxis.drawLabelsEnabled = false
+        commitChart.leftAxis.drawLimitLinesBehindDataEnabled = false
+        
+        commitChart.rightAxis.removeAllLimitLines()
+        commitChart.rightAxis.drawZeroLineEnabled = false
+        commitChart.rightAxis.drawTopYLabelEntryEnabled = false
+        commitChart.rightAxis.drawAxisLineEnabled = false
+        commitChart.rightAxis.drawGridLinesEnabled = false
+        commitChart.rightAxis.drawLabelsEnabled = false
+        commitChart.rightAxis.drawLimitLinesBehindDataEnabled = false
+    }
+}
+
