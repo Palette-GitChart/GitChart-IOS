@@ -61,30 +61,6 @@ class HomeVC : BaseViewController {
     let commitCountLabel1 = UILabel()
     let commitCountLabel2 = UILabel()
     
-    func makeDayCommitView() {
-        let commitLabelArray = [commitLabel1, commitLabel2, ]
-        let commitCountLabelArray = [commitCountLabel1, commitCountLabel2]
-        
-        let fontSize = UIFont.notoFont(size: .Regular, ofSize: 25)
-        
-        for main in 0..<2 {
-            commitLabelArray[main].font = .roundedFont(ofSize: 20, weight: .semibold)
-            commitLabelArray[main].textColor = .appColor(.labelColor)
-            
-            let str = commitCountLabelArray[main].text ?? ""
-            
-            let attributedStr = NSMutableAttributedString(string: commitCountLabelArray[main].text ?? "")
-            let range = (str as NSString).range(of: "개")
-            
-            attributedStr.addAttribute(.font, value: fontSize, range: range)
-            attributedStr.addAttribute(.foregroundColor, value: UIColor.appColor(.labelColor), range: range)
-            
-            commitCountLabelArray[main].font = .roundedFont(ofSize: 50, weight: .medium)
-            commitCountLabelArray[main].attributedText = attributedStr
-            
-        }
-    }
-    
     //MARK: commit Goal View
     
     let commitGoalLabel = UILabel().then {
@@ -181,7 +157,6 @@ class HomeVC : BaseViewController {
         commitLabel2.text = "week commit"
         
         cellViewMake()
-        makeDayCommitView()
         makeCommitGoalLabel()
         makeCommitTrandLabel()
         makeTrandChart()
@@ -206,9 +181,18 @@ class HomeVC : BaseViewController {
         
         bindViewModel()
         
+    }
+    
+    func bindViewModel() {
+        let output = viewModel.trans(
+            .init(
+                didCommitTap: commitView1.rx
+                    .tapGesture().asDriver())
+        )
+        
         refreshControl.rx.controlEvent(.valueChanged).bind {
             self.bindViewModel()
-            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 2) {
                 self.refreshControl.endRefreshing()
             }
             
@@ -220,14 +204,6 @@ class HomeVC : BaseViewController {
                 let vc = TrandVC()
                 self.navigationController?.pushViewController(vc, animated: true)
             }.disposed(by: disposeBag)
-    }
-    
-    func bindViewModel() {
-        let output = viewModel.trans(
-            .init(
-                didCommitTap: commitView1.rx
-                    .tapGesture().asDriver())
-        )
         
         output.usernameStatus.bind { bool in
             
@@ -255,15 +231,13 @@ class HomeVC : BaseViewController {
             .bind { count in
                 self.commitCountLabel1.text = "\(count)개"
                 self.commitGoalProgressView.setProgress(Float(Double(100/15*Int(count)!)/100), animated: true)
-                self.commitCountLabel1.textColor = UIColor(rgb: 0x6EC7CD)
-                self.makeDayCommitView()
+                self.commitCountLabel1.makeCommitCountLabel(UIColor(rgb: 0x6EC7CD))
             }.disposed(by: disposeBag)
         
         output.getWeekCommit
             .bind{ count in
                 self.commitCountLabel2.text = "\(count)개"
-                self.commitCountLabel2.textColor = .appColor(.subColor)
-                self.makeDayCommitView()
+                self.commitCountLabel2.makeCommitCountLabel(.appColor(.subColor))
             }.disposed(by: disposeBag)
         
         output.getMounthArray

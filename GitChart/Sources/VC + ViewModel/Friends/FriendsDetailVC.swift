@@ -63,20 +63,6 @@ class FriendsDetailVC : BaseViewController {
         }
     }
     
-    func makeCountText() {
-        [dayCommitCountLabel, yearCommitCountLabel].forEach {
-            let str = $0.text ?? ""
-            
-            let attributedStr = NSMutableAttributedString(string: $0.text ?? "")
-            let range = (str as NSString).range(of: "개")
-            attributedStr.addAttribute(.font, value: UIFont.notoFont(size: .Regular, ofSize: 25), range: range)
-            attributedStr.addAttribute(.foregroundColor, value: UIColor.appColor(.labelColor), range: range)
-            
-            $0.font = .roundedFont(ofSize: 50, weight: .medium)
-            $0.attributedText = attributedStr
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
         self.tabBarController?.tabBar.isTranslucent = true // <- 이코드가 꼭 있어야함
@@ -87,12 +73,9 @@ class FriendsDetailVC : BaseViewController {
         navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.tintColor = .appColor(.mainColor)
         makeCommitView()
-        makeCountText()
         
         dayCommitLabel.text = "Today Commit"
-        dayCommitCountLabel.textColor = UIColor(rgb: 0x6EC7CD).withAlphaComponent(0.98)
         yearCommitLabel.text = "Year Commit"
-        yearCommitCountLabel.textColor = UIColor(rgb: 0xFF7865).withAlphaComponent(0.71)
         
         [friendProfile, friendTitlelabel, followerLabel, followingLabel, dayCommitView, yearCommitView, visitWebButton].forEach {
             view.addSubview($0)
@@ -124,7 +107,7 @@ class FriendsDetailVC : BaseViewController {
             $0.centerX.equalTo(view)
             $0.top.equalTo(friendProfile.snp.bottom).offset(10)
         }
-
+        
         followerLabel.snp.makeConstraints {
             $0.height.equalTo(30)
             $0.top.equalTo(friendTitlelabel.snp.bottom).offset(10)
@@ -142,7 +125,7 @@ class FriendsDetailVC : BaseViewController {
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10)
             $0.height.equalTo(50)
         }
-
+        
         dayCommitView.snp.makeConstraints {
             $0.left.right.equalTo(view).inset(15)
             $0.top.equalTo(followingLabel.snp.bottom).offset(15)
@@ -176,16 +159,17 @@ class FriendsDetailVC : BaseViewController {
             self.followerLabel.text = "팔로워 \(user.followers.dsecimalNumber())명"
             
         }.disposed(by: disposeBag)
-
+        
         output.getDayCommit.bind { number in
+            self.dayCommitCountLabel.makeCommitCountLabel(UIColor(rgb: 0x6EC7CD)
+                .withAlphaComponent(0.98))
             self.dayCommitCountLabel.text = "\(number)개"
-            self.makeCountText()
-            
         }.disposed(by: disposeBag)
         
         output.getYearCommit.bind { number in
+            self.yearCommitCountLabel.makeCommitCountLabel(UIColor(rgb:0xFF7865)
+                .withAlphaComponent(0.71))
             self.yearCommitCountLabel.text = "\(number.dsecimal())개"
-            self.makeCountText()
         }.disposed(by: disposeBag)
     }
 }

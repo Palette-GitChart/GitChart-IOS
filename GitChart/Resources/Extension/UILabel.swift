@@ -19,6 +19,7 @@ extension UILabel {
         attributedStr.addAttribute(.foregroundColor, value: UIColor.appColor(.labelColor), range: range)
         
         self.font = .roundedFont(ofSize: 50, weight: .medium)
+        self.textColor = color
         self.attributedText = attributedStr
 
     }
