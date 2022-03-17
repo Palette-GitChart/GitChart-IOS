@@ -179,10 +179,19 @@ class HomeVC : BaseViewController {
             commitTrandView.addSubview($0)
         }
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        commitTrandView.addGestureRecognizer(tap)
+        trandChart.addGestureRecognizer(tap)
+        
         bindViewModel()
         
     }
     
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        let vc = TrandVC()
+        print("bind")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     func bindViewModel() {
         let output = viewModel.trans(
             .init(
@@ -197,13 +206,6 @@ class HomeVC : BaseViewController {
             }
             
         }.disposed(by: disposeBag)
-        
-        commitTrandView.rx.tapGesture()
-            .when(.recognized)
-            .bind { _ in
-                let vc = TrandVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-            }.disposed(by: disposeBag)
         
         output.usernameStatus.bind { bool in
             
