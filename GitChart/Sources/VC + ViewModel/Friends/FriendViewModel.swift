@@ -44,6 +44,10 @@ class FriendViewModel : ViewModel {
                 }
                 
             }.disposed(by: disposeBag)
+        
+        API.getUserFollowing(input.username).requestErrorAlert().subscribe { event in
+        }.disposed(by: disposeBag)
+
         return output(getUserFriendsList: getUserFriendsList, apiStatus: apiStatus)
     }
 }

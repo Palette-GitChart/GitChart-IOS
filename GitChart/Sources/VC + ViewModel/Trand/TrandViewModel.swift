@@ -38,6 +38,9 @@ class TrandViewModel : ViewModel {
         let commitCountArray = [API.mounthCommit(input.username), API.yearCommit(input.username)]
         let commitRelayArray = [self.getMounthCommit, self.getYearCommit]
         
+        API.mounthCommit(input.username).requestErrorAlert().subscribe { event in
+        }.disposed(by: disposeBag)
+
         for count in 0..<2 {
             commitCountArray[count].request()
                 .subscribe { (event) in

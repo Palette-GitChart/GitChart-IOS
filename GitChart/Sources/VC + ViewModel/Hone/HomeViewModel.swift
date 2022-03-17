@@ -109,6 +109,10 @@ class HomeViewModel : ViewModel  {
                         self.usernameStatus.accept(false)
                     }
                 }.disposed(by: bag)
+            
+            API.getUserProfile(username).requestErrorAlert().subscribe { event in
+            }.disposed(by: bag)
+            
         }
         
         return output(getUserProfile: getUserProfile, getUserDayCommit: getUserDayCommit, getWeekCommit: getWeekCommit, getMounthCommit: getMounthCommit, getYearCommit: getYearCommit, getWeekArray: getWeekArray, getMounthArray: getMounthArray, getYearArray: getYearArray, usernameStatus: usernameStatus)

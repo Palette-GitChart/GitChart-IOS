@@ -25,7 +25,7 @@ class StarViewModwl : ViewModel {
     }
     
     func trans(_ input: input) -> output {
-        API.getUserStarred("kimdaehee0824").request()
+        API.getUserStarred(input.username).request()
             .subscribe { event in
                 switch event {
                 case .success(let response):
@@ -42,6 +42,9 @@ class StarViewModwl : ViewModel {
                 }
                 
             }.disposed(by: disposeBag)
+        
+        API.getUserStarred(input.username).requestErrorAlert().subscribe { _ in
+        }.disposed(by: disposeBag)
         
         return output(getUserStarList: getUserStarList, apiStatus: apiStatus)
     }
