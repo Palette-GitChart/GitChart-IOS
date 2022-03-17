@@ -29,6 +29,7 @@ pod 'RxAlamofire'
 pod 'Alamofire', '~> 5.5'
 pod 'Kingfisher', '~> 7.0'
 pod "RxGesture"
+pod 'SPIndicator'
 
 pod 'Charts'
 

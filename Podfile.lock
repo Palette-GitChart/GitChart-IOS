@@ -29,6 +29,7 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - SnapKit (5.0.1)
+  - SPIndicator (1.6.4)
   - Then (2.7.0)
 
 DEPENDENCIES:
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - RxGesture
   - RxSwift (= 6.5.0)
   - SnapKit (~> 5.0.0)
+  - SPIndicator
   - Then (~> 2.7.0)
 
 SPEC REPOS:
@@ -58,6 +60,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SnapKit
+    - SPIndicator
     - Then
 
 SPEC CHECKSUMS:
@@ -73,8 +76,9 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SPIndicator: 93e0a4fb23de51294ac48e874c0f081a5e293e4f
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 1407ebe02279e2ad3f66a650daf833e17f87f473
+PODFILE CHECKSUM: 7ba16b30c0e3cf31e5b40ae33edf47877818e0f7
 
 COCOAPODS: 1.11.2
