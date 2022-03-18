@@ -9,6 +9,8 @@ import UIKit
 import Charts
 
 class TrandVC : BaseViewController {
+
+    let viewModel = TrandViewModel()
     
     let mainTableView = UITableView().then {
         $0.register(TrandChartTableViewCell.self, forCellReuseIdentifier: "trandChartCell")
@@ -24,6 +26,8 @@ class TrandVC : BaseViewController {
     
     override func configureUI() {
         navigationItem.largeTitleDisplayMode = .never
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
         self.navigationController?.navigationBar.sizeToFit()
         self.navigationController?.navigationBar.tintColor = .appColor(.mainColor)
         view.addSubview(mainTableView)
@@ -31,5 +35,16 @@ class TrandVC : BaseViewController {
     
     override func setupConstraints() {
         mainTableView.snp.makeConstraints { $0.edges.equalToSuperview() }
+    }
+}
+
+
+extension TrandVC : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return TrandCommitTableViewCell()
     }
 }
