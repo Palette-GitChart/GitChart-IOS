@@ -156,7 +156,6 @@ extension API {
                             print("---TODO: alert MyAPIError.requestTimeout---")
                         case MyAPIError.internetConnection:
                             print("--TODO: alert MyAPIError.internetConnection---")
-                            SPIndicator.present(title: "Error", message: "인터넷에 연결되지 않음", preset: .error, from: .top)
                         case let MyAPIError.restError(error, _, _):
                             guard let response = (error as? MoyaError)?.response else { break }
                             if let jsonObject = try? response.mapJSON(failsOnEmptyData: false) {
@@ -165,16 +164,12 @@ extension API {
                                 let message: String
                                 if let description = errorDictionary?[key] as? String {
                                     message = "🛰 FAILURE: \(requestString) (\(response.statusCode)\n\(key): \(description)"
-                                    SPIndicator.present(title: "FAILURE", message: "\(response.statusCode) error", preset: .error, from: .top)
                                 } else if let description = (errorDictionary?[key] as? [String]) {
                                     message = "🛰 FAILURE: \(requestString) (\(response.statusCode))\n\(key): \(description)"
-                                    SPIndicator.present(title: "FAILURE", message: "\(response.statusCode) error", preset: .error, from: .top)
                                 } else if let rawString = String(data: response.data, encoding: .utf8) {
                                     message = "🛰 FAILURE: \(requestString) (\(response.statusCode))\n\(rawString)"
-                                    SPIndicator.present(title: "FAILURE", message: "\(response.statusCode) error", preset: .error, from: .top)
                                 } else {
                                     message = "🛰 FAILURE: \(requestString) (\(response.statusCode)"
-                                    SPIndicator.present(title: "FAILURE", message: "\(response.statusCode) error", preset: .error, from: .top)
                                 }
                                 print(message)
                             }
@@ -185,6 +180,38 @@ extension API {
                     onSubscribe: {
                         let message = "REQUEST: \(requestString)"
                         print(message, file, function, line)
+                    }
+                )
+    }
+    
+    func requestErrorAlert(
+        file: StaticString = #file,
+        function: StaticString = #function,
+        line: UInt = #line
+    ) -> Single<Response>  {
+        
+        let endpoint = API.Wrapper(base: self)
+        
+        return Self.moya.rx.request(endpoint)
+            .filterSuccessfulStatusCodes()
+            .catch(self.handleInternetConnection)
+                .catch(self.handleTimeOut)
+                .catch(self.handleREST)
+                .do(
+                    onError: { rawError in
+                        switch rawError {
+                        case MyAPIError.requestTimeout:
+                            print("---TODO: alert MyAPIError.requestTimeout---")
+                            SPIndicator.present(title: "오류 발생", message: "requestTimeout", preset: .error, from: .top)
+                        case MyAPIError.internetConnection:
+                            print("--TODO: alert MyAPIError.internetConnection---")
+                            SPIndicator.present(title: "오류 발생", message: "인터넷에 연결되지 않음", preset: .error, from: .top)
+                        case let MyAPIError.restError(error, _, _):
+                            guard let response = (error as? MoyaError)?.response else { break }
+                            SPIndicator.present(title: "오류 발생", message: "\(response.statusCode) Error", preset: .error, from: .top)
+                        default:
+                            break
+                        }
                     }
                 )
     }
