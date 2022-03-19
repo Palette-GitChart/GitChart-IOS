@@ -41,10 +41,19 @@ class TrandVC : BaseViewController {
 
 extension TrandVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return TrandCommitTableViewCell()
+        let row = indexPath.row
+        
+        if row == 0 || row == 1 {
+            return TrandCommitTableViewCell()
+        }
+        else if row >= 2 || 5 <= row {
+            return TrandChartTableViewCell()
+        }
+        else { return UITableViewCell() }
+        
     }
 }

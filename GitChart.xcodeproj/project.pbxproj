@@ -201,10 +201,10 @@
 			isa = PBXGroup;
 			children = (
 				576E067527B40AEC0056B7F5 /* FriendsVC.swift */,
-				57F72D2127DE19C200C08D44 /* FriendsListTableViewCell.swift */,
 				57F72D2327DE37DC00C08D44 /* FriendViewModel.swift */,
-				57F72D2727DEBF9400C08D44 /* FriendsDetailVC.swift */,
+				57F72D2127DE19C200C08D44 /* FriendsListTableViewCell.swift */,
 				57F72D2927DEEA8A00C08D44 /* FriendsDetailViewModel.swift */,
+				57F72D2727DEBF9400C08D44 /* FriendsDetailVC.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
