@@ -11,6 +11,10 @@ import Charts
 class TrandChartTableViewCell: BaseTableViewCell {
     
     let mainView = UIView().then {
+        $0.backgroundColor = .clear
+    }
+    
+    let trandView = UIView().then {
         $0.backgroundColor = .appColor(.cellColor)
         $0.layer.cornerRadius = 20
     }
@@ -23,10 +27,33 @@ class TrandChartTableViewCell: BaseTableViewCell {
     let  commitChart = LineChartView()
     
     override func configureUI() {
+        
         contentView.backgroundColor = .appColor(.backgroundColor)
         contentView.addSubview(mainView)
-        [titleLabel, commitChart].forEach { mainView.addSubview($0)}
+        mainView.addSubview(trandView)
+        [titleLabel, commitChart].forEach { trandView.addSubview($0)}
     }
+    
+    override func setupConstraints() {
+        mainView.snp.makeConstraints { $0.edges.equalTo(0) }
+        
+        trandView.snp.makeConstraints {
+            $0.top.bottom.equalTo(mainView).inset(5)
+            $0.left.right.equalTo(mainView).inset(15)
+            $0.height.equalTo(240)
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.left.equalTo(15)
+            $0.height.equalTo(30)
+        }
+        commitChart.snp.makeConstraints {
+            $0.right.bottom.equalTo(-15)
+            $0.height.equalTo(40)
+        }
+        
+    }
+    
 }
 
 //MARK: - Charts Settinga

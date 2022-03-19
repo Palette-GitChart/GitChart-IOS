@@ -27,7 +27,6 @@ class TrandCommitTableViewCell: BaseTableViewCell {
         contentView.backgroundColor = .appColor(.backgroundColor)
         mainView.backgroundColor = .clear
         contentView.addSubview(mainView)
-        commitLabel.text = "Mounth Commit"
         mainView.addSubview(commitView)
         
         [commitLabel, commitCountLabel].forEach {
@@ -40,7 +39,7 @@ class TrandCommitTableViewCell: BaseTableViewCell {
         
         commitView.snp.makeConstraints {
             $0.top.bottom.equalTo(mainView).inset(5)
-            $0.top.left.right.equalTo(mainView).inset(15)
+            $0.left.right.equalTo(mainView).inset(15)
             $0.height.equalTo(135)
         }
         
