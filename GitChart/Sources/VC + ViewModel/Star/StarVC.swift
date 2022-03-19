@@ -10,7 +10,7 @@ import Kingfisher
 
 class StarVC : BaseViewController {
     
-    let viewModel = StarViewModwl()
+    let viewModel = StarViewModel()
     let refreshControl = UIRefreshControl()
     
     let mainTableView = UITableView().then {

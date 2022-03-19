@@ -10,7 +10,7 @@ import RxSwift
 import RxRelay
 import SPIndicator
 
-class StarViewModwl : ViewModel {
+class StarViewModel : ViewModel {
     
     let disposeBag = DisposeBag()
     let getUserStarList = PublishRelay<[Starred]>()
