@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxRelay
+import SPIndicator
 
 class StarViewModwl : ViewModel {
     
@@ -34,6 +35,7 @@ class StarViewModwl : ViewModel {
                         self.apiStatus.accept(false)
                         return
                     }
+                    SPIndicator.present(title: "Requst 성공!", message: "30개의 Star 정보를 가져옴", preset: .done, from: .top)
                     self.getUserStarList.accept(data)
                     self.apiStatus.accept(true)
                 case .failure(let error):
@@ -48,6 +50,5 @@ class StarViewModwl : ViewModel {
         
         return output(getUserStarList: getUserStarList, apiStatus: apiStatus)
     }
-    
     
 }
