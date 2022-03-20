@@ -10,10 +10,15 @@ import RxRelay
 import Charts
 
 class TrandVC : BaseViewController {
-
+    
     let viewModel = TrandViewModel()
+    
     var mounthCommitCount = PublishRelay<String>()
     var yearCommitCount = PublishRelay<String>()
+    
+    var weekCommitArray = PublishRelay<[Int]>()
+    var mounthCommitArray = PublishRelay<[Int]>()
+    var yearCommitArray = PublishRelay<[Int]>()
     
     let mainTableView = UITableView().then {
         $0.register(TrandChartTableViewCell.self, forCellReuseIdentifier: "trandChartCell")
@@ -51,6 +56,18 @@ class TrandVC : BaseViewController {
             self.yearCommitCount.accept(count)
         }.disposed(by: disposeBag)
         
+        output.getWeekArray.bind { count in
+            self.weekCommitArray.accept(count)
+        }.disposed(by: disposeBag)
+        
+        output.getMounthArray.bind { count in
+            self.mounthCommitArray.accept(count)
+        }.disposed(by: disposeBag)
+        
+        output.getYearArray.bind { count in
+            self.yearCommitArray.accept(count)
+        }.disposed(by: disposeBag)
+        
     }
 }
 
@@ -83,7 +100,72 @@ extension TrandVC : UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         else if row >= 2 || 5 <= row {
-            return TrandChartTableViewCell()
+            let trandRow = row - 2
+            let trandLabelArray = ["Week Trand", "Mounth Trand", "Year Trand"]
+            var dataEntries:  [BarChartDataEntry] = []
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "trandChartCell") as! TrandChartTableViewCell
+            
+            cell.titleLabel.text = trandLabelArray[trandRow]
+            
+            if trandRow == 0 {
+                weekCommitArray.bind { array in
+                    for i in 0..<array.count {
+                        let dataEntry = BarChartDataEntry(x: Double(i), y: Double(array[i]))
+                        dataEntries.append(dataEntry)
+                    }
+                    let chartDataSet = BarChartDataSet(entries: dataEntries, label: "")
+                    chartDataSet.colors = [UIColor(rgb: 0x8071DA)]
+                    
+                    cell.setChartTrand(bar: chartDataSet)
+                    let chartData = BarChartData(dataSet: chartDataSet)
+                    
+                    cell.commitChart.data = chartData
+                    cell.commitChart.animate(xAxisDuration: 0.5)
+
+                }.disposed(by: disposeBag)
+            }
+            
+            if trandRow == 1 {
+                mounthCommitArray.bind { array in
+                    for i in 0..<array.count {
+                        let dataEntry = BarChartDataEntry(x: Double(i), y: Double(array[i]))
+                        dataEntries.append(dataEntry)
+                    }
+                    
+                    let chartDataSet = BarChartDataSet(entries: dataEntries, label: "")
+                    chartDataSet.colors = [UIColor(rgb: 0xFFA903)]
+                    let chartData = BarChartData()
+                    cell.setChartTrand(bar: chartDataSet)
+                    chartData.addDataSet(chartDataSet)
+                    
+                    cell.commitChart.data = chartData
+                    cell.commitChart.animate(xAxisDuration: 0.5)
+                    
+                }.disposed(by: disposeBag)
+                
+            }
+            if trandRow == 2 {
+                yearCommitArray.bind { array in
+                    for i in 0..<array.count {
+                        let dataEntry = BarChartDataEntry(x: Double(i), y: Double(array[i]))
+                        dataEntries.append(dataEntry)
+                    }
+                    
+                    let chartDataSet = BarChartDataSet(entries: dataEntries, label: "")
+                    chartDataSet.colors = [UIColor(rgb: 0xFF7865)]
+                    let chartData = BarChartData()
+                    cell.setChartTrand(bar: chartDataSet)
+                    chartData.addDataSet(chartDataSet)
+                    
+                    cell.commitChart.data = chartData
+                    cell.commitChart.animate(xAxisDuration: 0.5)
+                    
+                }.disposed(by: disposeBag)
+                
+
+            }
+            return cell
         }
         else { return UITableViewCell() }
         
