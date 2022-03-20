@@ -93,5 +93,10 @@ extension TrandChartTableViewCell {
         commitChart.rightAxis.drawLabelsEnabled = false
         commitChart.rightAxis.drawLimitLinesBehindDataEnabled = false
     }
+    
+    func setChartTrand(bar :BarChartDataSet ) {
+        bar.drawValuesEnabled = false
+        bar.highlightEnabled = false
+    }
 }
 
