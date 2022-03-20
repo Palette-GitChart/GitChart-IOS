@@ -16,6 +16,13 @@ class HomeVC : BaseViewController {
     let viewModel = HomeViewModel()
     let refreshControl = UIRefreshControl()
     
+    let date = Date()
+    
+    var dateFormatter =  DateFormatter().then {
+        $0.dateFormat = "YYYY-MM-dd"
+        $0.locale = Locale(identifier: "ko_kr")
+    }
+    
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .clear
     }
@@ -112,8 +119,6 @@ class HomeVC : BaseViewController {
             commitTrandView.addSubview(label)
         }
         commitTrandCountLabel2.textAlignment = .right
-        commitTrandCountLabel2.text = "2022-03-10"
-        commitTrandCountLabel1.text = "2021-03-10"
     }
     
     
@@ -244,7 +249,14 @@ class HomeVC : BaseViewController {
         output.getMounthArray
             .bind{ user in
                 var lineChartEntry = [ChartDataEntry]()
-
+                let todayMonth = Calendar.current.dateComponents([.day], from: self.date)
+                //MARK: 주간 날짜 계산하는 방법
+                //                let to = Calendar.current.dateComponents([.weekday], from: self.date)
+                //                print(to.weekday)
+                let dateComponents = DateComponents(day: -(todayMonth.day ?? 0)+1)
+                let lastMounthDate = Calendar.current.date(byAdding: dateComponents, to: self.date)
+                self.commitTrandCountLabel2.text = "\(self.dateFormatter.string(from: self.date))"
+                self.commitTrandCountLabel1.text = "\(self.dateFormatter.string(from: lastMounthDate!))"
                 for i in 0..<user.count {
                     let dataEntry = ChartDataEntry(x: Double(i), y: Double(user[i]))
                     lineChartEntry.append(dataEntry)
