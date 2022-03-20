@@ -51,7 +51,7 @@ class TrandChartTableViewCell: BaseTableViewCell {
         commitChart.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(5)
             $0.bottom.equalTo(mainView).offset(-15)
-            $0.left.right.equalTo(mainView).inset(15)
+            $0.left.right.equalTo(trandView).inset(15)
         }
     }
     
