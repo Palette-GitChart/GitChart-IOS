@@ -32,6 +32,7 @@ class TrandChartTableViewCell: BaseTableViewCell {
         contentView.addSubview(mainView)
         mainView.addSubview(trandView)
         [titleLabel, commitChart].forEach { trandView.addSubview($0)}
+        makeChart()
     }
     
     override func setupConstraints() {
@@ -48,10 +49,10 @@ class TrandChartTableViewCell: BaseTableViewCell {
             $0.height.equalTo(30)
         }
         commitChart.snp.makeConstraints {
-            $0.right.bottom.equalTo(-15)
-            $0.height.equalTo(40)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(5)
+            $0.bottom.equalTo(mainView).offset(-15)
+            $0.left.right.equalTo(mainView).inset(15)
         }
-        
     }
     
 }
