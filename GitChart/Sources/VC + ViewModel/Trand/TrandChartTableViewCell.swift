@@ -24,7 +24,7 @@ class TrandChartTableViewCell: BaseTableViewCell {
         $0.textColor = .appColor(.labelColor)
     }
     
-    let  commitChart = LineChartView()
+    let  commitChart = BarChartView()
     
     override func configureUI() {
         
