@@ -116,7 +116,6 @@ class HomeVC : BaseViewController {
         commitTrandCountLabel1.text = "2021-03-10"
     }
     
-    var lineChartEntry = [ChartDataEntry]()
     
     let trandChart = LineChartView()
     func cellViewMake() {
@@ -244,16 +243,18 @@ class HomeVC : BaseViewController {
         
         output.getMounthArray
             .bind{ user in
+                var lineChartEntry = [ChartDataEntry]()
+
                 for i in 0..<user.count {
                     let dataEntry = ChartDataEntry(x: Double(i), y: Double(user[i]))
-                    self.lineChartEntry.append(dataEntry)
+                    lineChartEntry.append(dataEntry)
                 }
-                let linechart1 = LineChartDataSet(entries: self.lineChartEntry, label: "")
+                let linetDataSet = LineChartDataSet(entries: lineChartEntry, label: "")
                 let gradient = self.getGradientFilling(with: 0x7FC567, alpa: 0.84)
-                linechart1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+                linetDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
                 let data = LineChartData()
-                self.setChartLine(line: linechart1, color: NSUIColor.appColor(.mainColor))
-                data.addDataSet(linechart1)
+                self.setChartLine(line: linetDataSet, color: NSUIColor.appColor(.mainColor))
+                data.addDataSet(linetDataSet)
                 self.trandChart.data = data
                 self.trandChart.animate(xAxisDuration: 0.5)
             }.disposed(by: disposeBag)
