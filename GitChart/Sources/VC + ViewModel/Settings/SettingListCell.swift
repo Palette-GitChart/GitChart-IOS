@@ -10,6 +10,7 @@ import UIKit
 class SettingListCell : BaseTableViewCell {
     
     let mainView = UIView().then {
+        $0.layer.cornerRadius = 10
         $0.backgroundColor = .appColor(.cellColor)
     }
     
@@ -19,6 +20,7 @@ class SettingListCell : BaseTableViewCell {
     }
     
     let rightCistomImage = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
         $0.image = UIImage(systemName: "chevron.right")
         $0.tintColor = .appColor(.mainColor)
     }
@@ -33,7 +35,7 @@ class SettingListCell : BaseTableViewCell {
     
     override func setupConstraints() {
         mainView.snp.makeConstraints {
-            $0.top.bottom.equalTo(contentView).inset(2.5)
+            $0.top.bottom.equalTo(contentView).inset(5)
             $0.leading.trailing.equalTo(contentView).inset(15)
             $0.height.equalTo(50)
         }
@@ -43,7 +45,7 @@ class SettingListCell : BaseTableViewCell {
             $0.left.equalTo(20)
         }
         rightCistomImage.snp.makeConstraints {
-            $0.width.height.equalTo(28)
+            $0.width.height.equalTo(18)
             $0.centerY.equalTo(mainView)
             $0.right.equalTo(-10)
         }
