@@ -29,7 +29,6 @@ class SettingVC : BaseViewController {
         mainTableView.dataSource = self
     }
     
-    
     override func setupConstraints() {
         mainTableView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
@@ -37,7 +36,7 @@ class SettingVC : BaseViewController {
 
 extension SettingVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
