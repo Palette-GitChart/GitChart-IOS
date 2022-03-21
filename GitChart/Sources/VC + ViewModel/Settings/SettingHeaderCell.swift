@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 
 class SettingHeaderCell: BaseTableViewCell {
+    
+    let disposeBag = DisposeBag()
     
     let mainView = UIView().then {
         $0.backgroundColor = .appColor(.cellColor)
@@ -33,7 +36,30 @@ class SettingHeaderCell: BaseTableViewCell {
         [userImage, nameLabel].forEach {
             mainView.addSubview($0)
         }
+        bindProfile()
     }
+    
+    func bindProfile() {
+        API.getUserProfile("kimdaehee0824").request().subscribe {event in
+            switch event {
+            case .success(let response):
+                print(response.data)
+                guard let data = try? JSONDecoder().decode(UserProfile.self, from: response.data) else {
+                    return
+                }
+                
+                self.nameLabel.text = data.login
+                self.userImage.kf.indicatorType = .activity
+                self.userImage.setImage(with: data.avatar_url ?? "")
+
+                
+            case .failure(let error):
+                print("😔 error : \(error)")
+            }
+        }.disposed(by: disposeBag)
+        
+    }
+
     
     override func setupConstraints() {
         mainView.snp.makeConstraints {
