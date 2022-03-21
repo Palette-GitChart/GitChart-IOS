@@ -251,8 +251,8 @@ class HomeVC : BaseViewController {
                 var lineChartEntry = [ChartDataEntry]()
                 let todayMonth = Calendar.current.dateComponents([.day], from: self.date)
                 //MARK: 주간 날짜 계산하는 방법
-                //                let to = Calendar.current.dateComponents([.weekday], from: self.date)
-                //                print(to.weekday)
+                //let to = Calendar.current.dateComponents([.weekday], from: self.date)
+                //print(to.weekday)
                 let dateComponents = DateComponents(day: -(todayMonth.day ?? 0)+1)
                 let lastMounthDate = Calendar.current.date(byAdding: dateComponents, to: self.date)
                 self.commitTrandCountLabel2.text = "\(self.dateFormatter.string(from: self.date))"

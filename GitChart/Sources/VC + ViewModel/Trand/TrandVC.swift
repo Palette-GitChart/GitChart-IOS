@@ -34,6 +34,9 @@ class TrandVC : BaseViewController {
     
     override func configureUI() {
         navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.title = "Trand"
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.labelColor)]
+        
         mainTableView.delegate = self
         mainTableView.dataSource = self
         self.navigationController?.navigationBar.sizeToFit()
@@ -122,7 +125,7 @@ extension TrandVC : UITableViewDelegate, UITableViewDataSource {
                     
                     cell.commitChart.data = chartData
                     cell.commitChart.animate(xAxisDuration: 0.5)
-
+                    
                 }.disposed(by: disposeBag)
             }
             
@@ -163,7 +166,7 @@ extension TrandVC : UITableViewDelegate, UITableViewDataSource {
                     
                 }.disposed(by: disposeBag)
                 
-
+                
             }
             return cell
         }
