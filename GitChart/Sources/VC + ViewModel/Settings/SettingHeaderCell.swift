@@ -1,27 +1,22 @@
 //
-//  SettingHeaderView.swift
+//  SettingHeaderCell.swift
 //  GitChart
 //
 //  Created by 김대희 on 2022/03/21.
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-import RxRelay
-import SnapKit
-import Then
 
-class SettingHeaderView: UITableViewHeaderFooterView {
+class SettingHeaderCell: BaseTableViewCell {
     
     let mainView = UIView().then {
         $0.backgroundColor = .appColor(.cellColor)
-        $0.layer.cornerRadius = 20
+        $0.layer.cornerRadius = 10
     }
     
     let userImage = UIImageView().then {
         $0.clipsToBounds = true
-        $0.layer.cornerRadius = 20
+        $0.layer.cornerRadius = 15
         $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.secondaryLabel.cgColor
     }
@@ -30,13 +25,8 @@ class SettingHeaderView: UITableViewHeaderFooterView {
         $0.font = .roundedFont(ofSize: 22, weight: .medium)
         $0.textColor = .appColor(.labelColor)
     }
-
-    override func draw(_ rect: CGRect) {
-        configureUI()
-        setupConstraints()
-    }
     
-    func configureUI() {
+    override func configureUI() {
         contentView.backgroundColor = .appColor(.backgroundColor)
         contentView.addSubview(mainView)
         nameLabel.text = "No Named"
@@ -45,14 +35,14 @@ class SettingHeaderView: UITableViewHeaderFooterView {
         }
     }
     
-    func setupConstraints() {
+    override func setupConstraints() {
         mainView.snp.makeConstraints {
+            $0.height.equalTo(60)
             $0.top.bottom.equalTo(contentView).inset(5)
             $0.leading.trailing.equalTo(contentView).inset(15)
-            $0.height.equalTo(60)
         }
         userImage.snp.makeConstraints {
-            $0.width.height.equalTo(40)
+            $0.width.height.equalTo(30)
             $0.centerY.equalTo(mainView)
             $0.left.equalTo(mainView).offset(15)
         }
@@ -62,4 +52,35 @@ class SettingHeaderView: UITableViewHeaderFooterView {
             $0.height.equalTo(20)
         }
     }
+}
+
+class VersionCell : BaseTableViewCell {
+    
+    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+    
+    func currentAppVersion() -> String {
+      if let info: [String: Any] = Bundle.main.infoDictionary,
+          let currentVersion: String = info["CFBundleShortVersionString"] as? String {
+            return currentVersion
+      }
+      return "nil"
+    }
+    let versionLabel = UILabel().then {
+        $0.text = "Ver 1.0"
+        $0.font = .roundedFont(ofSize: 17, weight: .medium)
+        $0.textColor = .appColor(.labelColor)
+        $0.textAlignment = .center
+    }
+    
+    override func configureUI() {
+        contentView.backgroundColor = .appColor(.backgroundColor)
+        contentView.addSubview(versionLabel)
+    }
+    override func setupConstraints() {
+        versionLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.height.equalTo(30)
+        }
+    }
+    
 }
