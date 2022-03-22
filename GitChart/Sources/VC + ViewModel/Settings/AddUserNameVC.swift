@@ -23,20 +23,26 @@ final class AddUserNameVC : BaseViewController {
         $0.tintColor = .appColor(.mainColor)
     }
     
+    let textFieldBottomLine = UIView().then { $0.backgroundColor = .separator }
+    
     private let saveButton = UIButton().then {
         $0.setTitle("완료", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = .notoFont(size: .Regular, ofSize: 22)
         $0.backgroundColor = .appColor(.mainColor)
-        $0.layer.cornerRadius = 10
+        $0.layer.cornerRadius = 20
     }
     
     override func configureUI() {
-        [titleLabel, usernameTextField, saveButton].forEach {
+        [titleLabel, usernameTextField, saveButton, textFieldBottomLine].forEach {
             view.addSubview($0)
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+        }
+
     override func setupConstraints() {
         titleLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(10)
@@ -45,13 +51,19 @@ final class AddUserNameVC : BaseViewController {
         
         usernameTextField.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(40)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(50)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(70)
+        }
+        
+        textFieldBottomLine.snp.makeConstraints {
+            $0.top.equalTo(usernameTextField.snp.bottom).offset(5)
+            $0.height.equalTo(1)
+            $0.leading.trailing.equalToSuperview().inset(40)
         }
         
         saveButton.snp.makeConstraints {
-            $0.trailing.leading.equalToSuperview().inset(15)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(5)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10)
             $0.height.equalTo(50)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-5)
         }
     }
     
