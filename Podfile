@@ -22,7 +22,6 @@ inhibit_all_warnings!
 
 pod 'RxSwift', '6.5.0'
 pod 'RxCocoa', '6.5.0'
-pod 'RxDataSources', '~> 5.0'
 
 pod 'Moya/RxSwift', '~> 15.0'
 pod 'RxAlamofire'
@@ -32,7 +31,6 @@ pod "RxGesture"
 pod 'SPIndicator'
 
 pod 'Charts'
-
 pod 'Then', '~> 2.7.0'
 pod 'SnapKit', '~> 5.0.0'
 
