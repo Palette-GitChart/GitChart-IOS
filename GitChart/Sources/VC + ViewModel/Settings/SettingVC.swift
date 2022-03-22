@@ -54,4 +54,10 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.row == 1 {
+            self.present(AddUserNameVC(), animated: true)
+        }
+        return indexPath
+    }
 }
