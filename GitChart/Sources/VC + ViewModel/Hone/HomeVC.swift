@@ -182,8 +182,9 @@ class HomeVC : BaseViewController {
         }
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         commitTrandView.addGestureRecognizer(tap)
-        trandChart.addGestureRecognizer(tap)
+        trandChart.addGestureRecognizer(tap2)
         
         bindViewModel()
         
@@ -214,7 +215,7 @@ class HomeVC : BaseViewController {
             if bool == false {
                 let alert = UIAlertController(
                     title: "데이터를 받아올수 없습니다",
-                    message: "인터넷 연결을 확인하시고, 처음 앱을 실행하셨다면 Github 아이디를 입력해 주새요!",
+                    message: "인터넷 연결을 확인하시고, 앱을 처음 실행하셨다면 Github 아이디를 입력해 주새요!",
                     preferredStyle: UIAlertController.Style.alert)
                 let okAction = UIAlertAction(title: "확인", style: .default) { action in
                 }
