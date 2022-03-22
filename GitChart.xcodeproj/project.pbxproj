@@ -47,6 +47,7 @@
 		57B4D28D27A58AE700C131E1 /* GitChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D28C27A58AE700C131E1 /* GitChartTests.swift */; };
 		57B4D29727A58AE700C131E1 /* GitChartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D29627A58AE700C131E1 /* GitChartUITests.swift */; };
 		57B4D29927A58AE700C131E1 /* GitChartUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B4D29827A58AE700C131E1 /* GitChartUITestsLaunchTests.swift */; };
+		57B9775B27E9A97C002ABA9D /* AddUserNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B9775A27E9A97C002ABA9D /* AddUserNameVC.swift */; };
 		57C6C47427C923A900111EDE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6C47327C923A900111EDE /* HomeViewModel.swift */; };
 		57E692EE27E0D78D00F7CEF8 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E692ED27E0D78D00F7CEF8 /* UILabel.swift */; };
 		57E94A4727B6A6E100AE826A /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E94A4627B6A6E100AE826A /* BaseURL.swift */; };
@@ -120,6 +121,7 @@
 		57B4D29227A58AE700C131E1 /* GitChartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitChartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B4D29627A58AE700C131E1 /* GitChartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitChartUITests.swift; sourceTree = "<group>"; };
 		57B4D29827A58AE700C131E1 /* GitChartUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitChartUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		57B9775A27E9A97C002ABA9D /* AddUserNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserNameVC.swift; sourceTree = "<group>"; };
 		57C6C47327C923A900111EDE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		57E692ED27E0D78D00F7CEF8 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		57E94A4627B6A6E100AE826A /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				576E067927B40B0C0056B7F5 /* SettingVC.swift */,
 				570D625127E833790061ACA8 /* SettingListCell.swift */,
 				570D625327E848080061ACA8 /* SettingHeaderCell.swift */,
+				57B9775A27E9A97C002ABA9D /* AddUserNameVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				576E067627B40AEC0056B7F5 /* FriendsVC.swift in Sources */,
 				576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */,
 				5798B6C127E0A6A800310BBF /* TrandChartTableViewCell.swift in Sources */,
+				57B9775B27E9A97C002ABA9D /* AddUserNameVC.swift in Sources */,
 				576D101B27BA9DF400EC5CF3 /* Moya+NetworkError.swift in Sources */,
 				57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */,
 				5708673927D7885100CE4518 /* UIImageView.swift in Sources */,
