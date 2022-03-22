@@ -19,13 +19,13 @@ class SettingHeaderCell: BaseTableViewCell {
     
     let userImage = UIImageView().then {
         $0.clipsToBounds = true
-        $0.layer.cornerRadius = 15
+        $0.layer.cornerRadius = 25
         $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.secondaryLabel.cgColor
     }
     
     let nameLabel = UILabel().then {
-        $0.font = .roundedFont(ofSize: 22, weight: .medium)
+        $0.font = .roundedFont(ofSize: 25, weight: .medium)
         $0.textColor = .appColor(.labelColor)
     }
     
@@ -48,10 +48,10 @@ class SettingHeaderCell: BaseTableViewCell {
                     return
                 }
                 
+
                 self.nameLabel.text = data.login
                 self.userImage.kf.indicatorType = .activity
                 self.userImage.setImage(with: data.avatar_url ?? "")
-
                 
             case .failure(let error):
                 print("😔 error : \(error)")
@@ -63,20 +63,21 @@ class SettingHeaderCell: BaseTableViewCell {
     
     override func setupConstraints() {
         mainView.snp.makeConstraints {
-            $0.height.equalTo(60)
+            $0.height.equalTo(90)
             $0.top.bottom.equalTo(contentView).inset(5)
             $0.leading.trailing.equalTo(contentView).inset(15)
         }
         userImage.snp.makeConstraints {
-            $0.width.height.equalTo(30)
+            $0.width.height.equalTo(50)
             $0.centerY.equalTo(mainView)
             $0.left.equalTo(mainView).offset(15)
         }
         nameLabel.snp.makeConstraints {
-            $0.centerY.equalTo(mainView)
-            $0.left.equalTo(userImage.snp.right).offset(10)
-            $0.height.equalTo(20)
+            $0.centerY.equalTo(userImage)
+            $0.left.equalTo(userImage.snp.right).offset(20)
+            $0.height.equalTo(25)
         }
+
     }
 }
 
@@ -94,7 +95,7 @@ class VersionCell : BaseTableViewCell {
     let versionLabel = UILabel().then {
         $0.text = "Ver 1.0"
         $0.font = .roundedFont(ofSize: 17, weight: .medium)
-        $0.textColor = .appColor(.labelColor)
+        $0.textColor = .separator
         $0.textAlignment = .center
     }
     
