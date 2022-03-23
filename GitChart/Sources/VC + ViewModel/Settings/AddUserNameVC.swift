@@ -30,10 +30,13 @@ final class AddUserNameVC : BaseViewController {
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = .notoFont(size: .Regular, ofSize: 22)
         $0.backgroundColor = .appColor(.mainColor)
-        $0.layer.cornerRadius = 20
+        $0.layer.cornerRadius = 15
     }
     
     override func configureUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         [titleLabel, usernameTextField, saveButton, textFieldBottomLine].forEach {
             view.addSubview($0)
         }
@@ -67,4 +70,33 @@ final class AddUserNameVC : BaseViewController {
         }
     }
     
+    
+    @objc func keyboardWillShow(noti: Notification) {
+        let notinfo = noti.userInfo!
+        let keyboardFrame = notinfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+        let heiget = keyboardFrame.size.height - self.view.safeAreaInsets.bottom
+        let animateDuration = notinfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        UIView.animate(withDuration: animateDuration) {
+            self.saveButton.layer.cornerRadius = 0
+            self.saveButton.snp.remakeConstraints {
+                $0.height.equalTo(50)
+                $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+                $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(heiget)
+            }
+            self.view.layoutIfNeeded()
+        }
+    }
+    @objc func keyboardWillHide(noti: Notification) {
+        let notinfo = noti.userInfo!
+        let animateDuration = notinfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        UIView.animate(withDuration: animateDuration) {
+            self.saveButton.layer.cornerRadius = 15
+            self.saveButton.snp.remakeConstraints {
+                $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(10)
+                $0.height.equalTo(50)
+                $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(5)
+            }
+            self.view.layoutIfNeeded()
+        }
+    }
 }
