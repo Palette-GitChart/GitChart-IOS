@@ -40,7 +40,8 @@ class SettingHeaderCell: BaseTableViewCell {
     }
     
     func bindProfile() {
-        API.getUserProfile("kimdaehee0824").request().subscribe {event in
+        let username = UserDefaults.standard.string(forKey: "username") ?? ""
+        API.getUserProfile(username).request().subscribe {event in
             switch event {
             case .success(let response):
                 print(response.data)
@@ -48,7 +49,6 @@ class SettingHeaderCell: BaseTableViewCell {
                     return
                 }
                 
-
                 self.nameLabel.text = data.login
                 self.userImage.kf.indicatorType = .activity
                 self.userImage.setImage(with: data.avatar_url ?? "")
@@ -59,7 +59,7 @@ class SettingHeaderCell: BaseTableViewCell {
         }.disposed(by: disposeBag)
         
     }
-
+    
     
     override func setupConstraints() {
         mainView.snp.makeConstraints {
@@ -77,7 +77,7 @@ class SettingHeaderCell: BaseTableViewCell {
             $0.left.equalTo(userImage.snp.right).offset(20)
             $0.height.equalTo(25)
         }
-
+        
     }
 }
 
@@ -86,11 +86,11 @@ class VersionCell : BaseTableViewCell {
     let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
     
     func currentAppVersion() -> String {
-      if let info: [String: Any] = Bundle.main.infoDictionary,
-          let currentVersion: String = info["CFBundleShortVersionString"] as? String {
+        if let info: [String: Any] = Bundle.main.infoDictionary,
+           let currentVersion: String = info["CFBundleShortVersionString"] as? String {
             return currentVersion
-      }
-      return "nil"
+        }
+        return "nil"
     }
     let versionLabel = UILabel().then {
         $0.text = "Ver 1.0"
