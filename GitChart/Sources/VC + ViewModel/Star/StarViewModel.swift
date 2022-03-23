@@ -26,7 +26,10 @@ class StarViewModel : ViewModel {
     }
     
     func trans(_ input: input) -> output {
-        API.getUserStarred(input.username).request()
+        
+        let username = UserDefaults.standard.string(forKey: "username")
+        
+        API.getUserStarred(username ?? "").request()
             .subscribe { event in
                 switch event {
                 case .success(let response):
@@ -45,7 +48,7 @@ class StarViewModel : ViewModel {
                 
             }.disposed(by: disposeBag)
         
-        API.getUserStarred(input.username).requestErrorAlert().subscribe { _ in
+        API.getUserStarred(username ?? "").requestErrorAlert().subscribe { _ in
         }.disposed(by: disposeBag)
         
         return output(getUserStarList: getUserStarList, apiStatus: apiStatus)

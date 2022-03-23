@@ -27,7 +27,10 @@ class FriendViewModel : ViewModel {
     }
     
     func trans(_ input: input) -> output {
-        API.getUserFollowing(input.username).request()
+        
+        let username = UserDefaults.standard.string(forKey: "username")
+        
+        API.getUserFollowing(username ?? "").request()
             .subscribe { event in
                 switch event {
                 case .success(let response):
@@ -47,7 +50,7 @@ class FriendViewModel : ViewModel {
                 
             }.disposed(by: disposeBag)
         
-        API.getUserFollowing(input.username).requestErrorAlert().subscribe { event in
+        API.getUserFollowing(username ?? "").requestErrorAlert().subscribe { event in
         }.disposed(by: disposeBag)
 
         return output(getUserFriendsList: getUserFriendsList, apiStatus: apiStatus)

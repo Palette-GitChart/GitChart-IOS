@@ -49,7 +49,7 @@ class TrandVC : BaseViewController {
         mainTableView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
     func bindViewModel() {
-        let output = viewModel.trans(.init(username: "kimdaehee0824"))
+        let output = viewModel.trans(.init(username: "이거 지금 사용 안함"))
         
         output.getMounthCommit.bind { count in
             self.mounthCommitCount.accept(count)

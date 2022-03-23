@@ -143,7 +143,7 @@ class HomeVC : BaseViewController {
         navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.sizeToFit()
     }
-
+    
     //MARK: - configure
     
     override func configureUI() {
@@ -196,11 +196,8 @@ class HomeVC : BaseViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func bindViewModel() {
-        let output = viewModel.trans(
-            .init(
-                didCommitTap: commitView1.rx
-                    .tapGesture().asDriver())
-        )
+        
+        let output = viewModel.trans(.init(username: "no"))
         
         refreshControl.rx.controlEvent(.valueChanged).bind {
             self.bindViewModel()

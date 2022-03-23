@@ -28,7 +28,7 @@ class HomeViewModel : ViewModel  {
     
     
     struct input {
-        let didCommitTap : Driver<UITapGestureRecognizer>
+        let username : String
     }
     
     struct output {
@@ -45,12 +45,9 @@ class HomeViewModel : ViewModel  {
     
     func trans(_ input: input) -> output {
         
+        let username = UserDefaults.standard.string(forKey: "username")
         
-        let username = "kimdaehee0824"
-        
-        //TODO: kimdaehee0824 db로 변경
-        
-        API.getUserProfile(username).request()
+        API.getUserProfile(username ?? "").request()
             .subscribe { (event) in
                 
                 switch event {
@@ -69,7 +66,7 @@ class HomeViewModel : ViewModel  {
         
         //MARK: Commit Count
         
-        let commitCountArray : [API] = [.dayCommit(username), .weekCommit(username)]
+        let commitCountArray : [API] = [.dayCommit(username ?? ""), .weekCommit(username ?? "")]
         let commitCountOutput : [PublishRelay<String>] = [getUserDayCommit, getWeekCommit]
         
         for count in 0..<2 {
@@ -92,7 +89,7 @@ class HomeViewModel : ViewModel  {
         
         //MARK: CommitArray
         
-        let commitListArray : [API] = [.monthArray(username)]
+        let commitListArray : [API] = [.monthArray(username ?? "")]
         let commitListOutput : [PublishRelay<[Int]>] = [getMounthArray]
         
         for count in 0..<1 {
@@ -110,7 +107,7 @@ class HomeViewModel : ViewModel  {
                     }
                 }.disposed(by: bag)
             
-            API.getUserProfile(username).requestErrorAlert().subscribe { event in
+            API.getUserProfile(username ?? "").requestErrorAlert().subscribe { event in
             }.disposed(by: bag)
             
         }
