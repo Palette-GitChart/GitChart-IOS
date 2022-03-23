@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RxRelay
 
 final class AddUserNameVC : BaseViewController {
+    
+    let isSaveSubject = BehaviorRelay<Bool>(value: false)
     
     private let titleLabel = UILabel().then {
         
@@ -24,12 +27,15 @@ final class AddUserNameVC : BaseViewController {
     }
     
     let textFieldBottomLine = UIView().then { $0.backgroundColor = .separator }
+    let statusLabel = UILabel().then {
+        $0.textColor = .red
+        
+    }
     
     private let saveButton = UIButton().then {
         $0.setTitle("완료", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = .notoFont(size: .Regular, ofSize: 22)
-        $0.backgroundColor = .appColor(.mainColor)
         $0.layer.cornerRadius = 15
     }
     
@@ -40,12 +46,34 @@ final class AddUserNameVC : BaseViewController {
         [titleLabel, usernameTextField, saveButton, textFieldBottomLine].forEach {
             view.addSubview($0)
         }
+        
+        usernameTextField.rx.text.orEmpty.bind {
+            if $0 == "" {
+                UIView.animate(withDuration: 0.2) {
+                    self.saveButton.backgroundColor = .separator
+                }
+            } else {
+                UIView.animate(withDuration: 0.2) {
+                    self.saveButton.backgroundColor = .appColor(.mainColor)
+                    self.isSaveSubject.accept(true)
+                }
+            }
+        }.disposed(by: disposeBag)
+        
+        saveButton.rx.tap.bind {
+            self.isSaveSubject.bind { bool in
+                if bool == true {
+                    UserDefaults.standard.set(self.usernameTextField.text, forKey: "username")
+                    self.dismiss(animated: true)
+                }
+            }.disposed(by: self.disposeBag)
+        }.disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            self.view.endEditing(true)
-        }
-
+        self.view.endEditing(true)
+    }
+    
     override func setupConstraints() {
         titleLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(10)
@@ -70,6 +98,7 @@ final class AddUserNameVC : BaseViewController {
         }
     }
     
+    //MARK: - keyboardShow
     
     @objc func keyboardWillShow(noti: Notification) {
         let notinfo = noti.userInfo!
