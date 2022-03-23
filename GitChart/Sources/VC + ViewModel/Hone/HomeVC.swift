@@ -94,11 +94,9 @@ class HomeVC : BaseViewController {
             label.font = .notoFont(size: .Regular, ofSize: 12)
             view.addSubview(label)
         }
-        commitGoalCountLabel1.text = "0개"
         commitGoalCountLabel2.textAlignment = .right
         
         //TODO: dummy 추후 변경 얘정
-        commitGoalCountLabel2.text = "15개"
     }
     
     //MARK: commitTrandView
@@ -137,7 +135,7 @@ class HomeVC : BaseViewController {
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 20, weight: .semibold)]
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 34, weight: .bold)]
-
+        
     }
     
     //MARK: - configure
@@ -147,7 +145,7 @@ class HomeVC : BaseViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.sizeToFit()
-
+        
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         refreshControl.tintColor = .appColor(.labelColor)
@@ -198,6 +196,7 @@ class HomeVC : BaseViewController {
     func bindViewModel() {
         
         let output = viewModel.trans(.init(username: "no"))
+        let commitCount = Int(UserDefaults.standard.string(forKey: "commitCount") ?? "1")
         
         refreshControl.rx.controlEvent(.valueChanged).bind {
             self.bindViewModel()
@@ -231,7 +230,14 @@ class HomeVC : BaseViewController {
         output.getUserDayCommit
             .bind { count in
                 self.commitCountLabel1.text = "\(count)개"
-                self.commitGoalProgressView.setProgress(Float(Double(100/15*Int(count)!)/100), animated: true)
+                UIView.animate(withDuration: 1.0) {
+                    self.commitGoalProgressView.setProgress(Float(Double(100/(commitCount ?? 1)*Int(count)!)/100), animated: true)
+                }
+                
+                
+                self.commitGoalCountLabel2.text = "\(commitCount ?? 1)개"
+                self.commitGoalCountLabel1.text = "\(count)개"
+                
                 self.commitCountLabel1.makeCommitCountLabel(UIColor(rgb: 0x6EC7CD))
             }.disposed(by: disposeBag)
         
@@ -245,9 +251,6 @@ class HomeVC : BaseViewController {
             .bind{ user in
                 var lineChartEntry = [ChartDataEntry]()
                 let todayMonth = Calendar.current.dateComponents([.day], from: self.date)
-                //MARK: 주간 날짜 계산하는 방법
-                //let to = Calendar.current.dateComponents([.weekday], from: self.date)
-                //print(to.weekday)
                 let dateComponents = DateComponents(day: -(todayMonth.day ?? 0)+1)
                 let lastMounthDate = Calendar.current.date(byAdding: dateComponents, to: self.date)
                 self.commitTrandCountLabel2.text = "\(self.dateFormatter.string(from: self.date))"
