@@ -135,19 +135,19 @@ class HomeVC : BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
-        
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 20, weight: .semibold)]
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appColor(.mainColor), .font : UIFont.roundedFont(ofSize: 34, weight: .bold)]
-        self.title = "Home"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .automatic
-        self.navigationController?.navigationBar.sizeToFit()
+
     }
     
     //MARK: - configure
     
     override func configureUI() {
-        
+        self.title = "Home"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationController?.navigationBar.sizeToFit()
+
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         refreshControl.tintColor = .appColor(.labelColor)
