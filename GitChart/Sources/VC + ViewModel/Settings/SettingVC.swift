@@ -20,6 +20,7 @@ class SettingVC : BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.labelColor), .font : UIFont.roundedFont(ofSize: 20, weight: .semibold)]
+        mainTableView.reloadData()
     }
     
     override func configureUI() {

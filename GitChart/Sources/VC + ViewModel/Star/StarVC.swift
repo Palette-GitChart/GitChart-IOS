@@ -49,9 +49,7 @@ class StarVC : BaseViewController {
         let output = viewModel.trans(.init(username: "kimdaehee0824"))
         
         output.getUserStarList
-            .bind(to: mainTableView.rx
-                    .items(cellIdentifier: "starListCell",
-                           cellType: StarListTableViewCell.self)) {
+            .bind(to: mainTableView.rx.items(cellIdentifier: "starListCell", cellType: StarListTableViewCell.self)) {
                 (index: Int, element: Starred, cell: StarListTableViewCell) in
                 cell.starTitleLabel.text = element.name
                 cell.starDetailLabel.text = "\(element.owner.login) - \(element.language ?? "no languge")"
