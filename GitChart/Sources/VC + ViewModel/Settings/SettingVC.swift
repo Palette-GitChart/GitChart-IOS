@@ -10,7 +10,7 @@ import RxSwift
 
 class SettingVC : BaseViewController {
     
-    let settingTitleArray = ["Github 아이디 추가 변경", "Commit Trand 기간 변경하기", "일일 커밋 목표 수정하기", "개발자 소개", "오픈소스", "문의하기"]
+    let settingTitleArray = ["Github 아이디 추가 변경", "일일 커밋 목표 수정하기", "개발자 소개", "오픈소스", "문의하기"]
     
     let mainTableView = UITableView().then {
         $0.register(SettingListCell.self, forCellReuseIdentifier: "settingListCell")
@@ -37,7 +37,7 @@ class SettingVC : BaseViewController {
 
 extension SettingVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,11 +45,11 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
         switch row {
         case 0:
             return SettingHeaderCell()
-        case 1, 2, 3, 4, 5, 6:
+        case 1, 2, 3, 4, 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingListCell") as! SettingListCell
             cell.textLabbel.text = settingTitleArray[row-1]
             return cell
-        case 7:
+        case 6:
             return VersionCell()
         default:
             return UITableViewCell()

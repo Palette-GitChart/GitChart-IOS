@@ -38,7 +38,6 @@ class HomeViewModel : ViewModel  {
     func trans(_ input: input) -> output {
         
         let username = UserDefaults.standard.string(forKey: "username")
-        let user = UserDefaults.standard.string(forKey: "commitTrand")
 
         
         API.getUserProfile(username ?? "").request()
@@ -83,37 +82,20 @@ class HomeViewModel : ViewModel  {
         
         //MARK: CommitArray
         
-        if user == nil || user == "mounth" {
-            API.monthArray(username ?? "").request()
-                .subscribe { (event) in
-                    switch event {
-                    case .success(let response):
-                        guard let data = try? JSONDecoder().decode([Int].self, from: response.data) else
-                        { return }
-                        self.getTrandArray.accept(data)
-                        self.usernameStatus.accept(true)
-                    case .failure(let error):
-                        print("😔 error : \(error)")
-                        self.usernameStatus.accept(false)
-                    }
-                }.disposed(by: bag)
+        API.monthArray(username ?? "").request()
+            .subscribe { (event) in
+                switch event {
+                case .success(let response):
+                    guard let data = try? JSONDecoder().decode([Int].self, from: response.data) else
+                    { return }
+                    self.getTrandArray.accept(data)
+                    self.usernameStatus.accept(true)
+                case .failure(let error):
+                    print("😔 error : \(error)")
+                    self.usernameStatus.accept(false)
+                }
+            }.disposed(by: bag)
 
-        } else if user == "week" {
-            API.weekArray(username ?? "").request()
-                .subscribe { (event) in
-                    switch event {
-                    case .success(let response):
-                        guard let data = try? JSONDecoder().decode([Int].self, from: response.data) else
-                        { return }
-                        self.getTrandArray.accept(data)
-                        self.usernameStatus.accept(true)
-                    case .failure(let error):
-                        print("😔 error : \(error)")
-                        self.usernameStatus.accept(false)
-                    }
-                }.disposed(by: bag)
-
-        }
         
         API.getUserProfile(username ?? "").requestErrorAlert().subscribe { event in
         }.disposed(by: bag)
