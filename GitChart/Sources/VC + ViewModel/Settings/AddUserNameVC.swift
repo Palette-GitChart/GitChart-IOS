@@ -23,6 +23,7 @@ final class AddUserNameVC : BaseViewController {
     private let commentLabel = UILabel().then {
         $0.text = "Star, Friends 화면은 App를 다시 실행하면 업데이트 됩니다."
         $0.textAlignment = .center
+        $0.textColor = .appColor(.labelColor)
         $0.font = .notoFont(size: .Regular, ofSize: 13)
     }
     
