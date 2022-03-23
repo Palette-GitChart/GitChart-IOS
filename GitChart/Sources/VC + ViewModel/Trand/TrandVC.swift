@@ -51,7 +51,7 @@ class TrandVC : BaseViewController {
     func bindViewModel() {
         let output = viewModel.trans(.init(username: "이거 지금 사용 안함"))
         
-        output.getMounthCommit.bind { count in
+        output.getMonthCommit.bind { count in
             self.mounthCommitCount.accept(count)
         }.disposed(by: disposeBag)
         
@@ -85,7 +85,7 @@ extension TrandVC : UITableViewDelegate, UITableViewDataSource {
         
         if row == 0 || row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "trandCommitCell") as! TrandCommitTableViewCell
-            let commitLabelArray = ["Mounth Commit", "Year Commit"]
+            let commitLabelArray = ["Month Commit", "Year Commit"]
             print(commitLabelArray[row])
             if indexPath.row == 0 {
                 mounthCommitCount.bind { count in
@@ -104,7 +104,7 @@ extension TrandVC : UITableViewDelegate, UITableViewDataSource {
         }
         else if row >= 2 || 5 <= row {
             let trandRow = row - 2
-            let trandLabelArray = ["Week Trand", "Mounth Trand", "Year Trand"]
+            let trandLabelArray = ["Week Trand", "Month Trand", "Year Trand"]
             var dataEntries:  [BarChartDataEntry] = []
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "trandChartCell") as! TrandChartTableViewCell

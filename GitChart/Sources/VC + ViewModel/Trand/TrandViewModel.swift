@@ -14,7 +14,7 @@ class TrandViewModel : ViewModel {
     let disposeBag = DisposeBag()
     let apiStatus = PublishRelay<Bool>()
     
-    let getMounthCommit = PublishRelay<String>()
+    let getMonthCommit = PublishRelay<String>()
     let getYearCommit = PublishRelay<String>()
     
     let getWeekArray = PublishRelay<[Int]>()
@@ -26,7 +26,7 @@ class TrandViewModel : ViewModel {
     }
     struct output {
         let apiStatus : PublishRelay<Bool>
-        let getMounthCommit : PublishRelay<String>
+        let getMonthCommit : PublishRelay<String>
         let getYearCommit : PublishRelay<String>
         let getWeekArray : PublishRelay<[Int]>
         let getMounthArray : PublishRelay<[Int]>
@@ -38,7 +38,7 @@ class TrandViewModel : ViewModel {
         let username = UserDefaults.standard.string(forKey: "username")
         
         let commitCountArray = [API.mounthCommit(username ?? ""), API.yearCommit(username ?? "")]
-        let commitRelayArray = [self.getMounthCommit, self.getYearCommit]
+        let commitRelayArray = [self.getMonthCommit, self.getYearCommit]
         
         API.mounthCommit(username ?? "").requestErrorAlert().subscribe { event in
         }.disposed(by: disposeBag)
@@ -77,7 +77,7 @@ class TrandViewModel : ViewModel {
                 }.disposed(by: disposeBag)
         }
         
-        return output(apiStatus: apiStatus, getMounthCommit: getMounthCommit, getYearCommit: getYearCommit, getWeekArray: getWeekArray, getMounthArray: getMounthArray, getYearArray: getYearArray)
+        return output(apiStatus: apiStatus, getMonthCommit: getMonthCommit, getYearCommit: getYearCommit, getWeekArray: getWeekArray, getMounthArray: getMounthArray, getYearArray: getYearArray)
     }
     
 }
