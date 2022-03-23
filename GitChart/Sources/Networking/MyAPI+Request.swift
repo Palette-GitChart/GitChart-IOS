@@ -208,7 +208,12 @@ extension API {
                             SPIndicator.present(title: "오류 발생", message: "인터넷에 연결되지 않음", preset: .error, from: .top)
                         case let MyAPIError.restError(error, _, _):
                             guard let response = (error as? MoyaError)?.response else { break }
-                            SPIndicator.present(title: "오류 발생", message: "\(response.statusCode) Error", preset: .error, from: .top)
+                            if response.statusCode == 403 {
+                                SPIndicator.present(title: "한도 초과!", message: "잠시 후 다시 실행해 주세요v", preset: .error, from: .top)
+                            } else {
+                                SPIndicator.present(title: "오류 발생", message: "\(response.statusCode) Error", preset: .error, from: .top)
+                            }
+                            
                         default:
                             break
                         }
