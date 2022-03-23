@@ -18,6 +18,10 @@ class SettingVC : BaseViewController {
         $0.separatorStyle = .none
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appColor(.labelColor), .font : UIFont.roundedFont(ofSize: 20, weight: .semibold)]
         mainTableView.reloadData()
@@ -70,15 +74,18 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
                 textField.placeholder = "숫자를 입력해 주세요"
                 textField.keyboardType = .numberPad
             }
-            
             alert.addAction(cancel)
             alert.addAction(ok)
             alert.view.tintColor = .appColor(.mainColor)
             
             self.present(alert, animated: true, completion: nil)
-            
-            
         }
+        
+        if indexPath.row == 3 {
+            let vc = DeveloperVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
         return indexPath
     }
 }

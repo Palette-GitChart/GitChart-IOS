@@ -190,7 +190,6 @@ class HomeVC : BaseViewController {
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         let vc = TrandVC()
-        print("bind")
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func bindViewModel() {
