@@ -214,8 +214,7 @@ class HomeVC : BaseViewController {
                     title: "데이터를 받아올수 없습니다",
                     message: "인터넷 연결을 확인하시고, 앱을 처음 실행하셨다면 Github 아이디를 입력해 주새요!",
                     preferredStyle: UIAlertController.Style.alert)
-                let okAction = UIAlertAction(title: "확인", style: .default) { action in
-                }
+                let okAction = UIAlertAction(title: "확인", style: .default)
                 alert.addAction(okAction)
                 self.present(alert, animated: false, completion: nil)
             }
@@ -242,7 +241,7 @@ class HomeVC : BaseViewController {
                 self.commitCountLabel2.makeCommitCountLabel(.appColor(.subColor))
             }.disposed(by: disposeBag)
         
-        output.getMounthArray
+        output.getTrandArray
             .bind{ user in
                 var lineChartEntry = [ChartDataEntry]()
                 let todayMonth = Calendar.current.dateComponents([.day], from: self.date)
