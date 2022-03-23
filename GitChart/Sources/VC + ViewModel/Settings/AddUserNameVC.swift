@@ -20,6 +20,12 @@ final class AddUserNameVC : BaseViewController {
         $0.font = .notoFont(size: .Bold, ofSize: 20)
     }
     
+    private let commentLabel = UILabel().then {
+        $0.text = "Star, Friends 화면은 App를 다시 실행하면 업데이트 됩니다."
+        $0.textAlignment = .center
+        $0.font = .notoFont(size: .Regular, ofSize: 13)
+    }
+    
     private let usernameTextField = UITextField().then {
         $0.borderStyle = .none
         $0.placeholder = "Github 아이디"
@@ -43,9 +49,21 @@ final class AddUserNameVC : BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        [titleLabel, usernameTextField, saveButton, textFieldBottomLine].forEach {
+        [titleLabel, usernameTextField, saveButton, textFieldBottomLine, commentLabel].forEach {
             view.addSubview($0)
         }
+        
+        bind()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func bind() {
+        let username = UserDefaults.standard.string(forKey: "username") ?? ""
+        
+        self.usernameTextField.text = username
         
         usernameTextField.rx.text.orEmpty.bind {
             if $0 == "" {
@@ -68,10 +86,7 @@ final class AddUserNameVC : BaseViewController {
                 }
             }.disposed(by: self.disposeBag)
         }.disposed(by: disposeBag)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+
     }
     
     override func setupConstraints() {
@@ -80,9 +95,15 @@ final class AddUserNameVC : BaseViewController {
             $0.top.equalTo(40)
         }
         
+        commentLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.left.right.equalTo(view).inset(20)
+            $0.height.equalTo(15)
+        }
+        
         usernameTextField.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(40)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(70)
+            $0.top.equalTo(commentLabel.snp.bottom).offset(70)
         }
         
         textFieldBottomLine.snp.makeConstraints {
