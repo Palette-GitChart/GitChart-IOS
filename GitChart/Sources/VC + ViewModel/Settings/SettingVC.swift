@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import SafariServices
+import MessageUI
 
 class SettingVC : BaseViewController {
     
@@ -91,9 +92,30 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
             let safariViewController = SFSafariViewController(url: URL(string: "https://github.com/Palette-GitChart/GitChart-IOS/blob/main/LICENSE")!)
             safariViewController.preferredControlTintColor = .appColor(.mainColor)
             self.present(safariViewController, animated: true, completion: nil)
-
+            
         }
         
+        if indexPath.row == 5 {
+            if MFMailComposeViewController.canSendMail() {
+                let compseVC = MFMailComposeViewController()
+                compseVC.mailComposeDelegate = self
+                compseVC.setToRecipients(["kj0824@icloud.com"])
+                compseVC.setSubject("GitChart 문의")
+                compseVC.setMessageBody("에러 제보 시 IOS 버전과 iPhone 기종 등을 입력해 주세요", isHTML: false)
+                self.present(compseVC, animated: true, completion: nil)
+            }
+            else {
+                let safariViewController = SFSafariViewController(url: URL(string: "https://github.com/kimdaehee0824")!)
+                safariViewController.preferredControlTintColor = .appColor(.mainColor)
+                self.present(safariViewController, animated: true, completion: nil)
+            }
+        }
         return indexPath
+    }
+}
+
+extension SettingVC : MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
