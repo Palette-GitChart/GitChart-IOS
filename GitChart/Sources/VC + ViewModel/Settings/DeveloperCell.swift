@@ -31,12 +31,12 @@ class DeveloperCell : BaseTableViewCell {
         $0.textColor = .appColor(.labelColor)
     }
     
-    let portfolioLabel = UIImageView()
+    let portfolioImage = UIImageView()
     
     override func configureUI() {
         contentView.backgroundColor = .appColor(.backgroundColor)
         contentView.addSubview(mainView)
-        [userImage, nameLabel, descriptionlabel, portfolioLabel].forEach {
+        [userImage, nameLabel, descriptionlabel, portfolioImage].forEach {
             mainView.addSubview($0)
         }
     }
@@ -56,15 +56,15 @@ class DeveloperCell : BaseTableViewCell {
         nameLabel.snp.makeConstraints {
             $0.top.equalTo(30)
             $0.height.equalTo(20)
-            $0.left.equalTo(10)
+            $0.left.equalTo(userImage.snp.right).offset(20)
         }
         descriptionlabel.snp.makeConstraints {
             $0.top.equalTo(nameLabel.snp.bottom)
             $0.height.equalTo(20)
-            $0.left.equalTo(10)
+            $0.left.equalTo(userImage.snp.right).offset(20)
         }
         
-        portfolioLabel.snp.makeConstraints {
+        portfolioImage.snp.makeConstraints {
             $0.width.height.equalTo(40)
             $0.right.equalTo(-20)
             $0.centerY.equalTo(mainView)
