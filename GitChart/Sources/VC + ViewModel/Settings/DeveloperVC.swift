@@ -6,10 +6,10 @@
 //
 
 import UIKit
+import SafariServices
 
 class DeveloperVC : BaseViewController {
     
-
     let developer = Developer()
     
     let mainTableView = UITableView().then {
@@ -55,5 +55,11 @@ extension DeveloperVC : UITableViewDelegate, UITableViewDataSource {
         cell.portfolioImage.image = UIImage(named: developer.portfolio[indexPath.row])?.withRenderingMode(.alwaysTemplate)
         cell.portfolioImage.tintColor = .label.withAlphaComponent(0.9)
         return cell
+    }
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let safariViewController = SFSafariViewController(url: URL(string: developer.url[indexPath.row])!)
+        safariViewController.preferredControlTintColor = .appColor(.mainColor)
+        self.present(safariViewController, animated: true, completion: nil)
+        return indexPath
     }
 }
