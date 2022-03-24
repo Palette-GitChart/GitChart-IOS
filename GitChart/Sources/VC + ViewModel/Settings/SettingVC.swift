@@ -12,7 +12,7 @@ import MessageUI
 
 class SettingVC : BaseViewController {
     
-    let settingTitleArray = ["Github 아이디 추가 변경", "일일 커밋 목표 수정하기", "개발자 소개", "오픈소스", "문의하기"]
+    let settingTitleArray = ["Github 아이디 추가, 변경", "일일 커밋 목표 수정하기", "개발자 소개", "오픈소스", "문의하기"]
     
     let mainTableView = UITableView().then {
         $0.register(SettingListCell.self, forCellReuseIdentifier: "settingListCell")
