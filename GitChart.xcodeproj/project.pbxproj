@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		16E406E91D6F3FE7FBCD0B2B /* Pods_GitChartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121FA05A0C1B1E366B890976 /* Pods_GitChartTests.framework */; };
 		2DFF53D8937571F188389692 /* Pods_GitChart_GitChartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B225F86A57D602AA9335FEDF /* Pods_GitChart_GitChartUITests.framework */; };
+		5703E5FC27ECA5270094566D /* EasterEggVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5703E5FB27ECA5270094566D /* EasterEggVC.swift */; };
 		5708673927D7885100CE4518 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5708673827D7885100CE4518 /* UIImageView.swift */; };
 		570D625227E833790061ACA8 /* SettingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D625127E833790061ACA8 /* SettingListCell.swift */; };
 		570D625427E848080061ACA8 /* SettingHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570D625327E848080061ACA8 /* SettingHeaderCell.swift */; };
@@ -86,6 +87,7 @@
 /* Begin PBXFileReference section */
 		121FA05A0C1B1E366B890976 /* Pods_GitChartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitChartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18394C5B470A7E5C28C6E46D /* Pods-GitChart-GitChartUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitChart-GitChartUITests.debug.xcconfig"; path = "Target Support Files/Pods-GitChart-GitChartUITests/Pods-GitChart-GitChartUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5703E5FB27ECA5270094566D /* EasterEggVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggVC.swift; sourceTree = "<group>"; };
 		5708673827D7885100CE4518 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		570D625127E833790061ACA8 /* SettingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListCell.swift; sourceTree = "<group>"; };
 		570D625327E848080061ACA8 /* SettingHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderCell.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				57B9775A27E9A97C002ABA9D /* AddUserNameVC.swift */,
 				5790935227EB5D3B00449C31 /* DeveloperVC.swift */,
 				5790935527EBE3D700449C31 /* DeveloperCell.swift */,
+				5703E5FB27ECA5270094566D /* EasterEggVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				5769232227B15B7300E97A16 /* HomeVC.swift in Sources */,
 				5736270C27B94EF8006F0AC0 /* UserProfileModel.swift in Sources */,
 				5718A33927B799E100552E93 /* Api.swift in Sources */,
+				5703E5FC27ECA5270094566D /* EasterEggVC.swift in Sources */,
 				57F72D2427DE37DC00C08D44 /* FriendViewModel.swift in Sources */,
 				5798B6BF27E0A65200310BBF /* TrandCommitTableViewCell.swift in Sources */,
 				57F72D2A27DEEA8A00C08D44 /* FriendsDetailViewModel.swift in Sources */,

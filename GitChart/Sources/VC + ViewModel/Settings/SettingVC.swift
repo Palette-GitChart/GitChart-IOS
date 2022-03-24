@@ -68,6 +68,9 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 2 {
             let alert = UIAlertController(title: "커밋 목표 수정", message: "자신이 목표로 하는 숫자를 입력해 주세요", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default) { (ok) in
+                if alert.textFields?[0].text == "1004" {
+                    self.present(EasterEggVC(), animated: true)
+                }
                 UserDefaults.standard.set(alert.textFields?[0].text, forKey: "commitCount")
             }
             let cancel = UIAlertAction(title: "cancel", style: .destructive)
