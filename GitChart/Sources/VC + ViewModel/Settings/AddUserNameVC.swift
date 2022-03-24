@@ -122,7 +122,9 @@ final class AddUserNameVC : BaseViewController {
     
     //MARK: - keyboardShow
     
-    @objc func keyboardWillShow(noti: Notification) {
+    @objc
+    @available(macOS, unavailable)
+    func keyboardWillShow(noti: Notification) {
         let notinfo = noti.userInfo!
         let keyboardFrame = notinfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
         let heiget = keyboardFrame.size.height - self.view.safeAreaInsets.bottom
@@ -137,7 +139,10 @@ final class AddUserNameVC : BaseViewController {
             self.view.layoutIfNeeded()
         }
     }
-    @objc func keyboardWillHide(noti: Notification) {
+    
+    @objc
+    @available(macOS, unavailable)
+    func keyboardWillHide(noti: Notification) {
         let notinfo = noti.userInfo!
         let animateDuration = notinfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         UIView.animate(withDuration: animateDuration) {

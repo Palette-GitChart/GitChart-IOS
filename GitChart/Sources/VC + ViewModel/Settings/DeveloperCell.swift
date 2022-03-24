@@ -19,6 +19,7 @@ class DeveloperCell : BaseTableViewCell {
         $0.layer.cornerRadius = 25
         $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.secondaryLabel.cgColor
+        $0.contentMode = .scaleAspectFill
     }
     
     let nameLabel = UILabel().then {

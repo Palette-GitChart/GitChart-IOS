@@ -52,7 +52,8 @@ extension DeveloperVC : UITableViewDelegate, UITableViewDataSource {
         cell.nameLabel.text = developer.mame[indexPath.row]
         cell.descriptionlabel.text = developer.description[indexPath.row]
         cell.userImage.image = UIImage(named: developer.image[indexPath.row])
-        cell.portfolioImage.image = UIImage(named: developer.portfolio[indexPath.row])
+        cell.portfolioImage.image = UIImage(named: developer.portfolio[indexPath.row])?.withRenderingMode(.alwaysTemplate)
+        cell.portfolioImage.tintColor = .label.withAlphaComponent(0.9)
         return cell
     }
 }
