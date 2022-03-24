@@ -59,6 +59,7 @@ extension DeveloperVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let safariViewController = SFSafariViewController(url: URL(string: developer.url[indexPath.row])!)
         safariViewController.preferredControlTintColor = .appColor(.mainColor)
+        safariViewController.modalPresentationStyle = .overFullScreen
         self.present(safariViewController, animated: true, completion: nil)
         return indexPath
     }

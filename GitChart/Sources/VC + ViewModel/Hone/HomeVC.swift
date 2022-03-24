@@ -226,6 +226,7 @@ class HomeVC : BaseViewController {
                     preferredStyle: UIAlertController.Style.alert)
                 let okAction = UIAlertAction(title: "확인", style: .default)
                 alert.addAction(okAction)
+                alert.view.tintColor = .appColor(.mainColor)
                 self.present(alert, animated: false, completion: nil)
             }
             

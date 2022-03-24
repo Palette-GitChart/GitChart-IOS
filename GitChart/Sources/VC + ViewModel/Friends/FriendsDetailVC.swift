@@ -92,6 +92,7 @@ class FriendsDetailVC : BaseViewController {
         visitWebButton.rx.tap.bind {
             let safariViewController = SFSafariViewController(url: URL(string: self.githubURL)!)
             safariViewController.modalPresentationStyle = .overFullScreen
+            safariViewController.preferredControlTintColor = .appColor(.mainColor)
             self.present(safariViewController, animated: true, completion: nil)
         }.disposed(by: disposeBag)
     }

@@ -38,7 +38,7 @@ class FriendViewModel : ViewModel {
                         self.apiStatus.accept(false)
                         return
                     }
-                    SPIndicator.present(title: "Requst 성공!", message: "\(data.count)개의 Star 정보를 가져옴", preset: .done, from: .top)
+                    SPIndicator.present(title: "Requst 성공!", message: "\(data.count)명 데이터를 가져옴", preset: .done, from: .top)
                     self.getUserFriendsList.accept(data)
                     self.apiStatus.accept(true)
 

@@ -38,7 +38,7 @@ class StarViewModel : ViewModel {
                         self.apiStatus.accept(false)
                         return
                     }
-                    SPIndicator.present(title: "Requst 성공!", message: "\(data.count)개의 Star 정보를 가져옴", preset: .done, from: .top)
+                    SPIndicator.present(title: "Requst 성공!", message: "\(data.count)개 Star를 가져옴", preset: .done, from: .top)
                     self.getUserStarList.accept(data)
                     self.apiStatus.accept(true)
                 case .failure(let error):
