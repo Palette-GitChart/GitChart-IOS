@@ -37,6 +37,7 @@
 		5783DE9827B42C6F001BE31C /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5783DE8927B426CE001BE31C /* NotoSans-Regular.ttf */; };
 		5790935327EB5D3B00449C31 /* DeveloperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790935227EB5D3B00449C31 /* DeveloperVC.swift */; };
 		5790935627EBE3D700449C31 /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790935527EBE3D700449C31 /* DeveloperCell.swift */; };
+		5790935827EBF4F100449C31 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790935727EBF4F100449C31 /* Developer.swift */; };
 		5797946D27D6CD3D006EC8AE /* trandChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797946C27D6CD3D006EC8AE /* trandChart.swift */; };
 		5797946F27D70220006EC8AE /* HomeSetupConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797946E27D70220006EC8AE /* HomeSetupConstraints.swift */; };
 		5798B6BF27E0A65200310BBF /* TrandCommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5798B6BE27E0A65200310BBF /* TrandCommitTableViewCell.swift */; };
@@ -110,6 +111,7 @@
 		5790935227EB5D3B00449C31 /* DeveloperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperVC.swift; sourceTree = "<group>"; };
 		5790935427EB668800449C31 /* GitChart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitChart.entitlements; sourceTree = "<group>"; };
 		5790935527EBE3D700449C31 /* DeveloperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperCell.swift; sourceTree = "<group>"; };
+		5790935727EBF4F100449C31 /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		5797946C27D6CD3D006EC8AE /* trandChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trandChart.swift; sourceTree = "<group>"; };
 		5797946E27D70220006EC8AE /* HomeSetupConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSetupConstraints.swift; sourceTree = "<group>"; };
 		5798B6BE27E0A65200310BBF /* TrandCommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrandCommitTableViewCell.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				5736270B27B94EF8006F0AC0 /* UserProfileModel.swift */,
 				5736270D27B95032006F0AC0 /* StarredModel.swift */,
 				57F72D2527DEB1B600C08D44 /* FriendsModel.swift */,
+				5790935727EBF4F100449C31 /* Developer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				576E067A27B40B0C0056B7F5 /* SettingVC.swift in Sources */,
 				5798B6C127E0A6A800310BBF /* TrandChartTableViewCell.swift in Sources */,
 				57B9775B27E9A97C002ABA9D /* AddUserNameVC.swift in Sources */,
+				5790935827EBF4F100449C31 /* Developer.swift in Sources */,
 				576D101B27BA9DF400EC5CF3 /* Moya+NetworkError.swift in Sources */,
 				57B4D27627A58AE600C131E1 /* AppDelegate.swift in Sources */,
 				5708673927D7885100CE4518 /* UIImageView.swift in Sources */,
