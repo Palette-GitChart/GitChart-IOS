@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import SafariServices
 
 class SettingVC : BaseViewController {
     
@@ -84,6 +85,13 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 3 {
             let vc = DeveloperVC()
             self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        if indexPath.row == 4 {
+            let safariViewController = SFSafariViewController(url: URL(string: "https://github.com/Palette-GitChart/GitChart-IOS/blob/main/LICENSE")!)
+            safariViewController.preferredControlTintColor = .appColor(.mainColor)
+            self.present(safariViewController, animated: true, completion: nil)
+
         }
         
         return indexPath
