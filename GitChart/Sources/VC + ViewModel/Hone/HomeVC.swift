@@ -208,9 +208,21 @@ class HomeVC : BaseViewController {
         output.usernameStatus.bind { bool in
             
             if bool == false {
+                let username = UserDefaults.standard.string(forKey: "username")
+                var title = ""
+                var message = ""
+                
+                if username == nil {
+                    title = "Github 아이디가 입력되지 않았습니다."
+                    message = "설정으로 이동하여 아이디를 입력해 주새요."
+                }
+                else {
+                    title = "로딩에 실페하였습니다."
+                    message = "인터넷 연결을 확인하시고, Github 아이디가 올바른지 확인해 주세요"
+                }
                 let alert = UIAlertController(
-                    title: "데이터를 받아올수 없습니다",
-                    message: "인터넷 연결을 확인하시고, 앱을 처음 실행하셨다면 Github 아이디를 입력해 주새요!",
+                    title: title,
+                    message: message,
                     preferredStyle: UIAlertController.Style.alert)
                 let okAction = UIAlertAction(title: "확인", style: .default)
                 alert.addAction(okAction)

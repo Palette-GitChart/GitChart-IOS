@@ -73,7 +73,6 @@ class HomeViewModel : ViewModel  {
                             self.usernameStatus.accept(true)
                         case .failure(let error):
                             print("😔 error : \(error)")
-                            self.usernameStatus.accept(false)
                         }
                     }.disposed(by: self.bag)
                 
@@ -92,7 +91,6 @@ class HomeViewModel : ViewModel  {
                     self.usernameStatus.accept(true)
                 case .failure(let error):
                     print("😔 error : \(error)")
-                    self.usernameStatus.accept(false)
                 }
             }.disposed(by: bag)
 
