@@ -9,7 +9,11 @@ import UIKit
 
 class DeveloperVC : BaseViewController {
     
+
+    let developer = Developer()
+    
     let mainTableView = UITableView().then {
+        $0.register(DeveloperCell.self, forCellReuseIdentifier: "developerCell")
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
     }
@@ -26,12 +30,29 @@ class DeveloperVC : BaseViewController {
         self.navigationController?.navigationBar.sizeToFit()
         self.navigationController?.navigationBar.tintColor = .appColor(.mainColor)
         view.addSubview(mainTableView)
+        
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
+        
     }
     
     override func setupConstraints() {
         mainTableView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
+}
+
+
+extension DeveloperVC : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return developer.mame.count
+    }
     
-    
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "developerCell") as! DeveloperCell
+        cell.nameLabel.text = developer.mame[indexPath.row]
+        cell.descriptionlabel.text = developer.description[indexPath.row]
+        cell.userImage.image = UIImage(named: developer.image[indexPath.row])
+        cell.portfolioImage.image = UIImage(named: developer.portfolio[indexPath.row])
+        return cell
+    }
 }
