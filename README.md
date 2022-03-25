@@ -13,7 +13,7 @@
 |김대희|이용진|장석연|이상운|
 |:-:|:-:|:-:|:-:|
 |<img src="https://res.craft.do/user/full/ed693530-3202-1a4c-d17a-2ba91abecbf8/doc/00E01DE2-A1E6-4949-A625-09F4693E48FE/FB677A38-F76B-4291-B727-843ABDF135D1_2/kTEpyvvTPOZxhM9sqElPrMbjBoN3xDVq87iMfYoKc6Yz/IMG_1538.jpeg" width=150>|<img src="https://res.craft.do/user/full/ed693530-3202-1a4c-d17a-2ba91abecbf8/doc/00E01DE2-A1E6-4949-A625-09F4693E48FE/3B166A90-7A24-4D50-8CEB-CD9EC024C256_2/ETiNLrdgxOcK2lsZeZQ5SupVWSQBDysrxpMBk62Z3DMz/90879448.png" width=150>|<img src="https://res.craft.do/user/full/ed693530-3202-1a4c-d17a-2ba91abecbf8/doc/00E01DE2-A1E6-4949-A625-09F4693E48FE/9107159D-68F1-4D66-9B14-B0A39698DEF5_2/42Sshmeb77DC1X88gejlH7ywcHvLYyRKfqw7gd76aK4z/IMG_1534.jpeg" width=150>|<img src="https://user-images.githubusercontent.com/68860610/159936581-cbc9a861-8ced-4ffc-921f-43127eed675f.png" width=150>|
-|[@kimdaehee0824](https://github.com/mingd1023)|[@Leesin0222](https://github.com/Leesin0222)|[@SeokYeon](https://www.behance.net/ffe58c70)|[@biscrab](https://github.com/biscrab)|
+|[@kimdaehee0824](https://github.com/kimdaehee0824)|[@Leesin0222](https://github.com/Leesin0222)|[@SeokYeon](https://www.behance.net/ffe58c70)|[@biscrab](https://github.com/biscrab)|
 </div>
 
 ## 미리보기
@@ -28,7 +28,7 @@
 - 친구 화면에서는 자신이 팔로잉한 친구들을 표시해 줍니다. 
 - 친구의 이름을 클릭하면 그 친구의 일일 커밋과 연간 커밋이 표시됩니다.
 - Star 화면에서는 자신이 누른 Star를 표시합니다. 
-- 제목을 선태한다면 그 저장소로 바로 갈 수 있습니다.
+- 제목을 선택한다면 그 저장소로 바로 갈 수 있습니다.
 
 ## 사용한 기술 & 라이브러리(IOS)
 [![swift](https://img.shields.io/badge/swift-5.0-orange)]()
