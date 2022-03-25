@@ -33,6 +33,10 @@ class EasterEggVC : BaseViewController {
         $0.contentMode = .scaleAspectFit
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.dismiss(animated: true)
+    }
+
     override func configureUI() {
         [titleLabel, subLabel, imageView].forEach {
             view.addSubview($0)
