@@ -12,7 +12,7 @@
 
 |김대희|이용진|장석연|이상운|
 |:-:|:-:|:-:|:-:|
-|<img src="https://res.craft.do/user/full/ed693530-3202-1a4c-d17a-2ba91abecbf8/doc/00E01DE2-A1E6-4949-A625-09F4693E48FE/FB677A38-F76B-4291-B727-843ABDF135D1_2/kTEpyvvTPOZxhM9sqElPrMbjBoN3xDVq87iMfYoKc6Yz/IMG_1538.jpeg" width=150>|<img src="https://res.craft.do/user/full/ed693530-3202-1a4c-d17a-2ba91abecbf8/doc/00E01DE2-A1E6-4949-A625-09F4693E48FE/3B166A90-7A24-4D50-8CEB-CD9EC024C256_2/ETiNLrdgxOcK2lsZeZQ5SupVWSQBDysrxpMBk62Z3DMz/90879448.png" width=150>|<img src="https://res.craft.do/user/full/ed693530-3202-1a4c-d17a-2ba91abecbf8/doc/00E01DE2-A1E6-4949-A625-09F4693E48FE/9107159D-68F1-4D66-9B14-B0A39698DEF5_2/42Sshmeb77DC1X88gejlH7ywcHvLYyRKfqw7gd76aK4z/IMG_1534.jpeg" width=150>|<img src="https://user-images.githubusercontent.com/68860610/159936581-cbc9a861-8ced-4ffc-921f-43127eed675f.png" width=150>|
+|<img width="200" alt="프로필 jpeg" src="https://user-images.githubusercontent.com/68860610/160113101-29fab00c-5ea9-4e48-a1c7-d191f3c9f24c.png">|<img width="200" alt="프로필-1 jpeg" src="https://user-images.githubusercontent.com/68860610/160113217-6d94e6e9-c26a-4d3d-b7b9-2f63b03f7a1f.png">|<img width="200" alt="프로필-2 jpeg" src="https://user-images.githubusercontent.com/68860610/160113249-dae4b77a-654c-44d4-aa95-7d5f9eb5a100.png">|<img width="200" alt="프로필-3 jpeg" src="https://user-images.githubusercontent.com/68860610/160113321-c88d272b-1dc7-4e5d-a90f-10f22dbbb074.png">|
 |[@kimdaehee0824](https://github.com/kimdaehee0824)|[@Leesin0222](https://github.com/Leesin0222)|[@SeokYeon](https://www.behance.net/ffe58c70)|[@biscrab](https://github.com/biscrab)|
 </div>
 
@@ -27,6 +27,8 @@
 - Commit Trand를 클릭하면 월간 커밋과 연간 커밋, 주간, 월간, 연간 추세를 표시합니다.
 - 친구 화면에서는 자신이 팔로잉한 친구들을 표시해 줍니다. 
 - 친구의 이름을 클릭하면 그 친구의 일일 커밋과 연간 커밋이 표시됩니다.
+
+
 - Star 화면에서는 자신이 누른 Star를 표시합니다. 
 - 제목을 선택한다면 그 저장소로 바로 갈 수 있습니다.
 
