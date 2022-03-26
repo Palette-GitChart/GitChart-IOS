@@ -50,7 +50,7 @@ class FriendsListTableViewCell: BaseTableViewCell {
         friendNameLabel.snp.makeConstraints {
             $0.centerY.equalTo(mainView)
             $0.left.equalTo(friendUserImage.snp.right).offset(10)
-            $0.height.equalTo(20)
+            $0.height.equalTo(24)
         }
     }
     

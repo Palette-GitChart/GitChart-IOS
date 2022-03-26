@@ -51,12 +51,13 @@ class StarListTableViewCell: BaseTableViewCell {
             $0.right.equalTo(mainView).inset(15)
         }
         starTitleLabel.snp.makeConstraints {
-            $0.top.left.equalTo(20)
-            $0.right.equalTo(starUserImage.snp.left).inset(10)
-            $0.height.equalTo(20)
+            $0.top.equalTo(18)
+            $0.left.equalTo(20)
+            $0.right.equalTo(starUserImage.snp.left).offset(-10)
+            $0.height.equalTo(24)
         }
         starDetailLabel.snp.makeConstraints {
-            $0.top.equalTo(starTitleLabel.snp.bottom).offset(5)
+            $0.top.equalTo(starTitleLabel.snp.bottom).offset(3)
             $0.left.equalTo(20)
         }
     }
