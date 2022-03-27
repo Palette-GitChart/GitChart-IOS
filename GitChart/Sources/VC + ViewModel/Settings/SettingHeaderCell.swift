@@ -93,7 +93,7 @@ class VersionCell : BaseTableViewCell {
         return "nil"
     }
     let versionLabel = UILabel().then {
-        $0.text = "Ver 1.0"
+        $0.text = "Ver 1.0.1"
         $0.font = .roundedFont(ofSize: 17, weight: .medium)
         $0.textColor = .separator
         $0.textAlignment = .center
