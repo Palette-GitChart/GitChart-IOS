@@ -162,15 +162,15 @@ class FriendsDetailVC : BaseViewController {
         }.disposed(by: disposeBag)
         
         output.getDayCommit.bind { number in
+            self.dayCommitCountLabel.text = "\(number)개"
             self.dayCommitCountLabel.makeCommitCountLabel(UIColor(rgb: 0x6EC7CD)
                 .withAlphaComponent(0.98))
-            self.dayCommitCountLabel.text = "\(number)개"
         }.disposed(by: disposeBag)
         
         output.getYearCommit.bind { number in
+            self.yearCommitCountLabel.text = "\(number.dsecimal())개"
             self.yearCommitCountLabel.makeCommitCountLabel(UIColor(rgb:0xFF7865)
                 .withAlphaComponent(0.71))
-            self.yearCommitCountLabel.text = "\(number.dsecimal())개"
         }.disposed(by: disposeBag)
     }
 }
