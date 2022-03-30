@@ -181,10 +181,17 @@ class HomeVC : BaseViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         let tap2 = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        
         commitTrandView.addGestureRecognizer(tap)
         trandChart.addGestureRecognizer(tap2)
         
         bindViewModel()
+        
+        //MARK: - refreshControl controlEvent
+        
+        refreshControl.rx.controlEvent(.valueChanged).bind {
+            self.bindViewModel()
+        }.disposed(by: disposeBag)
         
     }
     
@@ -192,25 +199,17 @@ class HomeVC : BaseViewController {
         let vc = TrandVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     func bindViewModel() {
-        
         let output = viewModel.trans(.init(username: "no"))
         let commitCount = Int(UserDefaults.standard.string(forKey: "commitCount") ?? "1")
-        
-        refreshControl.rx.controlEvent(.valueChanged).bind {
-            self.bindViewModel()
-            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 2) {
-                self.refreshControl.endRefreshing()
-            }
-            
-        }.disposed(by: disposeBag)
         
         output.usernameStatus.bind { bool in
             
             if bool == false {
                 let username = UserDefaults.standard.string(forKey: "username")
-                var title = ""
-                var message = ""
+                var title : String
+                var message : String
                 
                 if username == nil {
                     title = "Github 아이디가 입력되지 않았습니다."
@@ -279,6 +278,7 @@ class HomeVC : BaseViewController {
                 data.addDataSet(linetDataSet)
                 self.trandChart.data = data
                 self.trandChart.animate(xAxisDuration: 0.5)
+                self.refreshControl.endRefreshing()
             }.disposed(by: disposeBag)
     }
     

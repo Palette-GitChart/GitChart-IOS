@@ -42,7 +42,6 @@ class FriendsVC : BaseViewController {
     
     func bindViewModel() {
         let output = viewModel.trans(.init(username: "kimdaehee0824"))
-        
         output.getUserFriendsList
             .bind(to: mainTableView.rx
                     .items(cellIdentifier: "friendsListCell",
