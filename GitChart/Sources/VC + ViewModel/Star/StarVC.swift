@@ -11,7 +11,6 @@ import Kingfisher
 class StarVC : BaseViewController {
     
     let viewModel = StarViewModel()
-    let refreshControl = UIRefreshControl()
     
     let mainTableView = UITableView().then {
         $0.register(StarListTableViewCell.self, forCellReuseIdentifier: "starListCell")
@@ -36,8 +35,6 @@ class StarVC : BaseViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.sizeToFit()
         view.addSubview(mainTableView)
-        refreshControl.endRefreshing() // 초기화 - refresh 종료
-        mainTableView.refreshControl = refreshControl
         bindViewModel()
     }
     
@@ -69,11 +66,6 @@ class StarVC : BaseViewController {
             vc.watchlabel.text = "Watch : \(element.watchers_count.dsecimalNumber())"
             
             self.navigationController?.pushViewController(vc, animated: true)
-        }.disposed(by: disposeBag)
-        
-        refreshControl.rx.controlEvent(.valueChanged).bind {
-            self.mainTableView.reloadData()
-            self.refreshControl.endRefreshing()
         }.disposed(by: disposeBag)
         
     }
