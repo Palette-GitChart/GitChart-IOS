@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import RxRelay
+import RxSwift
 
 final class AddUserNameVC : BaseViewController {
     
-    let isSaveSubject = BehaviorRelay<Bool>(value: false)
+    let isSaveSubject = BehaviorSubject<Bool>(value: false)
     
     private let titleLabel = UILabel().then {
         
@@ -63,31 +63,35 @@ final class AddUserNameVC : BaseViewController {
     
     func bind() {
         let username = UserDefaults.standard.string(forKey: "username") ?? ""
-        
+        var savebool = false
+        isSaveSubject.bind { bool in
+            print("isSaveSubject : \(bool)")
+            savebool = bool
+        }.disposed(by: disposeBag)
         self.usernameTextField.text = username
         
-        usernameTextField.rx.text.orEmpty.bind {
+        usernameTextField.rx.text.bind {
             if $0 == "" {
                 UIView.animate(withDuration: 0.2) {
                     self.saveButton.backgroundColor = .separator
+                    self.isSaveSubject.onNext(false)
                 }
             } else {
                 UIView.animate(withDuration: 0.2) {
                     self.saveButton.backgroundColor = .appColor(.mainColor)
-                    self.isSaveSubject.accept(true)
+                    self.isSaveSubject.onNext(true)
                 }
             }
         }.disposed(by: disposeBag)
         
         saveButton.rx.tap.bind {
-            self.isSaveSubject.bind { bool in
-                if bool == true {
-                    UserDefaults.standard.set(self.usernameTextField.text, forKey: "username")
-                    self.dismiss(animated: true)
-                }
-            }.disposed(by: self.disposeBag)
+            if savebool == true {
+                print(self.isSaveSubject)
+                UserDefaults.standard.set(self.usernameTextField.text, forKey: "username")
+                self.dismiss(animated: true)
+            }
         }.disposed(by: disposeBag)
-
+        
     }
     
     override func setupConstraints() {
