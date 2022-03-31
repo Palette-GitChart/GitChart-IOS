@@ -1,5 +1,5 @@
 //
-//  AppStoreCheck.swift
+//  AppStoreManegment.swift
 //  GitChart
 //
 //  Created by 김대희 on 2022/03/31.
@@ -20,3 +20,5 @@ func isUpdateAvailable() -> Bool {
         if !(version == appStoreVersion) { return true }
         else{ return false }
     }
+
+
