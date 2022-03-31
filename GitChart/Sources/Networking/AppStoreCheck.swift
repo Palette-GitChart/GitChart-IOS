@@ -7,33 +7,16 @@
 
 import Foundation
 
-func isUpdateAvailable(completion: @escaping (Bool?, Error?) -> Void) throws -> URLSessionDataTask {
-    guard let info = Bundle.main.infoDictionary,
-        let currentVersion = info["CFBundleShortVersionString"] as? String,
-        let identifier = info["CFBundleIdentifier"] as? String,
-        let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(identifier)") else {
-            throw VersionError.invalidBundleInfo
+func isUpdateAvailable() -> Bool {
+        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+              let identifier = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String,
+            let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(identifier)"),
+            let data = try? Data(contentsOf: url),
+            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
+              let results = json["results"] as? [[String: Any]],
+            results.count > 0,
+            let appStoreVersion = results[0]["version"] as? String
+            else { return false }
+        if !(version == appStoreVersion) { return true }
+        else{ return false }
     }
-    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-        do {
-            if let error = error { throw error }
-            guard let data = data else { throw VersionError.invalidResponse }
-            let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any]
-            guard let result = (json?["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String else {
-                throw VersionError.invalidResponse
-            }
-            print(version)
-            
-            completion(version != currentVersion, nil)
-        } catch {
-            completion(nil, error)
-        }
-    }
-    task.resume()
-    return task
-}
-
-
-enum VersionError: Error {
-    case invalidResponse, invalidBundleInfo
-}
