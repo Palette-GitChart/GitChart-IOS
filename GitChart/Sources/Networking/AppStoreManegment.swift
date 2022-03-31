@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 func isUpdateAvailable() -> Bool {
         guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
@@ -21,4 +22,13 @@ func isUpdateAvailable() -> Bool {
         else{ return false }
     }
 
-
+func openAppStore() {
+    let url = "itms-apps://itunes.apple.com/app/1616160064"
+    if let url = URL(string: url), UIApplication.shared.canOpenURL(url) {
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+}
