@@ -48,7 +48,6 @@ class SettingHeaderCell: BaseTableViewCell {
                 guard let data = try? JSONDecoder().decode(UserProfile.self, from: response.data) else {
                     return
                 }
-                
                 self.nameLabel.text = data.login
                 self.userImage.kf.indicatorType = .activity
                 self.userImage.setImage(with: data.avatar_url ?? "")
@@ -83,31 +82,31 @@ class SettingHeaderCell: BaseTableViewCell {
 
 class VersionCell : BaseTableViewCell {
     
-    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "null"
     
-    func currentAppVersion() -> String {
-        if let info: [String: Any] = Bundle.main.infoDictionary,
-           let currentVersion: String = info["CFBundleShortVersionString"] as? String {
-            return currentVersion
-        }
-        return "nil"
-    }
     let versionLabel = UILabel().then {
-        $0.text = "Ver 1.0.2"
-        $0.font = .roundedFont(ofSize: 17, weight: .medium)
+        $0.font = .roundedFont(ofSize: 16, weight: .medium)
+        $0.numberOfLines = 2
         $0.textColor = .separator
         $0.textAlignment = .center
     }
     
     override func configureUI() {
+        
+        if isUpdateAvailable() == true {
+            versionLabel.text = "An update is required, ver\(version)"
+        }
+        else {
+            versionLabel.text = "The latest version, ver\(version)"
+            
+        }
         contentView.backgroundColor = .appColor(.backgroundColor)
         contentView.addSubview(versionLabel)
     }
     override func setupConstraints() {
         versionLabel.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            $0.height.equalTo(30)
+            $0.height.equalTo(20)
         }
     }
-    
 }
