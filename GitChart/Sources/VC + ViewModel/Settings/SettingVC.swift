@@ -31,6 +31,7 @@ class SettingVC : BaseViewController {
     
     override func configureUI() {
         self.title = "Setting"
+        checkVersion()
         view.addSubview(mainTableView)
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -38,6 +39,21 @@ class SettingVC : BaseViewController {
     
     override func setupConstraints() {
         mainTableView.snp.makeConstraints { $0.edges.equalToSuperview() }
+    }
+    
+    func checkVersion() {
+        if isUpdateAvailable() == true {
+            let alert = UIAlertController(title: "새로운 버전이 있습니다", message: "App Store로 이동하시겠습니까?", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
+                openAppStore()
+            }
+            let cancel = UIAlertAction(title: "취소", style: .destructive)
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            alert.view.tintColor = .appColor(.mainColor)
+            self.present(alert, animated: true, completion: nil)
+            
+        }
     }
 }
 
