@@ -120,7 +120,7 @@ final class AddUserNameVC : BaseViewController {
         saveButton.snp.makeConstraints {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(5)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10)
-            $0.height.equalTo(50)
+            $0.height.equalTo(50)†
         }
     }
     

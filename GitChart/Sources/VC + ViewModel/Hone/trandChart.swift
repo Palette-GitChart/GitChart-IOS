@@ -9,7 +9,7 @@ import Foundation
 import Charts
 
 extension HomeVC {
-    func makeTrandChart() {
+    func makeTrendChart() {
         
         trandChart.noDataText = "Loading Data"
         trandChart.setScaleEnabled(false)
@@ -44,9 +44,9 @@ extension HomeVC {
     }
     
     
-    func getGradientFilling(with rgb : Int, alpa : Double) -> CGGradient {
+    func getGradientFilling(with rgb : Int, alpha: Double) -> CGGradient {
         // Setting fill gradient color
-        let coloTop = UIColor(rgb: rgb).withAlphaComponent(alpa).cgColor
+        let coloTop = UIColor(rgb: rgb).withAlphaComponent(alpha).cgColor
         let colorBottom = UIColor.appColor(.cellColor).cgColor
         // Colors of the gradient
         let gradientColors = [coloTop, colorBottom] as CFArray

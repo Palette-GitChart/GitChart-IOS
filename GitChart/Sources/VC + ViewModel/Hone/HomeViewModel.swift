@@ -31,7 +31,7 @@ class HomeViewModel : ViewModel  {
         let getUserProfile : PublishRelay<UserProfile>
         let getUserDayCommit : PublishRelay<String>
         let getWeekCommit : PublishRelay<String>
-        let getTrandArray : PublishRelay<[Int]>
+        let getTrendArray: PublishRelay<[Int]>
         let usernameStatus : PublishRelay<Bool>
     }
     
@@ -98,6 +98,6 @@ class HomeViewModel : ViewModel  {
         API.getUserProfile(username ?? "").requestErrorAlert().subscribe { event in
         }.disposed(by: bag)
 
-        return output(getUserProfile: getUserProfile, getUserDayCommit: getUserDayCommit, getWeekCommit: getWeekCommit, getTrandArray: getTrandArray, usernameStatus: usernameStatus)
+        return output(getUserProfile: getUserProfile, getUserDayCommit: getUserDayCommit, getWeekCommit: getWeekCommit, getTrendArray: getTrandArray, usernameStatus: usernameStatus)
     }
 }

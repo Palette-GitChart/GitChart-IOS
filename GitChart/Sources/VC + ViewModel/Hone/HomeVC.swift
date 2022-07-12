@@ -95,8 +95,6 @@ class HomeVC : BaseViewController {
             view.addSubview(label)
         }
         commitGoalCountLabel2.textAlignment = .right
-        
-        //TODO: dummy 추후 변경 얘정
     }
     
     //MARK: commitTrandView
@@ -151,15 +149,14 @@ class HomeVC : BaseViewController {
         refreshControl.tintColor = .appColor(.labelColor)
         refreshControl.endRefreshing() // 초기화 - refresh 종료
         scrollView.refreshControl = refreshControl
-        //TODO: dummy 추후 변경 예정
-        
+
         commitLabel1.text = "Today Commit"
         commitLabel2.text = "week commit"
         
         cellViewMake()
         makeCommitGoalLabel()
         makeCommitTrandLabel()
-        makeTrandChart()
+        makeTrendChart()
         
         
         [profileImage, profilenName, profileDetail].forEach {
@@ -197,7 +194,7 @@ class HomeVC : BaseViewController {
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         let vc = TrandVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func bindViewModel() {
@@ -258,7 +255,7 @@ class HomeVC : BaseViewController {
                 self.commitCountLabel2.makeCommitCountLabel(.appColor(.subColor))
             }.disposed(by: disposeBag)
         
-        output.getTrandArray
+        output.getTrendArray
             .bind{ user in
                 var lineChartEntry = [ChartDataEntry]()
                 let todayMonth = Calendar.current.dateComponents([.day], from: self.date)
@@ -271,7 +268,7 @@ class HomeVC : BaseViewController {
                     lineChartEntry.append(dataEntry)
                 }
                 let linetDataSet = LineChartDataSet(entries: lineChartEntry, label: "")
-                let gradient = self.getGradientFilling(with: 0x7FC567, alpa: 0.84)
+                let gradient = self.getGradientFilling(with: 0x7FC567, alpha: 0.84)
                 linetDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
                 let data = LineChartData()
                 self.setChartLine(line: linetDataSet, color: NSUIColor.appColor(.mainColor))
