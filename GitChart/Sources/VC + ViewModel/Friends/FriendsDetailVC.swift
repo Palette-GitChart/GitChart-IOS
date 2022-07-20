@@ -156,8 +156,8 @@ class FriendsDetailVC : BaseViewController {
         let output = viewModel.trans(.init(username: self.friendTitlelabel.text ?? ""))
         
         output.getUserProfile.bind { user in
-            self.followingLabel.text = "팔로잉 \(user.following.dsecimalNumber())명"
-            self.followerLabel.text = "팔로워 \(user.followers.dsecimalNumber())명"
+            self.followingLabel.text = "팔로잉 \(user.following.decimalNumber())명"
+            self.followerLabel.text = "팔로워 \(user.followers.decimalNumber())명"
             
         }.disposed(by: disposeBag)
         
@@ -168,7 +168,7 @@ class FriendsDetailVC : BaseViewController {
         }.disposed(by: disposeBag)
         
         output.getYearCommit.bind { number in
-            self.yearCommitCountLabel.text = "\(number.dsecimal())개"
+            self.yearCommitCountLabel.text = "\(number.decimal())개"
             self.yearCommitCountLabel.makeCommitCountLabel(UIColor(rgb:0xFF7865)
                 .withAlphaComponent(0.71))
         }.disposed(by: disposeBag)
