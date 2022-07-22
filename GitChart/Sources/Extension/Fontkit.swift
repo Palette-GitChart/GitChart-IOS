@@ -1,5 +1,5 @@
 //
-//  Fontkit.swift
+//  FontKit.swift
 //  GitChart
 //
 //  Created by 김대희 on 2022/02/10.
@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-enum notoSans {
+enum NotoSans {
     case Regular
     case Bold
 }
@@ -31,7 +31,7 @@ extension UIFont {
         return font
     }
     
-    static func notoFont(size : notoSans, ofSize : CGFloat) -> UIFont {
+    static func notoFont(size : NotoSans, ofSize : CGFloat) -> UIFont {
         switch size {
         case .Regular:
             return UIFont(name: "NotoSans", size: ofSize)!

@@ -116,7 +116,7 @@ class HomeVC : BaseViewController {
         }
         commitTrandCountLabel2.textAlignment = .right
     }
-    
+
     
     let trandChart = LineChartView()
     func cellViewMake() {
