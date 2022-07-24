@@ -62,8 +62,8 @@ class StarVC : BaseViewController {
             vc.starProfile.setImage(with: element.owner.avatar_url)
             vc.starTitlelabel.text = element.name
             vc.starDetailLabel.text = element.description
-            vc.forkLabel.text = "Fork : \(element.forks_count.dsecimalNumber())"
-            vc.watchlabel.text = "Watch : \(element.watchers_count.dsecimalNumber())"
+            vc.forkLabel.text = "Fork : \(element.forks_count.decimalNumber())"
+            vc.watchlabel.text = "Watch : \(element.watchers_count.decimalNumber())"
             
             self.navigationController?.pushViewController(vc, animated: true)
         }.disposed(by: disposeBag)

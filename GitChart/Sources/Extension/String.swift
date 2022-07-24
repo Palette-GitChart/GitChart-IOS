@@ -17,7 +17,7 @@ extension String {
         return String(format: self.localized(comment: comment), argument)
     }
     
-    func  dsecimal() -> String{
+    func decimal() -> String{
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         let result = numberFormatter.string(from: NSNumber(value: Int(self) ?? 0))!
@@ -27,7 +27,7 @@ extension String {
 }
 
 extension Int {
-    func dsecimalNumber() -> String{
+    func decimalNumber() -> String{
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         let result = numberFormatter.string(from: NSNumber(value: Int(self) ))!

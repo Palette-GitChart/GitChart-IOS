@@ -149,7 +149,7 @@ class HomeVC : BaseViewController {
         refreshControl.tintColor = .appColor(.labelColor)
         refreshControl.endRefreshing() // 초기화 - refresh 종료
         scrollView.refreshControl = refreshControl
-
+        
         commitLabel1.text = "Today Commit"
         commitLabel2.text = "week commit"
         

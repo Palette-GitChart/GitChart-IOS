@@ -89,13 +89,13 @@ extension TrandVC : UITableViewDelegate, UITableViewDataSource {
             print(commitLabelArray[row])
             if indexPath.row == 0 {
                 mounthCommitCount.bind { count in
-                    cell.commitCountLabel.text = "\(count.dsecimal())개"
+                    cell.commitCountLabel.text = "\(count.decimal())개"
                     cell.commitCountLabel.makeCommitCountLabel(UIColor(rgb: 0xFFA903).withAlphaComponent(0.71))
                 }.disposed(by: disposeBag)
             }
             if indexPath.row == 1 {
                 yearCommitCount.bind { count in
-                    cell.commitCountLabel.text = "\(count.dsecimal())개"
+                    cell.commitCountLabel.text = "\(count.decimal())개"
                     cell.commitCountLabel.makeCommitCountLabel(UIColor(rgb: 0xFF7865).withAlphaComponent(0.71))
                 }.disposed(by: disposeBag)
             }
